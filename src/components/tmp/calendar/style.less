@@ -1,0 +1,84 @@
+.prb-calendar-wrap {
+  background: linear-gradient(#eef2f5, #e0e6e8);
+  max-width: 1300px;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.prb-calendar {
+}
+
+.prb-calendar-year-months {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.prb-calendar-year-months-month {
+  width: 300px;
+  min-width: 260px;
+  height: 260px;
+  padding: 20px 0px 20px 20px;
+  background: #fff;
+  border: #d3d7d9;
+  border-radius: 6px;
+  margin: 0 20px 20px 0;
+}
+
+.prb-calendar-year-months-month-panel {
+  font-size: 15px;
+  font-family: 'Roboto Medium';
+  text-transform: capitalize;
+  padding: 0 0 10px 14px;
+  color: #000;
+}
+
+.prb-calendar-year-months-month-days,
+.prb-calendar-year-months-month-days-names {
+  display: flex;
+  flex-wrap: wrap;
+}
+.prb-calendar-year-months-month-days-names{
+  margin-bottom: 10px;
+}
+
+//.prb-calendar-year-months-month:last-child {
+//  margin-right: 0;
+//}
+
+.prb-calendar-year-months-month-day {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin: 2px 7px;
+  border-radius: 50%;
+  color: #5d5d5d;
+  font-size: 12px;
+  border: 2px solid #fff;
+}
+.prb-calendar-year-months-month-day:hover {
+  background: #eef2f5;
+  cursor: pointer;
+  color: #000;
+}
+.prb-calendar-year-months-month-day.selected {
+  background: #1160fc;
+  color: #fff;
+  font-family: "Roboto Bold";
+  font-size: 11px;
+}
+.prb-calendar-year-months-month-day.marked {
+  border: 2px solid #1160fc;
+}
+.prb-calendar-year-months-month-day.marked_delete {
+  border: 2px solid #fa5480;
+}

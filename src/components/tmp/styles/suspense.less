@@ -1,0 +1,18 @@
+.suspense-block {
+  min-height: 30px;
+  background-size: 500% 500%;
+  background-image: linear-gradient(-85deg,
+  #cccccc,
+  #f3f3f3,
+  #efefef,
+  #dadada
+  );
+  animation: move-background 3s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes move-background {
+  0% { background-position: 0% 0% }
+  50% { background-position: 100% 0% }
+  100% { background-position: 0% 0% }
+}

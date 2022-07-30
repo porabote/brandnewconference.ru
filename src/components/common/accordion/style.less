@@ -1,0 +1,35 @@
+.prb-accordion__item__tab {
+  background: #2E2D2E;
+  color: #e3e3e3;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 14px 26px;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  margin-top: 20px;
+}
+
+.prb-accordion__item__body {
+  padding: 0;
+  border: 1px solid #4d4d4d;
+  box-sizing: border-box;
+  border-top: 0;
+  margin-bottom: 0px;
+  font-size: 16px;
+  color: #e3e3e3;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  height: 0;
+}
+.prb-accordion__item__body.active {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  padding: 30px 20px 50px 20px;
+}

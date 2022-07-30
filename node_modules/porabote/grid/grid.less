@@ -1,0 +1,113 @@
+.grid-wrap {
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+  position: relative;
+  left: -9px;
+}
+.grid-hover {
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x: visible !important;
+  position: relative;
+  left: 9px;
+  padding-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  font-family: 'Roboto Light';
+  font-size: 13px;
+}
+.grid.head:hover { background: none; }
+.grid:hover > .grid__item { background: #eee; }
+.grid.head .grid__item {
+  font-family: 'Roboto Medium';
+  font-size: 13px;
+  white-space: nowrap;
+  padding: 10px;
+}
+.grid-hover::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+.grid-hover::-webkit-scrollbar-thumb {
+  background-color: #b8b8b8;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 0;  /* creates padding around scroll thumb */
+  max-height: 3px;
+}
+
+
+.grid-hover::-webkit-scrollbar {
+  height: 6px;
+  width: 0px;
+  background: #b1b1b1;
+}
+
+.grid-hover::-webkit-scrollbar-thumb {
+  background: #8c8c8c;
+  -webkit-border-radius: 1ex;
+}
+
+.grid-hover::-webkit-scrollbar-corner {
+  background: #8c8c8c;
+}
+
+
+
+.grid__item {
+  padding: 10px;
+  border-bottom: 1px solid #f7f7f7;
+  max-height: 66px;
+  min-width: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grid__item .word-break,
+.grid_list__item.word-break,
+.word-break {
+  word-break: break-all;
+}
+
+.grid__item .post-info {}
+.grid__item .post-fio, .grid__item .cell-item_name {
+  font-family: 'Roboto Medium';
+  display: block;
+}
+.grid__item .cell-item_bold {
+  font-family: 'Roboto Medium';
+}
+
+.cell-item_describe {
+  text-overflow: ellipsis;
+  overflow: visible;
+  max-height: 3000px;
+  height: 900px;
+  white-space: nowrap;
+}
+
+.grid__item .cell-info {}
+.grid__item .cell-item_title {
+  font-family: 'Roboto Medium';
+  display: block;
+}
+
+.grid_list__item.sup {
+  color: #737f8c;
+  padding-left: 0;
+}
+
+
+
+
+
+.grid__link {
+  font-family: 'Roboto Medium';
+  color: #1a1a1a;
+}
+.grid__link:hover {border-bottom: 1px solid #1a1a1a;}
+
+
+.mark-self { border-left: 3px solid #23a0f9; }
+.mark-sign { border-left: 3px solid #3bc444; }

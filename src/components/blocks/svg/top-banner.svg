@@ -1,0 +1,62 @@
+<svg id="bannerTop" viewBox="0 0 1400 140" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"  width="1400" height="140"
+     style="font-size:100px;font-style:normal;font-weight:bold;font-family: Helvetica;border:0px solid gray;"
+>
+    <style>
+        .word_1 {
+        animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+        }
+    </style>
+
+    <!--    <rect x="0" y="0" width="1400" height="140" fill="#0B0C0C" stroke="green"/>-->
+
+    <text id="word_2" x="140" y="230" fill="#FFFFFF" >
+        новая история dentsu
+    </text>
+
+    <text id="word_3" x="140" y="230" fill="#FFFFFF" >
+        новый взгляд на себя
+    </text>
+
+    <text id="word_4" x="5" y="230" fill="#FFFFFF" >
+        новый взгляд на маркетинг
+    </text>
+
+    <text id="word_5" x="80" y="230" fill="#FFFFFF" >
+        новый взгляд на бизнес
+    </text>
+
+    <text id="word_6" x="40" y="230" fill="#FFFFFF" >
+        новый взгляд на рекламу
+    </text>
+
+    <text id="word_7" x="120" y="230" fill="#FFFFFF" >
+        новый взгляд на жизнь
+    </text>
+
+
+    <animate xlink:href="#word_2" attributeType="XML" id="b"   attributeName="y" begin="0s;g_b_c.end" from="220" to="100" dur="0.7s" />
+    <animate xlink:href="#word_2" attributeType="XML" id="b_b"   attributeName="y" begin="b.end" from="100" to="100" dur="0.7s" />
+    <animate xlink:href="#word_2" attributeType="XML" id="b_b_c"   attributeName="y" begin="b_b.end" from="100" to="-100" dur="0.7s" />
+
+    <animate xlink:href="#word_3" attributeType="XML" id="c"  attributeName="y" begin="b_b_c.end" from="220" to="100" dur="0.7s" />
+    <animate xlink:href="#word_3" attributeType="XML" id="c_b"  attributeName="y" begin="c.end" from="100" to="100" dur="0.7s" />
+    <animate xlink:href="#word_3" attributeType="XML" id="c_b_c"  attributeName="y" begin="c_b.end" from="100" to="-100" dur="0.7s" />
+
+    <animate xlink:href="#word_4" attributeType="XML" id="d"  attributeName="y" begin="c_b_c.end" from="220" to="100" dur="0.7s"/>
+    <animate xlink:href="#word_4" attributeType="XML" id="d_b"  attributeName="y" begin="d.end" from="100" to="100" dur="0.7s"/>
+    <animate xlink:href="#word_4" attributeType="XML" id="d_b_c"  attributeName="y" begin="d_b.end" from="100" to="-100" dur="0.7s"/>
+
+    <animate xlink:href="#word_5" attributeType="XML" id="e"  attributeName="y" begin="d_b_c.end" from="220" to="100" dur="0.7s"/>
+    <animate xlink:href="#word_5" attributeType="XML" id="e_b"  attributeName="y" begin="e.end" from="100" to="100" dur="0.7s"/>
+    <animate xlink:href="#word_5" attributeType="XML" id="e_b_c"  attributeName="y" begin="e_b.end" from="100" to="-100" dur="0.7s"/>
+
+    <animate xlink:href="#word_6" attributeType="XML" id="f"  attributeName="y" begin="e_b_c.end" from="220" to="100" dur="0.7s"/>
+    <animate xlink:href="#word_6" attributeType="XML" id="f_b"  attributeName="y" begin="f.end" from="100" to="100" dur="0.7s"/>
+    <animate xlink:href="#word_6" attributeType="XML" id="f_b_c"  attributeName="y" begin="f_b.end" from="100" to="-100" dur="0.7s"/>
+
+    <animate xlink:href="#word_7" attributeType="XML" id="g"  attributeName="y" begin="f_b_c.end" from="220" to="100" dur="0.7s"/>
+    <animate xlink:href="#word_7" attributeType="XML" id="g_b"  attributeName="y" begin="g.end" from="100" to="100" dur="0.7s"/>
+    <animate xlink:href="#word_7" attributeType="XML" id="g_b_c"  attributeName="y" begin="g_b.end" from="100" to="-100" dur="0.7s"/>
+
+</svg>

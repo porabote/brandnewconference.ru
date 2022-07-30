@@ -1,0 +1,325 @@
+.uploader__label-default {
+  background-image: url('./svg/up-arrow.svg');
+  font-family: Roboto Regular;
+  background-repeat: no-repeat;
+  background-position: 50% 16px;
+  background-size: 40px;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 2px dashed #c5c9cd;
+  padding: 64px 0 20px 0;
+  font-size: 14px;
+  text-align: center;
+  color: #acb1b6;
+}
+
+.uploader__label-avatar {
+  background-image: url('./svg/up-arrow.svg');
+  font-family: Roboto Regular;
+  background-repeat: no-repeat;
+  background-position: 50% 46px;
+  background-size: 40px;
+  display: block;
+  width: 198px;
+  height: 113px;
+  cursor: pointer;
+  border: 2px dashed #c5c9cd;
+  padding: 64px 0 20px 0;
+  font-size: 14px;
+  text-align: center;
+  color: #acb1b6;
+}
+
+.dropArea__input {
+  visibility: hidden;
+  display: none;
+}
+
+.dropArea.hover {
+  border-color: #aaa;
+  background-color: #fefbf2;
+}
+
+.dropArea.error {
+  border-color: #f00;
+}
+
+.dropArea.drop {
+  border-color: #555;
+}
+
+/* Прелоадер при загрузке файлов */
+
+#preloader-area {
+  border: 0px solid #f6f6f6;
+  width: 100%;
+  padding: 0;
+}
+
+.preloader-area__item {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #f6f6f6;
+  width: 100%;
+  padding: 10px 4px;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.preloader-area__data {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  padding-bottom: 10px;
+  color: #6f8085;
+}
+
+.preloader-area__data-name {
+  flex-basis: 90%;
+}
+
+.preloader-area__data-percent {
+  flex-basis: 5%;
+}
+
+.preloader-area__close {
+  display: blok;
+  flex-basis: 10px;
+  align-self: flex-end;
+  color: #8b7ce6;
+  padding-left: 15px;
+  width: 10px;
+  height: 20px;
+  background-image: url('./svg/close.svg');
+  background-repeat: no-repeat;
+  background-size: 12px;
+  background-position: 50% 50%;
+}
+
+.preloader-area__item span.color-progress {
+  padding: 0;
+  margin: 10px 0;
+  display: block;
+  float: none;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+}
+.preloader-area__item span.color-label {
+  position: relative;
+  background: #8b7ce6;
+  height: 3px;
+  padding: 0;
+  display: block;
+  float: none;
+  width: 1%;
+}
+
+
+
+
+/* Кнопки для загрузки файлов */
+
+.upload_label { display: flex; flex-flow: column; align-items: center; justify-content: center;  cursor: pointer; }
+.upload_label input[type="file"] { visibility: hidden; }
+.upload_label.image_button {
+  border: 1px solid #dddddd;
+  width: 266px;
+  height: 150px;
+}
+
+.no_cover {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-end;
+}
+
+/* --  Кнопки для загрузки файлов */
+
+
+.cover {
+  border: 1px solid #dddddd;
+  width: 266px;
+  height: 150px;
+
+}
+.cover-image__image {
+  width: 150px;
+}
+
+
+/* Gallery Base */
+.no-image {
+  min-height: 140px;
+  min-width: 220px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.no-image__icon {
+  font-size: 3rem;
+}
+
+.photoalbum {
+  border: 1px solid #eeeded;
+  border-bottom: 1px solid #eeeeee;
+  padding: 20px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  background: #f7f7f7;
+}
+
+.photoalbum__items {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  padding: 15px;
+  margin: 5px;
+  background: #fff;
+}
+
+.photoalbum__item {
+  position: relative;
+  display: flex;
+  flex-basis: 15%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 0;
+  margin: 5px;
+  background: #fff;
+}
+.photoalbum__item:hover { cursor: pointer; }
+.gallery-base__image {
+  border: 1px solid #e3e4e8;
+  border-bottom: 1px solid #d7d8db;
+
+  height: auto;
+  padding: 10px;
+
+}
+.photoalbum__panel {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  bottom: 0;
+  background-color:rgba(238, 238, 238, 1.00);
+  width: 100%;
+  color: #8a8a8a;
+  padding: 0px 0;
+  transition: visibility 0s, opacity 0.3s linear;
+
+}
+.photoalbum__panel .material-icons { font-size: 1.2rem; }
+
+.photoalbum__item:hover > .photoalbum__panel,
+.photoalbum__item:hover > .photoalbum__item__close {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.photoalbum__panel__link { padding: 10px; }
+.photoalbum__panel__link:hover {
+  color: #2e2e2e;
+}
+
+.photoalbum__item__zoom,
+.photoalbum__item__close {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+
+.photoalbum__item__zoom {
+  font-size: 2rem;
+  color: #fff;
+  top: 42%;
+  left: 42%;
+}
+.photoalbum__item__close {
+  top: 1px;
+  right: 1px;
+  background-color:rgba(238, 238, 238, 1.00);
+  font-size: 1.0rem;
+  width: 26px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 2px;
+}
+.photoalbum__item__close a { color: #696969; }
+.photoalbum__item__close a:hover { color: #2e2e2e; }
+
+.photoalbum__item .upload-area {
+  border: 1px solid #e3e4e8;
+  border-bottom: 1px solid #d7d8db;
+  width: 195px;
+  height: auto;
+}
+.photoalbum__item .file-upload__button {
+  padding: 15px 40px;
+  cursor: pointer;
+}
+/* Gallery Base */
+
+.upload-panel-file {
+  display: grid;
+  grid-template-areas:
+          "file_img file_name"
+          "file_img file-size"
+          "file_img file-fields";
+  grid-template-columns: 180px 1fr;
+  border-bottom: 1px solid #fafafa;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.upload-panel-file-pre {
+  width: 160px;
+  height: 207px;
+  background-size: cover;
+  grid-area: file_img;
+  font-size: 20px;
+  font-weight: 900;
+  border: 1px solid #fafafa;
+  border-radius: 2px;
+  text-transform: uppercase;
+  color: #404040;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 2px rgba(116, 116, 119, 0.4);
+}
+
+.upload-panel-file-name {
+  grid-area: file_name;
+  font-size: 13px;
+}
+.upload-panel-file-size {
+  grid-area: file-size;
+  font-size: 12px;
+  color: #a8afb5;
+}
+
+.upload-panel-file-fields {
+  grid-area: file-fields;
+}
