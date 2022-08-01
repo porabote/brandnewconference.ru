@@ -4,8 +4,8 @@ import {Accordion, AccordionItem, AccordionItemTab, AccordionItemBody} from "@co
 const Faq = (props) => {
 
   return (
-    <div id="faq" className="main-page__faq" style={{width: '800px', margin: '0 auto'}}>
-      <h2 style={{fontSize: '26px'}}>Отвечаем на часто задаваемые вопросы</h2>
+    <div id="faq" className="main-page__faq">
+      <h2>Отвечаем на часто задаваемые вопросы</h2>
 
       <Accordion>
 

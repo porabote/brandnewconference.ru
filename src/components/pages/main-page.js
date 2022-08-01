@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from "react";
 import {useDispatch} from "react-redux";
 import Api from "@services";
-import "./assets/main.less";
+import "@styles";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PersonIcon from '@mui/icons-material/Person';
 import {openModal} from "@components/common/modal";
@@ -12,7 +12,7 @@ import Anons from "@components/blocks/anons";
 import Faq from "@components/blocks/faq";
 import Contacts from "@components/blocks/contacts";
 import TopBanner from "@components/blocks/top-banner";
-import ArrowToTop from "@components/blocks/arrow-to-top"
+import ArrowToTop from "@components/blocks/arrow-to-top";
 
 const MainPage = () => {
 
@@ -40,8 +40,8 @@ const MainPage = () => {
   return (
     <div ref={mainBlock}>
       <ArrowToTop/>
-      <TopBanner/>
       <TopMenu/>
+      <TopBanner/>
       <Anons/>
       <Speakers data={speakers}/>
       <Registration/>

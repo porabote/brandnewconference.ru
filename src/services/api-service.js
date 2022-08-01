@@ -1,4 +1,4 @@
-import { API_URL, API_VERSION } from "./constants";
+import {API_URL, API_VERSION} from "./constants";
 
 class Api {
 
@@ -13,7 +13,7 @@ class Api {
       "Api-Version": API_VERSION,
     };
 
-    let body = { ...params.body };
+    let body = {...params.body};
 
     // Excluding Content type for correctly binding of data
     if (params.body instanceof FormData) {
@@ -37,7 +37,7 @@ class Api {
     });
 
     const responseJSON = await response.json();
-    return { ...responseJSON, ...{ response: { status: response.status } } };
+    return {...responseJSON, ...{response: {status: response.status}}};
   }
 
   get = async (uri, params = {}) => {
@@ -67,7 +67,7 @@ class Api {
     });
 
     const responseJSON = await response.json();
-    return { ...responseJSON, ...{ response: { status: response.status } } };
+    return {...responseJSON, ...{response: {status: response.status}}};
   }
 
   /**
@@ -99,7 +99,7 @@ class Api {
     const uriObj = {};
     for (let i = 0; i < uriArray.length; i += 1) {
       const chainArray = uriArray[i].split("=");
-      uriObj[chainArray[0]] = { ...chainArray[1] };
+      uriObj[chainArray[0]] = {...chainArray[1]};
     }
 
     return uriObj;
@@ -112,7 +112,7 @@ class Api {
     }
     return accessToken;
   }
-  
+
 }
 
 export default new Api();

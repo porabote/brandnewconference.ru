@@ -1,41 +1,56 @@
 import React, {useEffect, useState, Children, useRef} from 'react';
+import {SliderItem} from "@components/common/slider";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import './style.less';
 
 const Slider = (props) => {
 
-  const ITEM_WIDTH = 700;
+  useEffect(() => {
+    let containerWidth = props.container.current.clientWidth - 120;
+    setContainerWidth(containerWidth);
+
+    let itemsOnPage = 3;
+    if (window.innerWidth < 990) {
+      itemsOnPage = 1
+    }
+    setItemWidth(containerWidth/itemsOnPage);
+  }, []);
+
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [itemWidth, setItemWidth] = useState(0);
 
   const itemsWindow = useRef(null);
 
   const [offset, setOffset] = useState(0);
   const [items, setItems] = useState([]);
 
-  const handleArrowToRight = () => {
+  const handleArrowToLeft = () => {
     setOffset(currentOffset => {
-      const newOffset = currentOffset + ITEM_WIDTH;
-      return Math.min(newOffset, 0);
+
+      const newOffset = currentOffset - containerWidth;
+
+      const maxOffset = -parseInt((props.children.length) * itemWidth - containerWidth);
+
+      return Math.max(newOffset, maxOffset);
     });
   }
 
-  const handleArrowToLeft = () => {
+  const handleArrowToRight = () => {
     setOffset(currentOffset => {
-      const newOffset = currentOffset - ITEM_WIDTH;
-      const maxOffset = -parseInt(itemsWindow.current.clientWidth - 300);
-      return Math.max(newOffset, maxOffset);
+      const newOffset = currentOffset + containerWidth;
+      return Math.min(newOffset, 0);
     });
   }
 
   return (
     <div
       className="prb-slider"
+      style={{width: `${containerWidth}px`}}
     >
       <div className="prb-slider-btn-right" onClick={handleArrowToLeft}></div>
 
-      <div
-        className="prb-slider__container"
-      >
+      <div className="prb-slider__container">
         <div
           ref={itemsWindow}
           className="prb-slider__items"
@@ -44,13 +59,13 @@ const Slider = (props) => {
           }}
         >
           {React.Children.map(props.children, child => {
-            return React.cloneElement(child, {
-              style: {
-                height: '100%',
-                minWidth: `${ITEM_WIDTH}px`,
-                maxWidth: `${ITEM_WIDTH}px`,
-              }
-            });
+
+            let style = {
+              height: '100%',
+                minWidth: `${itemWidth - 10}px`,
+                maxWidth: `${itemWidth - 10}px`,
+            };
+            return <SliderItem style={style} >{child}</SliderItem>
           })}
         </div>
       </div>

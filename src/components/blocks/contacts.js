@@ -11,7 +11,7 @@ const Contacts = () => {
         Мы на связи <a href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a>
       </p>
 
-      <p style={{fontSize: '18px', marginTop: '10px'}}>
+      <p style={{fontSize: '18px', marginTop: '6px'}}>
         <img src={Telegram} className="vk-icon"/>
         Анонсы и материалы конференции в телеграм-канале <a href="https://t.me/dentsurussia" target="_blank">
         dentsu insights

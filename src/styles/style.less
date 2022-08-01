@@ -1,0 +1,541 @@
+/*
+Z-INDEX:
+Видимые элементы 1-99 Видимые
+Скрытые элементы 100-199
+Контейнеры для аякса 200-299
+Динамически создаваемые элементы 300+
+*/
+
+@substrate-background: #2E2D2E;
+
+@charset "utf-8";
+
+/*FONTS*/
+@font-face {
+  font-family:'Roboto Light';
+  src: url(./fonts/Roboto/Roboto-Light.ttf);
+}
+@font-face {
+  font-family:'Roboto Regular';
+  src: url(./fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family:'Roboto Medium';
+  src: url(./fonts/Roboto/Roboto-Medium.ttf);
+}
+@font-face {
+  font-family:'Roboto Bold';
+  src: url(./fonts/Roboto/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family:'Roboto Italic';
+  src: url(./fonts/Roboto/Roboto-Italic.ttf);
+}
+/*FONTS*/
+
+
+
+@font-size: 1rem;
+@font-color: lch(53 105 40);
+
+
+/*RESET*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Reset */
+
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+b, strong {
+  font-weight: 900;
+}
+i {}
+
+p {
+  padding: 10px 0;
+  line-height: 28px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 21px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+
+h2 {
+  font-size: 40px;
+  font-weight: 400;
+  padding-bottom: 30px;
+  text-transform: uppercase;
+  color: #e7e7e7;
+  text-align: left;
+  font-family: "Roboto Medium";
+}
+
+:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #FFFFFF;
+  font-size: 15px;
+  font-family: "Roboto Regular";
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #FFFFFF;
+  font-size: 15px;
+  font-family: "Roboto Regular";
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  line-height: 1.42857;
+  font-family: "Roboto Regular";
+  font-size: 15px;
+  background: #0B0C0C;
+  color: #e7e7e7;
+}
+
+.main {
+  padding-top: 60px;
+}
+
+.top-line {
+  max-width: 100%;
+  height: 3px;
+  background: #e74c3c;
+  position: fixed;
+}
+
+.arrow-to-top {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  width: 30px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.arrow-to-top.hide {
+  display: none;
+}
+
+.arrow-to-down {
+  position: absolute;
+  top: 90%;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  width: 50px;
+  opacity: 0.3;
+  cursor: pointer;
+  animation-name: top-down;
+  animation-timing-function: ease;
+  padding: 15px;
+  z-index: 1000;
+}
+
+@keyframes top-down {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.arrow-to-top:hover {
+  opacity: 0.9;
+}
+
+
+.menu-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 200;
+  background: none;
+}
+.menu-top.transparent {
+  background: none;
+  color: #FFFFFF;
+}
+.menu-top.bg {
+  background: #151515;
+  opacity: 0.9;
+  padding: 0;
+  top: 0;
+}
+.menu-top__navs {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 0px 0;
+}
+.menu-top__navs__nav {
+  line-height: 14px;
+  padding: 10px 6px 10px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.menu-top__navs__nav_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+//.menu-top__navs__nav a {color: #cbcbcb;}
+//.menu-top__navs__nav a:hover {color: #fff;}
+
+
+.menu-top__navs__nav_link.registration {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out, border 0.3s ease-out;
+}
+.menu-top__navs__nav_link.registration:hover {
+  background: #e73c7e;
+  border: 1px solid #e73c7e;
+}
+
+/* Общие модификаторы.. */
+.hidden, .hide { display: none; }
+.invisible { visibility: hidden; }
+/* ..Общие модификаторы */
+
+.main-page__banner,
+.main-page__anons,
+.main-page__speakers,
+.main-page__contacts,
+.main-page__registration {
+
+}
+
+.main-page__banner {
+  padding: 0px;
+}
+
+
+// АНОНОС //
+.main-page__anons {
+  min-height: 100vh;
+  padding: 40px 20px 40px 20px;
+  box-sizing: border-box;
+  font-weight: 900;
+  display: grid;
+  grid-gap: 10%;
+  grid-template-columns: 100%;
+  align-content: center;
+  background-image: url("https://brandnewconference.ru/images/cinema2.png");
+  background-size: 100vh;
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+}
+
+.main-page__anons__container {
+  display: flex;
+  flex-flow: column;
+}
+
+.main-page__anons__container_part1 {
+  text-align: left;
+  font-size: 40px;
+  padding-bottom: 60px;
+  grid-area: anons_part1;
+}
+.main-page__anons__container_part2 {
+  grid-area: anons_part2;
+}
+.main-page__anons__container_part3 {
+  padding: 50px;
+  paddingTop: 0px;
+  grid-area: anons_part3;
+}
+.main-page__anons__container_part4 {
+  margin-top: 0px;
+  border-left: 10px solid #e3433e;
+  padding-left: 40px;
+  grid-area: anons_part4;
+}
+
+
+// АНОНОС //
+
+
+
+// Спикеры //
+.main-page__speakers {
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 30px 0px 30px 0px;
+  min-height: 50vh;
+  max-width: 1440px;
+}
+.main-page__speakers__container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-flow: column;
+}
+// Спикеры //
+
+
+
+.main-page__contacts {
+  padding: 20px;
+  margin: 0;
+  max-width: 1440px;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.main-page__registration {
+  padding: 20px 20px 20px 20px;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  background: #121212;
+  min-height: 100vh;
+  max-width: 1440px;
+}
+.main-page__registration__title {
+  grid-area: reg_titile;
+  padding: 20px 0;
+}
+.main-page__registration__descr {
+  font-size: 17px;
+  font-weight: 300;
+  grid-area: reg_descr;
+  padding-right: 20px;
+}
+.main-page__registration__form {
+  grid-area: reg_form;
+  background: @substrate-background;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: -3px -3px 30px #131313;
+}
+
+.main-page__timing {
+  padding: 40px;
+  min-height: 50vh;
+}
+
+.main-page__faq {
+  padding: 20px;
+  min-height: 50vh;
+}
+
+.main-page__translation {
+  padding: 40px;
+  min-height: 50vh;
+}
+
+.main-page__archive {
+  padding: 40px;
+  min-height: 50vh;
+}
+
+.mail-icon {
+  width: 30px;
+  top: 10px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.vk-icon {
+  width: 30px;
+  top: 10px;
+  position: relative;
+  margin-right: 10px;
+}
+
+
+
+// Верхний баннер //
+.banner-block {
+  box-sizing: border-box;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+  padding: 20px;
+  margin: 0;
+}
+
+.banner-block__title {
+  color: #FFFFFF;
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 4px solid #FFFFFF;
+  border-top: 4px solid #FFFFFF;
+  margin-bottom: 10px;
+}
+.banner-block__svg-banner {
+  max-width: 90vw;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+// Верхний баннер //
+
+@media screen and (min-width: 768px) {
+  //.arrow-to-top {
+  //  border: 1px solid red;
+  //}
+}
+
+@media screen and (min-width: 990px) {
+
+  .arrow-to-top {
+    width: 50px;
+  }
+
+  .menu-top__navs {
+    justify-content: flex-end;
+    padding: 0px 40px 0px 0;
+  }
+  .menu-top__navs__nav {
+    line-height: 24px;
+    padding: 10px 15px 10px 15px;
+    font-size: 14px;
+  }
+
+  .banner-block__title {
+    font-size: 50px;
+    text-align: center;
+  }
+  .banner-block__svg-banner {
+    width: 70vw;
+  }
+  .menu-top__navs__nav_link.registration {
+    padding: 6px 26px;
+  }
+
+
+  .main-page__anons {
+    padding: 80px 80px 80px 80px;
+    display: grid;
+    grid-gap: 10%;
+    grid-template-columns: 100%;
+    align-content: center;
+    background-image: url("https://brandnewconference.ru/images/cinema2.png");
+    background-size: cover;
+    background-position: 90% 90%;
+    max-width: 1440px;
+  }
+
+  .main-page__anons__container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas:  "anons_part1 anons_part3"
+                          "anons_part2 anons_part4";
+  }
+  .main-page__anons__container_part2 {
+    padding-right: 20px;
+  }
+  .main-page__anons__container_part4 {
+    width: 80%;
+  }
+  .main-page__speakers {
+    padding: 80px 80px 80px 80px;
+    margin: 30px 0px 60px 0px;
+    max-width: 1440px;
+  }
+
+
+  .main-page__registration {
+    padding: 80px 80px 80px 80px;
+    margin: 0;
+    display: grid;
+    grid-template-areas: "reg_titile reg_titile"
+                       "reg_descr reg_form";
+    grid-template-columns: 50% 50%;
+  }
+
+
+  .main-page__contacts {
+    padding: 80px;
+  }
+
+  .main-page__faq {
+    padding: 80px;
+  }
+
+}
+
+@media screen and (min-width: 1280px) {
+  //.arrow-to-top {
+  //  border: 1px solid red;
+  //}
+}
+
+

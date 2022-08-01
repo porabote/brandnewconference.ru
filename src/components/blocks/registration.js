@@ -118,15 +118,16 @@ const Registration = (props) =>
     return (
       <div id="registration" className="main-page__registration">
 
-        <div className="main-page__registration__title">
+        <h2 className="main-page__registration__title">
           Подайте заявку на участие в конференции
-        </div>
+        </h2>
 
         <div className="main-page__registration__descr">
+          <p>
           Онлайн-трансляция доступна для всех желающих. В офлайне количество мест ограничено. Все заявки проходят
           модерацию в течение недели, ответ придет вам на почту. Регистрацию на офлайн закрываем 12 сентября в 10:00.
-
-          <div style={{marginTop: '30px'}}>
+          </p>
+          <div style={{margin: '20px 0'}}>
 
             <p>
               <a style={{display: 'flex', alignItems: 'center'}} target="_blank"

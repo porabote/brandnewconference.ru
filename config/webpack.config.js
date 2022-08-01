@@ -37,6 +37,7 @@ module.exports = webpackEnv => {
         '@services': path.resolve(__dirname, '../src/services/'),
         '@configs': path.resolve(__dirname, '../src/configs/'),
         '@styles': path.resolve(__dirname, '../src/styles/'),
+        '@assets': path.resolve(__dirname, '../src/assets/'),
       }
     },
     snapshot: {

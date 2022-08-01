@@ -8,25 +8,19 @@ const ArrowToTop = () => {
   }
 
   useEffect(() => {
-
-    // const handleScroll = event => {
-    //
-    //   // let pixelsInPercent = mainBlock.current.offsetHeight / 100;
-    //   // let topLineWidth = parseInt(window.scrollY /pixelsInPercent);
-    //   // setTopLineWidth(`${topLineWidth}%`);
-    //
-    //   setMenuPositionClass((window.scrollY < 600) ? 'picked' : 'fixed');
-    //   let menuPositionClass = (window.scrollY)
-    //
-    // };
-    // window.addEventListener('scroll', handleScroll);
-    // return () => {
-    //   window.removeEventListener('scroll', handleScroll);
-    // };
-
+    
+    const scrollToTop = () => {
+      arrowMenuPositionClass((window.scrollY > window.innerHeight) ? '' : 'hide');
+    }
+    window.addEventListener('scroll', scrollToTop);
+    
+    return () => {
+      window.removeEventListener('scroll', scrollToTop);
+    };
+    
   }, []);
 
-  const [arrowPositionClass, arrowMenuPositionClass] = useState('hidden2');
+  const [arrowPositionClass, arrowMenuPositionClass] = useState('hidden');
 
   return (
     <React.Fragment>
