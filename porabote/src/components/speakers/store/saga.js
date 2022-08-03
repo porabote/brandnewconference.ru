@@ -25,7 +25,7 @@ function* fetchFeedDataAsync() {
           page: state.speakers.meta.nextPage,
           limit: state.speakers.meta.limit,
           orderBy: {
-            name: 'ASC'
+            lft: 'ASC'
           }
         }
       }).then((res) => res);

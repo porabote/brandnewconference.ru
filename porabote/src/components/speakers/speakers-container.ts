@@ -7,6 +7,7 @@ import {requestDicts} from "@components/dicts/store/dicts-actions";
 import {fetchFeedData, updateFeedFilters} from "./store/actions";
 import ViewContainer from "./view/view-container";
 import Feed from "./feed/feed";
+import SortList from "./feed/sort-list";
 
 
 interface IChildComponentProps extends React.Props<any> {
@@ -51,6 +52,16 @@ const SpeakersContainer = (props: IChildComponentProps) => {
     return React.createElement(ViewContainer, {
       id: props.match.params.id,
       fetchFeedData: fetchData,
+    });
+  }
+
+  if (props.match.params.action === "sort-list") {
+    return React.createElement(SortList, {
+      isDictsLoaded,
+      fetchData,
+      updateFilters,
+      dicts,
+      addRecord,
     });
   }
 

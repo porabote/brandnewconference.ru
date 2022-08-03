@@ -7,6 +7,7 @@ Z-INDEX:
 */
 
 @substrate-background: #2E2D2E;
+@accent-color: #541EBD;
 
 @charset "utf-8";
 
@@ -185,6 +186,24 @@ body {
   opacity: 0.9;
 }
 
+.nav-button {
+  display: block;
+  width: 50px;
+  height: 50px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  -o-transition: -o-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+
+}
+.nav-button__img {
+  width: 30px;
+  padding: 10px;
+}
+
 
 .menu-top {
   position: fixed;
@@ -204,7 +223,7 @@ body {
   top: 0;
 }
 .menu-top__navs {
-  display: flex;
+  display: none;
   list-style: none;
   align-items: center;
   justify-content: center;
@@ -244,8 +263,8 @@ body {
   transition: background-color 0.5s ease-out, border 0.3s ease-out;
 }
 .menu-top__navs__nav_link.registration:hover {
-  background: #e73c7e;
-  border: 1px solid #e73c7e;
+  background: @accent-color;
+  border: 1px solid @accent-color;
 }
 
 /* Общие модификаторы.. */
@@ -297,13 +316,13 @@ body {
   grid-area: anons_part2;
 }
 .main-page__anons__container_part3 {
-  padding: 50px;
+  padding: 0px 50px 50px 50px;
   paddingTop: 0px;
   grid-area: anons_part3;
 }
 .main-page__anons__container_part4 {
   margin-top: 0px;
-  border-left: 10px solid #e3433e;
+  border-left: 10px solid @accent-color;
   padding-left: 40px;
   grid-area: anons_part4;
 }
@@ -328,6 +347,9 @@ body {
   align-content: center;
   flex-flow: column;
 }
+.main-page__speakers__title {
+  padding-bottom: 60px;
+}
 // Спикеры //
 
 
@@ -336,10 +358,19 @@ body {
   padding: 20px;
   margin: 0;
   max-width: 1440px;
-
-  display: flex;
-  flex-flow: column;
+  display: grid;
+  grid-template-columns: 30% 1fr 320px;
+  background: #121212;
 }
+
+.main-page__contacts__head {
+  font-size: 1.8rem;
+}
+.main-page__contacts__item {
+  font-size: 1rem;
+}
+
+
 
 .main-page__registration {
   padding: 20px 20px 20px 20px;
@@ -353,20 +384,21 @@ body {
 }
 .main-page__registration__title {
   grid-area: reg_titile;
-  padding: 20px 0;
+  padding: 0px 0 32px 0;
 }
 .main-page__registration__descr {
   font-size: 17px;
   font-weight: 300;
   grid-area: reg_descr;
-  padding-right: 20px;
+  padding-right: 40px;
 }
 .main-page__registration__form {
   grid-area: reg_form;
   background: @substrate-background;
-  padding: 40px;
-  border-radius: 10px;
+  padding: 40px 40px 40px 40px;
+  border-radius: 2px;
   box-shadow: -3px -3px 30px #131313;
+  margin-top: 10px;
 }
 
 .main-page__timing {
@@ -377,6 +409,11 @@ body {
 .main-page__faq {
   padding: 20px;
   min-height: 50vh;
+}
+
+.main-page__faq__title {
+  padding-bottom: 32px;
+  padding-top: 40px;
 }
 
 .main-page__translation {
@@ -402,15 +439,16 @@ body {
   position: relative;
   margin-right: 10px;
 }
-
+.vk-icon:hover, .mail-icon:hover {opacity: 0.5;}
 
 
 // Верхний баннер //
 .banner-block {
   box-sizing: border-box;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+ // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #05051e, #000000);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 5s ease infinite;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -418,7 +456,6 @@ body {
   align-content: center;
   justify-content: center;
   align-items: center;
-  border: 1px solid green;
   padding: 20px;
   margin: 0;
 }
@@ -460,6 +497,7 @@ body {
   }
 
   .menu-top__navs {
+    display: flex;
     justify-content: flex-end;
     padding: 0px 40px 0px 0;
   }
@@ -480,6 +518,9 @@ body {
     padding: 6px 26px;
   }
 
+  .nav-button {
+    display: none;
+  }
 
   .main-page__anons {
     padding: 80px 80px 80px 80px;
@@ -513,7 +554,7 @@ body {
 
 
   .main-page__registration {
-    padding: 80px 80px 80px 80px;
+    padding: 80px 60px 80px 80px;
     margin: 0;
     display: grid;
     grid-template-areas: "reg_titile reg_titile"
@@ -523,7 +564,7 @@ body {
 
 
   .main-page__contacts {
-    padding: 80px;
+    padding: 40px 80px 80px 80px;
   }
 
   .main-page__faq {

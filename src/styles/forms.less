@@ -1,3 +1,5 @@
+@accent-color: #541EBD;
+
 .form_item {
   position: relative;
   min-height: 52px;
@@ -85,7 +87,7 @@
   position: absolute;
   left: 0;
   bottom: 1px;
-  border: 2px solid #E95651;
+  border: 2px solid @accent-color;
   border-radius: 3px;
   //background: url(/img/radio-1.png) 0 0 no-repeat;
 }
@@ -93,7 +95,7 @@
 /* Checked */
 .form-item__radio input[type=radio]:checked + label:before {
   //background: url(/img/radio-2.png) 0 0 no-repeat;
-  background-color: #E95651;
+  background-color: @accent-color;
 }
 
 /* Hover */
@@ -109,14 +111,14 @@
 
 
 .registration-submit {
-  background: #E95651;
+  background: @accent-color;
   color: #FCECEC;
   border: 0;
   line-height: 46px;
   border-radius: 2px;
   font-size: 15px;
   font-weight: 800;
-  text-shadow: 1px 1px 10px #a92420;
+ // text-shadow: 1px 1px 10px @accent-color;
   padding: 0 30px;
   margin-top: 30px;
   min-width: 240px;
@@ -128,5 +130,5 @@
   transition: background-color 0.5s ease-out;
 }
 .registration-submit:hover {
-  background: #e3433e;
+  background: #652bd5;
 }

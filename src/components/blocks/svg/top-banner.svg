@@ -1,14 +1,18 @@
 <svg id="bannerTop" viewBox="0 0 1400 140" xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"  width="1400" height="140"
-     style="font-size:100px;font-style:normal;font-weight:bold;font-family: Helvetica;border:0px solid gray;"
+     style="font-size:100px;font-style:normal;font-weight:bold;font-family: Helvetica, Arial, sans-serif;"
 >
-    <style>
-        .word_1 {
-        animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
-        }
-    </style>
+<!--    <style>-->
+<!--        .word_1 {-->
+<!--        animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);-->
+<!--        }-->
+<!--    </style>-->
 
     <!--    <rect x="0" y="0" width="1400" height="140" fill="#0B0C0C" stroke="green"/>-->
+
+    <text id="word_1" x="5" y="230" fill="#FFFFFF" font-family="Helvetica, Arial, sans-serif">
+        новая конференция dentsu
+    </text>
 
     <text id="word_2" x="140" y="230" fill="#FFFFFF" >
         новая история dentsu
@@ -34,8 +38,11 @@
         новый взгляд на жизнь
     </text>
 
+    <animate xlink:href="#word_1" attributeType="XML" id="a"   attributeName="y" begin="0s;g_b_c.end" from="220" to="100" dur="0.7s" />
+    <animate xlink:href="#word_1" attributeType="XML" id="a_b"   attributeName="y" begin="a.end" from="100" to="100" dur="0.7s" />
+    <animate xlink:href="#word_1" attributeType="XML" id="a_b_c"   attributeName="y" begin="a_b.end" from="100" to="-100" dur="0.7s" />
 
-    <animate xlink:href="#word_2" attributeType="XML" id="b"   attributeName="y" begin="0s;g_b_c.end" from="220" to="100" dur="0.7s" />
+    <animate xlink:href="#word_2" attributeType="XML" id="b"   attributeName="y" begin="a_b_c.end" from="220" to="100" dur="0.7s" />
     <animate xlink:href="#word_2" attributeType="XML" id="b_b"   attributeName="y" begin="b.end" from="100" to="100" dur="0.7s" />
     <animate xlink:href="#word_2" attributeType="XML" id="b_b_c"   attributeName="y" begin="b_b.end" from="100" to="-100" dur="0.7s" />
 

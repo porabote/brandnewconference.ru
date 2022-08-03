@@ -10,7 +10,7 @@ const TopBanner = () => {
 
   return (
     <div className="banner-block">
-      <div className="banner-block__title">Новая конференция dentsu</div>
+      {/*<div className="banner-block__title">Новая конференция dentsu</div>*/}
       <img className="banner-block__svg-banner" src={TopBannerSVG}/>
       <img className="arrow-to-down" src={ArrowToDown} onClick={scrollToDown}/>
     </div>

@@ -10,7 +10,7 @@ const Slider = (props) => {
     let containerWidth = props.container.current.clientWidth - 120;
     setContainerWidth(containerWidth);
 
-    let itemsOnPage = 3;
+    let itemsOnPage = 4;
     if (window.innerWidth < 990) {
       itemsOnPage = 1
     }
