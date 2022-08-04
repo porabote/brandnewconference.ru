@@ -1,0 +1,82 @@
+.banner_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.banner_container span {
+  position: relative;
+}
+.banner_container .container {
+  top: 44px;
+  left: 12px;
+}
+.banner_container .flap {
+  width: 110px;
+  right: auto;
+}
+.banner_container .half {
+  height: 62px;
+  overflow: hidden;
+  background: #444;
+  transform-style: preserve-3d;
+  animation-timing-function: ease-in;
+  animation-duration: 0.28s;
+  animation-iteration-count: infinite;
+}
+.banner_container .fast .half {
+  animation-duration: 0.14s;
+}
+.banner_container .divider {
+  top: 61px;
+  height: 2px;
+  background: #222;
+}
+.banner_container .prev {
+  top: 62px;
+}
+.banner_container .back,
+.banner_container .front {
+  backface-visibility: hidden;
+}
+.banner_container .front {
+  transform-origin: center bottom;
+}
+.banner_container .back {
+  top: 62px;
+  transform-origin: center top;
+}
+.banner_container .front span,
+.banner_container .next span {
+  top: -6px;
+}
+.banner_container .back span,
+.banner_container .prev span {
+  top: -68px;
+}
+.banner_container .animated .front {
+  animation-name: flipFront;
+}
+.banner_container .animated .back {
+  animation-name: flipBack;
+}
+@keyframes flipFront {
+  0% {
+    transform: rotateX(0deg);
+    background-color: #444;
+  }
+  100% {
+    transform: rotateX(180deg);
+    background-color: #1c1c1c;
+  }
+}
+@keyframes flipBack {
+  0% {
+    transform: rotateX(180deg);
+    background-color: #222;
+  }
+  100% {
+    transform: rotateX(0deg);
+    background-color: #444;
+  }
+}

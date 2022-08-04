@@ -156,9 +156,9 @@ module.exports = webpackEnv => {
         //console.log(app)
         // do fancy stuff
       },
-      // proxy: {
-      //   '/userfiles': 'https://thyssen24.ru',
-      // },
+      proxy: {
+        '/images': 'https://brandnewconference.ru',
+      },
     },
   }
 }

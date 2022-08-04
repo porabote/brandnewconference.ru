@@ -6,6 +6,12 @@ Z-INDEX:
 Динамически создаваемые элементы 300+
 */
 
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
 @substrate-background: #2E2D2E;
 @accent-color: #541EBD;
 
@@ -13,25 +19,29 @@ Z-INDEX:
 
 /*FONTS*/
 @font-face {
+  font-family:'Montserrat';
+  src: url(./fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
   font-family:'Roboto Light';
   src: url(./fonts/Roboto/Roboto-Light.ttf);
 }
-@font-face {
-  font-family:'Roboto Regular';
-  src: url(./fonts/Roboto/Roboto-Regular.ttf);
-}
-@font-face {
-  font-family:'Roboto Medium';
-  src: url(./fonts/Roboto/Roboto-Medium.ttf);
-}
-@font-face {
-  font-family:'Roboto Bold';
-  src: url(./fonts/Roboto/Roboto-Bold.ttf);
-}
-@font-face {
-  font-family:'Roboto Italic';
-  src: url(./fonts/Roboto/Roboto-Italic.ttf);
-}
+//@font-face {
+//  font-family:'Roboto Regular';
+//  src: url(./fonts/Roboto/Roboto-Regular.ttf);
+//}
+//@font-face {
+//  font-family:'Roboto Medium';
+//  src: url(./fonts/Roboto/Roboto-Medium.ttf);
+//}
+//@font-face {
+//  font-family:'Roboto Bold';
+//  src: url(./fonts/Roboto/Roboto-Bold.ttf);
+//}
+//@font-face {
+//  font-family:'Roboto Italic';
+//  src: url(./fonts/Roboto/Roboto-Italic.ttf);
+//}
 /*FONTS*/
 
 
@@ -58,6 +68,7 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
+  font-family: "Montserrat";
 }
 
 blockquote, q {
@@ -106,7 +117,6 @@ h2 {
   text-transform: uppercase;
   color: #e7e7e7;
   text-align: left;
-  font-family: "Roboto Medium";
 }
 
 :focus {
@@ -116,12 +126,10 @@ h2 {
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #FFFFFF;
   font-size: 15px;
-  font-family: "Roboto Regular";
 }
 ::-moz-placeholder { /* Firefox 19+ */
   color: #FFFFFF;
   font-size: 15px;
-  font-family: "Roboto Regular";
 }
 html {
   scroll-behavior: smooth;
@@ -133,7 +141,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
   line-height: 1.42857;
-  font-family: "Roboto Regular";
   font-size: 15px;
   background: #0B0C0C;
   color: #e7e7e7;
@@ -186,87 +193,6 @@ body {
   opacity: 0.9;
 }
 
-.nav-button {
-  display: block;
-  width: 50px;
-  height: 50px;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: -webkit-transform .5s ease-in-out;
-  -o-transition: -o-transform .5s ease-in-out;
-  transition: transform .5s ease-in-out;
-
-}
-.nav-button__img {
-  width: 30px;
-  padding: 10px;
-}
-
-
-.menu-top {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 200;
-  background: none;
-}
-.menu-top.transparent {
-  background: none;
-  color: #FFFFFF;
-}
-.menu-top.bg {
-  background: #151515;
-  opacity: 0.9;
-  padding: 0;
-  top: 0;
-}
-.menu-top__navs {
-  display: none;
-  list-style: none;
-  align-items: center;
-  justify-content: center;
-  padding: 0px 0px 0px 0;
-}
-.menu-top__navs__nav {
-  line-height: 14px;
-  padding: 10px 6px 10px 6px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.menu-top__navs__nav_link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-//.menu-top__navs__nav a {color: #cbcbcb;}
-//.menu-top__navs__nav a:hover {color: #fff;}
-
-
-.menu-top__navs__nav_link.registration {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #ffffff;
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 3px;
-  cursor: pointer;
-  -webkit-transition: background-color 0.5s ease-out;
-  -moz-transition: background-color 0.5s ease-out;
-  -o-transition: background-color 0.5s ease-out;
-  transition: background-color 0.5s ease-out, border 0.3s ease-out;
-}
-.menu-top__navs__nav_link.registration:hover {
-  background: @accent-color;
-  border: 1px solid @accent-color;
-}
-
 /* Общие модификаторы.. */
 .hidden, .hide { display: none; }
 .invisible { visibility: hidden; }
@@ -287,23 +213,26 @@ body {
 
 // АНОНОС //
 .main-page__anons {
-  min-height: 100vh;
+  min-height: 80vh;
   padding: 40px 20px 40px 20px;
   box-sizing: border-box;
   font-weight: 900;
-  display: grid;
+  display: flex;
   grid-gap: 10%;
   grid-template-columns: 100%;
   align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-page__anons__container {
   background-image: url("https://brandnewconference.ru/images/cinema2.png");
   background-size: 100vh;
   background-repeat: no-repeat;
   background-position: 100% 0%;
-}
-
-.main-page__anons__container {
   display: flex;
   flex-flow: column;
+  max-width: 1440px;
 }
 
 .main-page__anons__container_part1 {
@@ -334,11 +263,15 @@ body {
 
 // Спикеры //
 .main-page__speakers {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  margin: 30px 0px 30px 0px;
+  margin: 0px 0px 0px 0px;
   min-height: 50vh;
-  max-width: 1440px;
+  margin: 0 auto;
 }
 .main-page__speakers__container {
   box-sizing: border-box;
@@ -346,6 +279,8 @@ body {
   align-items: center;
   align-content: center;
   flex-flow: column;
+  max-width: 1440px;
+  padding: 0 80px;
 }
 .main-page__speakers__title {
   padding-bottom: 60px;
@@ -357,10 +292,17 @@ body {
 .main-page__contacts {
   padding: 20px;
   margin: 0;
-  max-width: 1440px;
-  display: grid;
-  grid-template-columns: 30% 1fr 320px;
   background: #121212;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.main-page__contacts__container {
+  max-width: 1440px;
+  grid-template-columns: 1fr 320px;
+  width: 100%;
+
 }
 
 .main-page__contacts__head {
@@ -377,11 +319,16 @@ body {
   box-sizing: border-box;
   margin: 0;
   display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
   flex-flow: column;
   background: #121212;
-  min-height: 100vh;
-  max-width: 1440px;
+  min-height: 60vh;
 }
+
+
+
 .main-page__registration__title {
   grid-area: reg_titile;
   padding: 0px 0 32px 0;
@@ -409,6 +356,14 @@ body {
 .main-page__faq {
   padding: 20px;
   min-height: 50vh;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.main-page__faq__container {
+  max-width: 1440px;
 }
 
 .main-page__faq__title {
@@ -496,17 +451,6 @@ body {
     width: 50px;
   }
 
-  .menu-top__navs {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0px 40px 0px 0;
-  }
-  .menu-top__navs__nav {
-    line-height: 24px;
-    padding: 10px 15px 10px 15px;
-    font-size: 14px;
-  }
-
   .banner-block__title {
     font-size: 50px;
     text-align: center;
@@ -514,27 +458,19 @@ body {
   .banner-block__svg-banner {
     width: 70vw;
   }
-  .menu-top__navs__nav_link.registration {
-    padding: 6px 26px;
-  }
 
   .nav-button {
     display: none;
   }
 
   .main-page__anons {
-    padding: 80px 80px 80px 80px;
-    display: grid;
+
     grid-gap: 10%;
     grid-template-columns: 100%;
-    align-content: center;
-    background-image: url("https://brandnewconference.ru/images/cinema2.png");
-    background-size: cover;
-    background-position: 90% 90%;
-    max-width: 1440px;
   }
 
   .main-page__anons__container {
+    padding: 80px 80px 80px 80px;
     display: grid;
     grid-template-columns: 60% 40%;
     grid-template-areas:  "anons_part1 anons_part3"
@@ -549,19 +485,21 @@ body {
   .main-page__speakers {
     padding: 80px 80px 80px 80px;
     margin: 30px 0px 60px 0px;
-    max-width: 1440px;
   }
 
 
   .main-page__registration {
-    padding: 80px 60px 80px 80px;
-    margin: 0;
+
+  }
+  .main-page__registration_container {
+    padding: 80px 60px 80px 60px;
     display: grid;
     grid-template-areas: "reg_titile reg_titile"
                        "reg_descr reg_form";
     grid-template-columns: 50% 50%;
+    max-width: 1440px;
+    margin: 0 auto;
   }
-
 
   .main-page__contacts {
     padding: 40px 80px 80px 80px;

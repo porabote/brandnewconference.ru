@@ -52,6 +52,12 @@ const EditForm = props => {
               name="post_name"
             />
           </Field>
+          <Field>
+            <Input
+              label="Цитата"
+              name="quote"
+            />
+          </Field>
 
         </div>
 

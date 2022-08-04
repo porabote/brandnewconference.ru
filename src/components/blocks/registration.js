@@ -47,10 +47,10 @@ const OfflineMsg = () =>
           Модерация нужна, чтобы мы поместились на площадке и гостям было комфортно. Скоро пришлëм письмо с
           результатом модерации на почту. Если его не будет, свяжитесь с нами <a href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a></p>
         <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
-        <p><a style={{display: "flex", alignItems: "center"}} target="_blank"
-              href="/images/upload/contacts/conference_dentsu.ics">
-          <img src={Calendar} style={{width: "22px", marginRight: "10px"}}/>
-          Конференция dentsu </a></p>
+        {/*<p><a style={{display: "flex", alignItems: "center"}} target="_blank"*/}
+        {/*      href="/images/upload/contacts/conference_dentsu.ics">*/}
+        {/*  <img src={Calendar} style={{width: "22px", marginRight: "10px"}}/>*/}
+        {/*  Конференция dentsu </a></p>*/}
       </div>
     );
   }
@@ -117,12 +117,12 @@ const Registration = (props) =>
 
     return (
       <div id="registration" className="main-page__registration">
-
+        <div  className="main-page__registration_container">
 
         <div className="main-page__registration__descr">
 
           <h2 className="main-page__registration__title">
-            Подайте заявку на участие в конференции
+            ЗАЯВКА НА УЧАСТИЕ В КОНФЕРЕНЦИИ
           </h2>
 
           <p>
@@ -210,7 +210,7 @@ const Registration = (props) =>
             </div>
           </Form>
         </div>
-
+        </div>
       </div>
 
     );

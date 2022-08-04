@@ -1,25 +1,42 @@
 @accent-color: #541EBD;
-
+//font-variation-settings: "wght" 550;
 .prb-slider {
-
-  display: flex;
-  position: relative;
-  padding: 0 60px;
-  align-items: stretch;
-  align-content: stretch;
-  justify-content: stretch;
+  //grid-template-areas: "prb-slider__items prb-slider__items"
+  //                      "prb-slider__title prb-slider__navbar";
+  //position: relative;
+  //grid-template-columns: 1fr 200px;
+  //align-items: stretch;
+  //align-content: stretch;
+  //justify-content: stretch;
+  box-sizing: border-box;
+  padding: 0px;
+  max-width: 100vw;
 }
 
 .prb-slider__container {
   max-width: 100%;
   position: relative;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.prb-slider__container::-webkit-scrollbar {
+  display: none;
+}
+
+.prb-slider__title {
+  font-size: 60px;
+  padding: 20px 0;
+  text-transform: uppercase;
+  color: #e7e7e7;
+  text-align: left;
   display: flex;
-  overflow: hidden;
+  align-content: center;
 }
 
 .prb-slider__items {
-  width: 100%;
+  position: relative;
   height: 100%;
+  width: 100%;
   display: flex;
   transition: translate;
   transition-property: transform;
@@ -27,22 +44,36 @@
   transition-timing-function: ease;
 }
 
+
+
+.prb-slider__navbar {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.prb-slider__buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+}
 .prb-slider-btn-left,
 .prb-slider-btn-right {
-  position: absolute;
-  height: 100%;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   cursor: pointer;
-  top: 0;
-  opacity: 0.2;
   z-index: 100;
   display: flex;
   align-content: center;
   align-items: center;
   justify-content: center;
-  background-size: 15px;
+  background-size: 18px;
   background-repeat: no-repeat;
   background-position: 50%;
+  border: 1px solid #4E4E4D;
+  border-radius: 50%;
+  margin-left: 10px;
 }
 
 .prb-slider-btn-left:hover,
@@ -61,55 +92,74 @@
 
 .prb-slider__item {
   position: relative;
-  min-width: 150px;
-  min-height: 240px;
   margin-right: 10px;
   display: flex;
   flex-flow: column;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
   cursor: pointer;
-  padding: 30px 0 80px 0;
+  background-size: cover;
+  background-position: center;
+  background-color: linear-gradient(#6733cb, #541EBD);
 }
-.prb-slider__item:hover .prb-slider__item-photo {
+.prb-slider__item:hover {
   background: #541EBD;
   background-image: none;
   background-size: 1px;
   background-repeat: no-repeat;
 }
 
-
-.prb-slider__item-photo {
-  width: 155px;
-  height: 155px;
-  border-radius: 50%;
-  background-size: cover;
-  background-color: #2D3A39;
-  transition: 0.8s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-}
 .prb-slider__item-text__fio {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  padding-left: 14px;
+  box-sizing: border-box;
   font-weight: 800;
-  font-size: 18px;
-  line-height: 34px;
-  padding: 6px 0 2px 0;
+  font-size: 0.8em;
+  font-variation-settings: "wght" 550;
+  text-transform: uppercase;
+  text-align: left;
+  width: 100%;
+}
+.prb-slider__item:hover .prb-slider__item-text__fio {
+  top: 150px;
+  font-size: 20px;
+  transition: 0.8s ease;
   text-align: center;
+  padding-left: 0;
 }
 
-.prb-slider__item:hover .prb-slider__item-text__desc{
-  visibility: visible;
+.prb-slider__item-text__desc {
+  top: 40%;
   text-align: center;
+  font-variation-settings: "wght" 550;
+  font-size: 30px;
+}
+.prb-slider__item:hover .prb-slider__item-text__desc{
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  left: 0;
+  padding: 10px;
+  visibility: visible;
+  transition: 0.4s ease;
+  font-size: 25px;
+  text-align: center;
+  top: 200px;
 }
 
 .prb-slider__item-text__desc {
   font-size: 15px;
   text-align: center;
   visibility: hidden;
-  transition: 0.8s ease;
+  transition: 0.8s ease-in;
+  transition: 0.1s ease-out;
+}
+
+.prb-slider__line {
+  max-width: 100%;
+  height: 2px;
+  background: linear-gradient(#6733cb, #541EBD);
+  margin-top: 30px;
 }
 
 @media screen and (min-width: 990px) {

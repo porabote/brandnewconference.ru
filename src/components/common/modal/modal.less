@@ -20,8 +20,6 @@
 .modal-box-wrap {
   box-sizing: border-box;
   display: block;
-  min-width: 90vw;
-  max-width: 90vw;
   max-height: 80vh;
   height: auto;
   flex-flow: column nowrap;
@@ -38,17 +36,17 @@
   transition : 0.3s ease all;
   transform: scale(0);
   font-size: 17px;
+  max-width: 600px;
 }
 .modal-box-wrap.active {
   transform: scale(1);
 }
 
 .modal-box {
-  width: 100%;
+  width: 50%;
   display: grid;
   flex-flow: column wrap;
   background-color: #fff;
-  border-bottom: 1px solid #dddfe0;
   transition : 0.3s ease all;
 }
 
@@ -174,6 +172,10 @@
   .modal-box-center, .modal-box-body {
     flex-grow: 1;
     padding: 20px 40px;
+  }
+
+  .modal-box-wrap {
+    padding: 80px;
   }
 
 }

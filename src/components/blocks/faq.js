@@ -5,23 +5,25 @@ const Faq = (props) => {
 
   return (
     <div id="faq" className="main-page__faq">
-      <h2 className="main-page__faq__title">Отвечаем на часто задаваемые вопросы</h2>
+      <div className="main-page__faq__container">
+        <h2 className="main-page__faq__title">FAQ</h2>
 
-      <Accordion>
+        <Accordion>
 
-        {props.data.map((faq, index) => {
-          return(
-            <AccordionItem key={index}>
-              <AccordionItemTab>
-                {faq.question}
-              </AccordionItemTab>
-              <AccordionItemBody>
-                {faq.answer}
-              </AccordionItemBody>
-            </AccordionItem>
-          );
-        })}
-      </Accordion>
+          {props.data.map((faq, index) => {
+            return (
+              <AccordionItem key={index}>
+                <AccordionItemTab>
+                  {faq.question}
+                </AccordionItemTab>
+                <AccordionItemBody>
+                  {faq.answer}
+                </AccordionItemBody>
+              </AccordionItem>
+            );
+          })}
+        </Accordion>
+      </div>
     </div>
   );
 };
