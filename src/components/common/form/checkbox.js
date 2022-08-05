@@ -54,7 +54,10 @@ class Checkbox extends React.Component {
 
                     }}
                 />
-                <label htmlFor={this.state.htmlFor}>{this.props.label}</label>
+                <label
+                  htmlFor={this.state.htmlFor}
+                  dangerouslySetInnerHTML={{__html: this.props.label}}
+                ></label>
             </div>
         )
     }

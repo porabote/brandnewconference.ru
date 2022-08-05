@@ -17,15 +17,17 @@ const Input = props => {
     disabled = props.disabled(props.formContext.values);
   }
 
+  const classExtra = props.classExtra || '';
   let label = (typeof props.label != "undefined") ?
-    <label htmlFor={htmlFor} className="form_item__label">{props.label}</label> : '';
+    <label htmlFor={htmlFor} className={`form_item__label ${classExtra}`}>{props.label}</label> : '';
 
   const handleClick = (e) => {
     input.current.select();
   }
 
+
   return (
-    <div className="form_item">
+    <div className={`form_item ${classExtra}`}>
       <div className="form_item__input_wrap" onDoubleClick={handleClick}>
         <input
           ref={input}

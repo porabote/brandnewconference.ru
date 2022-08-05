@@ -21,8 +21,8 @@ const Speakers = (props) => {
               </div>
 
               <div className="prb-slider__item-text__desc">{speaker.post_name}</div>
-              
-            </SliderItem>;
+
+            </SliderItem>
           })}
         </Slider>
       </div>

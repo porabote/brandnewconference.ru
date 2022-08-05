@@ -6,53 +6,81 @@ import './style.less';
 
 const Slider = (props) => {
 
-  useEffect(() => {
-
-    let containerWidth = props.container.current.clientWidth ;
-    if (containerWidth > 1440) containerWidth = 1440;
-    setContainerWidth(containerWidth);
-
-    let itemsOnPage = 5;
-    if (window.innerWidth < 990) {
-      itemsOnPage = 1
-    }
-    let itemW = parseInt(containerWidth / itemsOnPage);
-    let itemH = parseInt(itemW * 1.68);
-
-    setItemWidth(parseInt((containerWidth) / itemsOnPage));
-    setItemHeight(itemH);
-  }, []);
-
-  const [containerWidth, setContainerWidth] = useState(0);
+  const [viewportWidth, setViewportWidth] = useState(0);
+  const [scrollAriaWidth, setScrollAriaWidth] = useState(0);
+  const [itemsPerPage, setitemsPerPage] = useState(itemsPerPage);
   const [itemWidth, setItemWidth] = useState(190);
   const [itemHeight, setItemHeight] = useState(320);
-  const [lineWidth, setLineWidth] = useState(320);
+  const [indicatorPercents, setIndicatorPercents] = useState(0);
+  const [offset, setOffset] = useState(0);
 
   const itemsWindow = useRef(null);
   const itemsRef = useRef(null);
 
-  const [offset, setOffset] = useState(0);
-  const [items, setItems] = useState([]);
+  const setSliderSizes = () => {
 
-  const handleArrowToLeft = () => {
-console.log(88);
-    setOffset(currentOffset => {
+    let viewportWidth = props.container.current.clientWidth;
+    if (viewportWidth > 1440) viewportWidth = 1440;
+    setViewportWidth(viewportWidth);
 
-      let containerW = props.children.length * itemWidth;
+    let itemsPerPage = 5;
+    if (window.innerWidth < 768) {
+      itemsPerPage = 1
+    } else if (window.innerWidth <= 1024) {
+      itemsPerPage = 3
+    }
 
-      const newOffset = currentOffset - containerW;
+    // Calc width and height ItemDiv
+    let itemW = parseInt(viewportWidth / itemsPerPage);
+    setItemWidth(parseInt((viewportWidth) / itemsPerPage));
+    let itemH = parseInt(itemW * 1.68);
+    setItemHeight(itemH);
 
-      const maxOffset = -parseInt((props.children.length * itemWidth) - containerWidth);
+    let scrollAriaWidth = props.children.length * itemW;
+    setScrollAriaWidth(scrollAriaWidth);
 
-      return Math.max(newOffset, maxOffset);
-    });
+    // Set width of indicator;
+    let indicatorPercent = parseInt(Math.abs(viewportWidth)/(scrollAriaWidth/100));
+    setIndicatorPercents(indicatorPercent);
   }
+
+
+  useEffect(() => {
+    setSliderSizes();
+  }, [props.children]);
+
 
   const handleArrowToRight = () => {
 
-    setOffset(currentOffset => {
-      let containerW = props.children.length * itemWidth;
-      const newOffset = currentOffset + containerW;console.log(containerW);
+    setOffset((currentOffset) => {
+
+      //let currentOffset = -parseInt(itemsRef.current.style.transform.replace(/\D/g,''));
+
+      let newOffset = currentOffset - viewportWidth;
+      const maxOffset = -parseInt(scrollAriaWidth - viewportWidth);
+      newOffset = Math.max(newOffset, maxOffset)
+
+      let pixelsInPercent = scrollAriaWidth/100;
+      let incIndicatorPercent = parseInt(viewportWidth/pixelsInPercent);
+      setIndicatorPercents(Math.min(indicatorPercents + incIndicatorPercent, 100));
+
+      return newOffset;
+    });
+  }
+
+  const handleArrowToLeft = () => {
+
+    setOffset((currentOffset) => {
+
+      let newOffset = currentOffset + viewportWidth;
+
+      let pixelsInPercent = scrollAriaWidth/100;
+      let incIndicatorPercent = parseInt((viewportWidth)/pixelsInPercent);
+      let minIndicatorPercent = parseInt(Math.abs(viewportWidth)/(scrollAriaWidth/100));
+
+       let newPercent = Math.max(indicatorPercents - Math.abs(incIndicatorPercent), minIndicatorPercent);
+       setIndicatorPercents(newPercent);
+
       return Math.min(newOffset, 0);
     });
   }
@@ -61,9 +89,17 @@ console.log(88);
     <div
       className="prb-slider"
       style={{
-        maxWidth: `${containerWidth}px`
+        maxWidth: `${viewportWidth}px`
       }}
     >
+      <div className="prb-slider__navbar">
+        <div className="prb-slider__title">Спикеры</div>
+        <div className="prb-slider__buttons">
+          <div className="prb-slider-btn-left" onClick={handleArrowToLeft}></div>
+          <div className="prb-slider-btn-right" onClick={handleArrowToRight}></div>
+        </div>
+      </div>
+      
       <div className="prb-slider__container" ref={itemsWindow}>
         <div
           ref={itemsRef}
@@ -88,15 +124,9 @@ console.log(88);
 
       </div>
 
-      <div className="prb-slider__line" style={{width: lineWidth}}></div>
+      <div className="prb-slider__line" style={{width: `${indicatorPercents}%`}}></div>
 
-      <div className="prb-slider__navbar">
-        <div className="prb-slider__title">Спикеры</div>
-        <div className="prb-slider__buttons">
-          <div className="prb-slider-btn-left" onClick={handleArrowToRight}></div>
-          <div className="prb-slider-btn-right" onClick={handleArrowToLeft}></div>
-        </div>
-      </div>
+
 
     </div>
   );

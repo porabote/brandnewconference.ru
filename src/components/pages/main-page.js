@@ -41,7 +41,7 @@ const MainPage = () => {
     <div ref={mainBlock}>
       {/*<ArrowToTop/>*/}
       <Topnav/>
-      <TopBanner/>
+      {/*<TopBanner/>*/}
       <Anons/>
       <Speakers data={speakers}/>
       <Registration/>

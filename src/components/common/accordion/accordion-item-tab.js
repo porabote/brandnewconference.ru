@@ -11,7 +11,7 @@ const AccordionItemTab = (props) => {
   return (
     <div className="prb-accordion__item__tab" onClick={setIsOpened}>
       {props.children}
-      <ArrowDropDownIcon/>
+      {/*<ArrowDropDownIcon/>*/}
     </div>
   );
 };

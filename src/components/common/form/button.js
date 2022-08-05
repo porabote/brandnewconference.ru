@@ -26,6 +26,7 @@ const Button = props => {
             }}
             >
             {props.text}
+          {props.children.props.children}
             {!React.isValidElement(props.children) &&
                 props.children
             }

@@ -1,27 +1,32 @@
 .prb-accordion__item__tab {
-  background: #2E2D2E;
-  color: #e3e3e3;
-  font-size: 18px;
-  font-weight: 500;
   padding: 14px 26px;
   cursor: pointer;
   display: flex;
   align-content: center;
   align-items: center;
   justify-content: space-between;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
-  margin-top: 20px;
+  margin-top: 0;
+  border-top: 1px solid #4D4D4D;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #FFFFFF;
+  transition: all 0.5ms ease;
+}
+.prb-accordion__item__tab:hover {
+  background: linear-gradient(to right,#6733cb, #541EBD);
+}
+
+.prb-accordion__item:last-child {
+  border-bottom: 1px solid #4D4D4D;
 }
 
 .prb-accordion__item__body {
   padding: 0;
-  border: 1px solid #4d4d4d;
   box-sizing: border-box;
-  border-top: 0;
-  margin-bottom: 0px;
-  font-size: 16px;
-  color: #e3e3e3;
+  font-size: 17px;
+  color: #FFFFFF;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
@@ -31,5 +36,5 @@
   visibility: visible;
   opacity: 1;
   height: auto;
-  padding: 30px 20px 50px 20px;
+  padding: 30px 40% 50px 20px;
 }

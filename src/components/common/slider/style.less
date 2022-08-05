@@ -24,7 +24,7 @@
 }
 
 .prb-slider__title {
-  font-size: 60px;
+  font-size: 30px;
   padding: 20px 0;
   text-transform: uppercase;
   color: #e7e7e7;
@@ -51,6 +51,7 @@
   align-items: center;
   align-content: center;
   justify-content: space-between;
+  padding: 0 5px;
 }
 
 .prb-slider__buttons {
@@ -92,7 +93,7 @@
 
 .prb-slider__item {
   position: relative;
-  margin-right: 10px;
+  margin: 0 5px;
   display: flex;
   flex-flow: column;
   cursor: pointer;
@@ -108,6 +109,7 @@
 }
 
 .prb-slider__item-text__fio {
+  color: #868686;
   position: absolute;
   top: 14px;
   left: 0;
@@ -126,6 +128,7 @@
   transition: 0.8s ease;
   text-align: center;
   padding-left: 0;
+  color: #FFFFFF;
 }
 
 .prb-slider__item-text__desc {
@@ -160,10 +163,19 @@
   height: 2px;
   background: linear-gradient(#6733cb, #541EBD);
   margin-top: 30px;
+  transition: 0.4s ease-in;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 768px) {
   .prb-slider__item {
     min-width: 300px;
+  }
+
+  .prb-slider__title {
+    font-size: 60px;
+  }
+
+  .prb-slider__navbar {
+    padding: 0;
   }
 }
