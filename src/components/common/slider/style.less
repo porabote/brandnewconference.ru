@@ -136,6 +136,9 @@
   text-align: center;
   font-variation-settings: "wght" 550;
   font-size: 30px;
+  transform: scale(0);
+  visibility: hidden;
+  transition: 0.8s ease-in;
 }
 .prb-slider__item:hover .prb-slider__item-text__desc{
   position: absolute;
@@ -148,14 +151,7 @@
   font-size: 25px;
   text-align: center;
   top: 200px;
-}
-
-.prb-slider__item-text__desc {
-  font-size: 15px;
-  text-align: center;
-  visibility: hidden;
-  transition: 0.8s ease-in;
-  transition: 0.1s ease-out;
+  transform: scale(1);
 }
 
 .prb-slider__line {

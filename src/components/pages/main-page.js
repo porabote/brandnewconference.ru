@@ -13,15 +13,25 @@ import Faq from "@components/blocks/faq";
 import Contacts from "@components/blocks/contacts";
 import TopBanner from "@components/blocks/top-banner";
 import ArrowToTop from "@components/blocks/arrow-to-top";
+import DepartureBoard from "@components/common/departure-board";
 
 const MainPage = () => {
 
   useEffect(() => {
 
-    Api.get(`/api/landing/get/`)
+    const params = new URLSearchParams(window.location.search);
+
+    let userId = params.has('userid') ? params.get('userid') : null;
+
+    Api.get(`/api/landing/get/?userId=${userId}`)
       .then((resp) => {
+        if (resp.data.hash) {
+          setPartFormat(resp.data.hash.part_format);
+          setHash(resp.data.hash.hash);
+        }
         setSpeakers(resp.data.speakers);
         setFaqs(resp.data.faqs);
+        setLoading(true);
       });
   }, []);
 
@@ -30,6 +40,9 @@ const MainPage = () => {
   const [topLineWidth, setTopLineWidth] = useState(0);
   const [speakers, setSpeakers] = useState([]);
   const [faqs, setFaqs] = useState([]);
+  const [partFormat, setPartFormat] = useState(null);
+  const [hash, setHash] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -39,14 +52,18 @@ const MainPage = () => {
 
   return (
     <div ref={mainBlock}>
-      {/*<ArrowToTop/>*/}
+      {/*<DepartureBoard/>*/}
       <Topnav/>
-      {/*<TopBanner/>*/}
+      <TopBanner/>
       <Anons/>
       <Speakers data={speakers}/>
-      <Registration/>
+      <Registration loading={loading} hash={hash} partFormat={partFormat}/>
       <Faq data={faqs}/>
       <Contacts/>
+
+
+
+      {/*<ArrowToTop/>*/}
     </div>
   );
 }

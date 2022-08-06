@@ -7,13 +7,15 @@ const RadioInput = (props) => {
   // });
   const [id, setId] = useState(`radio_item_${Math.floor(Math.random() * 1000)}`);
 
-  // console.log(id)
+  let isChecked = (props.formContext.values[props.name] == props.value) ? 'checked' : '';
+
   return (
     <div className="form-item__radio">
       <input
         id={id}
         name={props.name}
         type="radio"
+        checked={isChecked}
         value={props.value}
         onChange={e => {
 

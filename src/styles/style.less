@@ -227,7 +227,7 @@ body {
 
 // АНОНОС //
 .main-page__anons {
-  min-height: 80vh;
+  min-height: 40vh;
   padding: 40px 20px 40px 20px;
   box-sizing: border-box;
   //font-weight: 900;
@@ -242,7 +242,7 @@ body {
 
 .main-page__anons__container {
   position: relative;
-  min-height: 100vh;
+  min-height: 40vh;
   //background-image: url("https://brandnewconference.ru/images/cinema2.png");
   //background-size: 100vh;
   //background-repeat: no-repeat;
@@ -250,23 +250,24 @@ body {
   //display: flex;
   //flex-flow: column;
   max-width: 1280px;
-  padding-top: 800px;
+  padding-top: 80px;
 }
 
 .departure-board-container {
+  font-family: "WorkSans Medium";
   position: absolute;
-  width: 710px;
+  width: 1020px;
   left: 20px;
-  top: 300px;
-  height: 280px;
-  border: 0px solid red;
+  top: 160px;
+  font-size: 125px;
   zIndex: 10000000;
+
 }
 
 .big_ball {
   position: absolute;
-  width: 496px;
-  height: 496px;
+  width: 528px;
+  height: 528px;
   left: 264px;
   top: 200px;
   background: #6D22C4;
@@ -276,27 +277,27 @@ body {
 
 .main-page__anons__block_date {
   position: absolute;
-  width: 474px;
+  width: 204px;
   height: 112px;
-  left: 648px;
-  top: 280px;
+  left: 1010px;
+  top: 424px;
   font-style: normal;
   font-weight: 400;
-  font-size: 80px;
-  line-height: 112px;
   letter-spacing: 0.03em;
   color: #FFFFFF;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .main-page__anons__block_time {
   position: absolute;
-  width: 509px;
+  width: 170px;
   height: 112px;
-  left: 748px;
-  top: 392px;
+  left: 1030px;
+  top: 426px;
   font-style: normal;
   font-weight: 400;
-  font-size: 80px;
+  font-size: 30px;
   line-height: 112px;
   text-align: right;
   letter-spacing: 0.03em;
@@ -311,8 +312,8 @@ body {
   gap: 12px;
   position: absolute;
   height: 29px;
-  left: 839px;
-  top: 528px;
+  left: 810px;
+  top: 516px;
   width: 198px;
   font-style: normal;
   font-weight: 400;
@@ -326,8 +327,8 @@ body {
   position: absolute;
   width: 600px;
   height: 29px;
-  left: 839px;
-  top: 566px;
+  left: 810px;
+  top: 550px;
   color: #FFFFFF;
 }
 .main-page__anons__address p {
@@ -341,10 +342,10 @@ body {
   position: relative;
   width: 170px;
   height: 15px;
-  top: -20px;
+  top: -12px;
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 15px;
   letter-spacing: 0.03em;
   color: #FFFFFF;
@@ -594,12 +595,14 @@ body {
 
 // Верхний баннер //
 .banner-block {
+  position: relative;
   box-sizing: border-box;
  // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background: linear-gradient(-45deg, #05051e, #000000);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
   height: 100vh;
+  min-height: 800px;
   width: 100%;
   display: flex;
   flex-flow: column;
@@ -608,6 +611,14 @@ body {
   align-items: center;
   padding: 20px;
   margin: 0;
+}
+
+.banner-block__container {
+  width: 100%;
+  position: relative;
+  max-width: 1260px;
+  margin: 0 auto;
+  height: inherit;
 }
 
 .banner-block__title {

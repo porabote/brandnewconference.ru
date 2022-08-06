@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import TopBannerSVG from "./svg/top-banner.svg";
 import ArrowToDown from "./svg/arrow_to_down.svg";
-import "./style/departure-board.less"
+import RegArrowSvg from "./svg/main-page__anons__registration.svg";
+import "./style/departure-board.less";
+import DepartureBoard from "@components/common/departure-board";
 
 const TopBanner = () => {
 
@@ -10,17 +12,46 @@ const TopBanner = () => {
   });
 
   const scrollToDown = () => {
-    window.scrollTo(0, window.innerHeight);
+    window.scrollTo(0, 800);
   }
 
   return (
     <div className="banner-block">
+
+      <div className="banner-block__container">
+
+
+
+        <div className="big_ball"></div>
+
+        <div className="departure-board-container">
+          <DepartureBoard/>
+          {/*<iframe src="https://brandnewconference.ru/images/daprture-board.html" height="100%" width="100%"/>*/}
+        </div>
+
+        {/*<img className="arrow-to-down" src={ArrowToDown} onClick={scrollToDown}/>*/}
+        <div className="main-page__anons__block_date">14.09.2022</div>
+        <div className="main-page__anons__block_time">10:00-16:00</div>
+        <a href="#registration" className="main-page__anons__registration">
+          РЕГИСТРАЦИЯ
+          <img src={RegArrowSvg}/>
+
+        </a>
+
+        <div className="main-page__anons__address">
+          <p>Кинотеатр «Художественный»</p>
+          <p className="main-page__anons__address__title">Онлайн и офлайн</p>
+        </div>
+
+      </div>
+
+      <img className="arrow-to-down" src={ArrowToDown} onClick={scrollToDown}/>
       {/*<div className="banner-block__title">Новая конференция dentsu</div>*/}
       {/*<img className="banner-block__svg-banner" src={TopBannerSVG}/>*/}
-      <div style={{width: '710px', height: '280px', border: '0px solid red', zIndex: '10000000'}}>
-        <iframe src="https://brandnewconference.ru/images/daprture-board.html" height="100%" width="100%"/>
-      </div>
-      <img className="arrow-to-down" src={ArrowToDown} onClick={scrollToDown}/>
+      {/*<div style={{width: '710px', height: '280px', border: '0px solid red', zIndex: '10000000'}}>*/}
+      {/*  <iframe src="https://brandnewconference.ru/images/daprture-board.html" height="100%" width="100%"/>*/}
+      {/*</div>*/}
+
     </div>
   );
 };

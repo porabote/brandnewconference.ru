@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Helmet} from "react-helmet";
 import {useDispatch} from "react-redux";
 import Api from "@services";
@@ -44,15 +44,21 @@ const OfflineMsg = () => {
   return (
     <div>
       <p>Спасибо за регистрацию офлайн</p>
-      <p>Спасибо за интерес к нашей конференции! Вашу заявка на офлайн-участие рассмотрим в течение недели.
+      <p>Спасибо за интерес к нашей конференции! Вашу заявку на офлайн-участие рассмотрим в течение недели.
         Модерация нужна, чтобы мы поместились на площадке и гостям было комфортно. Скоро пришлëм письмо с
         результатом модерации на почту. Если его не будет, свяжитесь с нами <a
           href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a></p>
       <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
-      {/*<p><a style={{display: "flex", alignItems: "center"}} target="_blank"*/}
-      {/*      href="/images/upload/contacts/conference_dentsu.ics">*/}
-      {/*  <img src={Calendar} style={{width: "22px", marginRight: "10px"}}/>*/}
-      {/*  Конференция dentsu </a></p>*/}
+    </div>
+  );
+}
+const OfflineMsgByLink = () => {
+  return (
+    <div>
+      <p>Спасибо за регистрацию офлайн</p>
+      <p>Спасибо за интерес к нашей конференции! Вы успешно зарегистрировались на офлайн-участие. На почту придёт
+        письмо с подтверждением. Если его нет, свяжитесь с нами support@brandnewconference.ru</p>
+      <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
     </div>
   );
 }
@@ -60,9 +66,11 @@ const OfflineMsg = () => {
 
 const Registration = (props) => {
 
-  const dispatch = useDispatch();
+  if (!props.loading) {
+    return <p>Data loading</p>
+  }
 
-  const valuesEmpty = {
+  let values = {
     name: '',
     last_name: '',
     patronymic: '',
@@ -70,14 +78,22 @@ const Registration = (props) => {
     company_name: '',
     email: '',
     phone: '',
-    part_type: '',
+    user_id: (props.hash) ? props.hash : '',
+    part_type: (props.partFormat) ? props.partFormat : '',
+    accept: '',
   };
 
-  const [values, setValues] = useState({...valuesEmpty});
 
-  const changeAccept = (e, formContext) => {
-    console.log(formContext.values.part_type);
-  }
+  useEffect(() => {
+    // setValues(values);
+
+  }, [props]);
+
+  const dispatch = useDispatch();
+
+  //const [values, setValues] = useState({});
+  const [partFormat, setPartFormat] = useState(props.partFormat);
+
 
   const submitData = (values, formContext) => {
 
@@ -90,7 +106,7 @@ const Registration = (props) => {
         } else if (typeof resp.data.consumer != "undefined") {
           showSuccessMsg(resp.data.consumer);
 
-          Object.keys(valuesEmpty).map((fieldName) => {
+          Object.keys(values).map((fieldName) => {
             formContext.setFieldValue(fieldName, '');
           });
         } else {
@@ -101,18 +117,14 @@ const Registration = (props) => {
 
   const showSuccessMsg = (consumer) => {
 
-    const byLinkMsg = '<p>Спасибо за регистрацию офлайн</p>' +
-      '<p>Спасибо за интерес к нашей конференции! Вы успешно зарегистрировались на офлайн-участие. На почту придёт ' +
-      'письмо с подтверждением. Если его нет, свяжитесь с нами support@brandnewconference.ru</p>' +
-      ' <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>';
 
-
-    if (consumer.part_type == 'online') {
+    if (consumer.part_type == 'offline' && props.hash) {
+      dispatch(openModal(<RegistrationNotices><OfflineMsgByLink /></RegistrationNotices>, 'Регистрация'));
+    } else if (consumer.part_type == 'online') {
       dispatch(openModal(<RegistrationNotices><OnlineMsg/></RegistrationNotices>, 'Регистрация'));
     } else {
       dispatch(openModal(<RegistrationNotices><OfflineMsg/></RegistrationNotices>, 'Регистрация'));
     }
-
 
   }
 
@@ -120,14 +132,26 @@ const Registration = (props) => {
     ' Покажем новую версию dentsu и дадим пользу для сборки стратегии 2023');
   let shareUrl = encodeURIComponent('https://brandnewconference.ru');
 
-  const [accept, setAccept] = useState(`Согласие на <a href='/test/'>обработку своих персональных данных</a>`);
+  let docOnline = `Согласие на <b><a href='/images/doc_accept_opd.pdf'>обработку персональных данных</a></b>`;
+  let docOffline = `Согласие на <b><a target="_blank" href='/images/doc_accept_opd.pdf'>обработку персональных данных</a></b> и <b><a target="_blank" href='/images/doc_accept_opd_with_media.pdf'>использование фото и видео изображений</a></b>`;
+
+  const [accept, setAccept] = useState((props.partFormat && props.partFormat == 'offline') ? docOffline : docOnline);
+
+  const changeAccept = (e, formContext) => {
+    if (formContext.values.part_type == 'offline') {
+      setAccept(docOffline);
+    } else {
+      setAccept(docOnline);
+    }
+  }
+
 
   return (
     <div id="registration" className="main-page__registration">
       <div className="main-page__registration_container">
 
         <Form
-          values={{...values}}
+          values={values}
           submitForm={submitData}
         >
 
@@ -207,20 +231,22 @@ const Registration = (props) => {
           </div>
 
 
-          <div>
+          <div style={{paddingTop: '20px'}}>
+            {/*{props.partFormat && props.partFormat } -*/}
+            {/*{props.hash && props.hash }*/}
             <Field>
               <Radio onChange={changeAccept} label="Формат участия" name="part_type">
                 <RadioInput value="online" label="Online"/>
                 <RadioInput value="offline" label="Offline"/>
               </Radio>
             </Field>
-            <div style={{margin: '5px 0 0 18px'}}>
+            <div style={{margin: '15px 0 15px 18px'}}>
               <Field>
-                <Checkbox name="accept" label={accept}/>
+                <Checkbox value="1" name="accept" label={accept}/>
               </Field>
             </div>
           </div>
-          {/*Согласие на обработку своих персональных данных и использование фото и видео изображений*/}
+
 
           <a className="reg-share-link" target="_blank"
              href={`https://t.me/share/url?url=${shareUrl}&text=${shareText}`}>

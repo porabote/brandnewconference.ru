@@ -40,7 +40,7 @@ class Checkbox extends React.Component {
                         })
 
                         let status = (e.target.checked) ? 1 : 0
-
+console.log(this.state.value);
                         if (status) {
                             this.props.formContext.setFieldValue(this.props.name, this.state.value)
                         } else {
