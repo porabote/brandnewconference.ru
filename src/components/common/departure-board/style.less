@@ -1,17 +1,122 @@
 .departure-board-row {
-  border: 0px solid red;
   display: flex;
-  margin-bottom: 60px;
+  margin: 14px 0;
 }
 
 .departure-board-row__letter {
-  font-family: "WorkSans Medium";
-  border: 0px solid green;
-  font-size: 125px;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
+  font-family: "WorkSans Regular";
   padding: 0 0px;
-  min-width: 85px;
+}
+
+.departure-board div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+span {
+  position: relative;
+}
+
+
+.departure-board div .flap {
+  position: absolute;
+  right: auto;
+  //border: 1px solid red;
+}
+
+.departure-board div.half {
+
+  overflow: hidden;
+  transform-style: preserve-3d;
+  animation-timing-function: ease-in;
+  animation-duration: 0.28s;
+  animation-iteration-count: infinite;
+
+}
+.fast .half {
+  animation-duration: 0.7s;
+}
+//.divider {
+//  top: 50px;
+//  height: 50px;
+//}
+
+
+.departure-board div.prev {
+  position: absolute;
+}
+
+.departure-board div.front {
+  position: absolute;
+}
+
+.back,
+.front {
+  backface-visibility: hidden;
+}
+
+.front {
+  transform-origin: center bottom;
+}
+
+.back {
+  transform-origin: center top;
+}
+
+
+.departure-board div.next {
+  position: relative;
+}
+
+.departure-board div.next span {
+  position: relative;
+}
+
+.departure-board div.front {
+  position: absolute;
+}
+.departure-board div.back {
+  position: absolute;
+}
+
+.departure-board div.front span  {
+  position: relative;
+}
+
+
+.departure-board div.back span,
+.departure-board div.prev span {
+  position: relative;
+}
+
+.animated .front {
+  animation-name: flipFront;
+}
+
+.animated .back {
+  animation-name: flipBack;
+}
+
+@keyframes flipFront {
+  0% {
+    transform: rotateX(0deg);
+
+  }
+  100% {
+    transform: rotateX(180deg);
+
+  }
+}
+
+@keyframes flipBack {
+  0% {
+    transform: rotateX(180deg);
+
+  }
+  100% {
+    transform: rotateX(0deg);
+
+  }
 }

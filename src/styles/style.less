@@ -5,65 +5,6 @@ Z-INDEX:
 Контейнеры для аякса 200-299
 Динамически создаваемые элементы 300+
 */
-
-* {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-@substrate-background: #2E2D2E;
-@accent-color: #541EBD;
-
-@charset "utf-8";
-
-/*FONTS*/
-@font-face {
-  font-family:'Montserrat';
-  src: url(./fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
-}
-//@font-face {
-//  font-family:'Roboto Light';
-//  src: url(./fonts/Roboto/Roboto-Light.ttf);
-//}
-
-@font-face {
-  font-family:'WorkSans Regular';
-  src: url(./fonts/WorkSans/Web/WorkSans-Regular.woff);
-}
-@font-face {
-  font-family:'WorkSans Bold';
-  src: url(./fonts/WorkSans/Web/WorkSans-Bold.woff);
-}
-@font-face {
-  font-family:'WorkSans Medium';
-  src: url(./fonts/WorkSans/Web/WorkSans-Medium.woff);
-}
-
-//@font-face {
-//  font-family:'Roboto Regular';
-//  src: url(./fonts/Roboto/Roboto-Regular.ttf);
-//}
-//@font-face {
-//  font-family:'Roboto Medium';
-//  src: url(./fonts/Roboto/Roboto-Medium.ttf);
-//}
-//@font-face {
-//  font-family:'Roboto Bold';
-//  src: url(./fonts/Roboto/Roboto-Bold.ttf);
-//}
-//@font-face {
-//  font-family:'Roboto Italic';
-//  src: url(./fonts/Roboto/Roboto-Italic.ttf);
-//}
-/*FONTS*/
-
-
-
-@font-size: 1rem;
-@font-color: lch(53 105 40);
-
-
 /*RESET*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -84,6 +25,49 @@ time, mark, audio, video {
   vertical-align: baseline;
   font-family: "WorkSans Regular";
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+  line-height: 1.42857;
+  font-size: 15px;
+  background: #0B0C0C;
+  color: #e7e7e7;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+@substrate-background: #2E2D2E;
+@accent-color: #541EBD;
+
+@charset "utf-8";
+
+/*FONTS*/
+@font-face {
+  font-family:'WorkSans Regular';
+  src: url(./fonts/WorkSans/Web/WorkSans-Regular.woff);
+}
+@font-face {
+  font-family:'WorkSans Bold';
+  src: url(./fonts/WorkSans/Web/WorkSans-Bold.woff);
+}
+@font-face {
+  font-family:'WorkSans Medium';
+  src: url(./fonts/WorkSans/Web/WorkSans-Medium.woff);
+}
+
+@font-size: 1rem;
+@font-color: lch(53 105 40);
 
 blockquote, q {
   quotes: none;
@@ -111,7 +95,7 @@ i {}
 
 p {
   padding: 10px 0;
-  line-height: 28px;
+  line-height: 22px;
   font-weight: 500;
   font-size: 18px;
 }
@@ -133,84 +117,25 @@ h2 {
   text-align: left;
 }
 
-:focus {
-  outline: none;
-}
-
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #FFFFFF;
-  font-size: 15px;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: #FFFFFF;
-  font-size: 15px;
-}
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 30px;
-}
-body {
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-  line-height: 1.42857;
-  font-size: 15px;
-  background: #0B0C0C;
-  color: #e7e7e7;
-}
-
-.main {
-  padding-top: 60px;
-}
-
-.top-line {
-  max-width: 100%;
-  height: 3px;
-  background: #e74c3c;
-  position: fixed;
-}
-
-.arrow-to-top {
-  position: fixed;
-  bottom: 40px;
-  left: 40px;
-  width: 30px;
-  opacity: 0.3;
-  cursor: pointer;
-}
-.arrow-to-top.hide {
-  display: none;
-}
-
-.arrow-to-down {
-  position: absolute;
-  top: 90%;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  width: 50px;
-  opacity: 0.3;
-  cursor: pointer;
-  animation-name: top-down;
-  animation-timing-function: ease;
-  padding: 15px;
-  z-index: 1000;
-}
-
-@keyframes top-down {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-.arrow-to-top:hover {
-  opacity: 0.9;
-}
 
 /* Общие модификаторы.. */
 .hidden, .hide { display: none; }
 .invisible { visibility: hidden; }
 /* ..Общие модификаторы */
+
+.block-container {
+  padding: 40px 20px;
+  max-width: 1660px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 72px;
+}
 
 .main-page__banner,
 .main-page__anons,
@@ -266,10 +191,10 @@ body {
 
 .big_ball {
   position: absolute;
-  width: 528px;
-  height: 528px;
-  left: 264px;
-  top: 200px;
+  width: 164px;
+  height: 164px;
+  left: 133px;
+  top: 100px;
   background: #6D22C4;
   border-radius: 50%;
   zIndex: 100;
@@ -277,27 +202,29 @@ body {
 
 .main-page__anons__block_date {
   position: absolute;
-  width: 204px;
+  width: 260px;
   height: 112px;
-  left: 1010px;
-  top: 424px;
+  right: 210px;
+  top: 120px;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.03em;
   color: #FFFFFF;
-  font-size: 24px;
+  font-size: 75px;
   line-height: 29px;
+  text-align: left;
 }
 
 .main-page__anons__block_time {
   position: absolute;
-  width: 170px;
+  text-align: left;
+  width: 430px;
   height: 112px;
-  left: 1030px;
-  top: 426px;
+  right: 0px;
+  top: 150px;
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 75px;
   line-height: 112px;
   text-align: right;
   letter-spacing: 0.03em;
@@ -312,12 +239,12 @@ body {
   gap: 12px;
   position: absolute;
   height: 29px;
-  left: 810px;
-  top: 516px;
-  width: 198px;
+  right: 52px;
+  top: 540px;
+  width: 370px;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 36px;
   line-height: 29px;
   letter-spacing: 0.03em;
   color: #9747FF;
@@ -325,16 +252,15 @@ body {
 
 .main-page__anons__address {
   position: absolute;
-  width: 600px;
-  height: 29px;
-  left: 810px;
-  top: 550px;
+  width: 400px;
+  right: 20px;
+  top: 570px;
   color: #FFFFFF;
 }
 .main-page__anons__address p {
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 28px;
   line-height: 28px;
 }
 
@@ -526,7 +452,7 @@ body {
 .main-page__registration__title {
   grid-area: reg_titile;
   padding: 0px 0 32px 0;
-  font-size: 45px;
+  font-size: 80px;
 }
 .main-page__registration__descr {
   font-size: 14px;
@@ -534,8 +460,9 @@ body {
   padding-left: 40px;
   padding-bottom: 10px;
   display: flex;
+  flex-flow: column;
   justify-content: flex-end;
-  align-items: flex-end;
+
 }
 .main-page__registration__form {
   grid-area: reg_form;
@@ -565,6 +492,7 @@ body {
 .main-page__faq__title {
   padding-bottom: 32px;
   padding-top: 40px;
+  font-size: 80px;
 }
 
 .main-page__translation {
@@ -616,7 +544,7 @@ body {
 .banner-block__container {
   width: 100%;
   position: relative;
-  max-width: 1260px;
+  max-width: 1440px;
   margin: 0 auto;
   height: inherit;
 }
@@ -649,89 +577,127 @@ body {
   border: 1px solid #858585;
 }
 
-
-
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.arrow-to-down {
+  position: absolute;
+  top: 94%;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  width: 50px;
+  opacity: 0.3;
+  cursor: pointer;
+  animation-name: top-down;
+  animation-timing-function: ease;
+  padding: 15px;
+  z-index: 1000;
 }
+@keyframes top-down {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+//
+//@keyframes gradient {
+//  0% {
+//    background-position: 0% 50%;
+//  }
+//  50% {
+//    background-position: 100% 50%;
+//  }
+//  100% {
+//    background-position: 0% 50%;
+//  }
+//}
 // Верхний баннер //
 
 @media screen and (min-width: 768px) {
-  //.arrow-to-top {
-  //  border: 1px solid red;
-  //}
-}
 
-@media screen and (min-width: 990px) {
-
-  .arrow-to-top {
-    width: 50px;
+  .logo {
+    width: 138px;
   }
 
-  .banner-block__title {
-    font-size: 50px;
-    text-align: center;
-  }
-  .banner-block__svg-banner {
-    width: 70vw;
-  }
-
-  .nav-button {
-    display: none;
-  }
-
-  //.main-page__anons {
-  //
-  //  grid-gap: 10%;
-  //  grid-template-columns: 100%;
-  //}
-
-  .main-page__anons__container {
-
-  }
-
-
-
-  .main-page__registration {
-
-  }
-  .main-page__speakers__container {
-    padding: 0 80px;
-  }
-
-  .main-page__registration_container {
-    padding: 80px 60px 80px 60px;
-    display: grid;
-    //grid-template-areas: "reg_titile reg_titile"
-    //                   "reg_form reg_descr";
-    //grid-template-columns: 50% 50%;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-
-  .main-page__contacts {
-    padding: 40px 80px 80px 80px;
-  }
-
-  .main-page__faq {
-    padding: 80px;
+  .big_ball {
+    position: absolute;
+    width: 245px;
+    height: 245px;
+    left: 250px;
+    top: 100px;
+    background: #6D22C4;
+    border-radius: 50%;
+    zIndex: 100;
   }
 
 }
 
 @media screen and (min-width: 1280px) {
-  //.arrow-to-top {
-  //  border: 1px solid red;
-  //}
+
+  .big_ball {
+    position: absolute;
+    width: 528px;
+    height: 528px;
+    left: 264px;
+    top: 100px;
+    background: #6D22C4;
+    border-radius: 50%;
+    zIndex: 100;
+  }
+
 }
+
+//@media screen and (min-width: 990px) {
+//
+//  .banner-block__title {
+//    font-size: 50px;
+//    text-align: center;
+//  }
+//  .banner-block__svg-banner {
+//    width: 70vw;
+//  }
+//
+//  .nav-button {
+//    display: none;
+//  }
+//
+//  //.main-page__anons {
+//  //
+//  //  grid-gap: 10%;
+//  //  grid-template-columns: 100%;
+//  //}
+//
+//  .main-page__anons__container {
+//
+//  }
+//
+//
+//
+//  .main-page__registration {
+//
+//  }
+//  .main-page__speakers__container {
+//    padding: 0 80px;
+//  }
+//
+//  .main-page__registration_container {
+//    box-sizing: border-box;
+//    padding: 20px 40px 80px 40px;
+//    display: grid;
+//    width: 100%;
+//    //grid-template-areas: "reg_titile reg_titile"
+//    //                   "reg_form reg_descr";
+//    //grid-template-columns: 50% 50%;
+//    max-width: 1440px;
+//    margin: 0 auto;
+//  }
+//
+//  .main-page__contacts {
+//    padding: 40px 80px 80px 80px;
+//  }
+//
+//  .main-page__faq {
+//    padding: 80px;
+//  }
+//
+//}
+
 
 

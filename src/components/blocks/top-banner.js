@@ -26,12 +26,9 @@ const TopBanner = () => {
 
         <div className="departure-board-container">
           <DepartureBoard/>
-          {/*<iframe src="https://brandnewconference.ru/images/daprture-board.html" height="100%" width="100%"/>*/}
         </div>
-
-        {/*<img className="arrow-to-down" src={ArrowToDown} onClick={scrollToDown}/>*/}
         <div className="main-page__anons__block_date">14.09.2022</div>
-        <div className="main-page__anons__block_time">10:00-16:00</div>
+        <div className="main-page__anons__block_time">10:00-15:00</div>
         <a href="#registration" className="main-page__anons__registration">
           РЕГИСТРАЦИЯ
           <img src={RegArrowSvg}/>
@@ -46,12 +43,6 @@ const TopBanner = () => {
       </div>
 
       <img className="arrow-to-down" src={ArrowToDown} onClick={scrollToDown}/>
-      {/*<div className="banner-block__title">Новая конференция dentsu</div>*/}
-      {/*<img className="banner-block__svg-banner" src={TopBannerSVG}/>*/}
-      {/*<div style={{width: '710px', height: '280px', border: '0px solid red', zIndex: '10000000'}}>*/}
-      {/*  <iframe src="https://brandnewconference.ru/images/daprture-board.html" height="100%" width="100%"/>*/}
-      {/*</div>*/}
-
     </div>
   );
 };

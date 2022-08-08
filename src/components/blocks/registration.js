@@ -57,8 +57,15 @@ const OfflineMsgByLink = () => {
     <div>
       <p>Спасибо за регистрацию офлайн</p>
       <p>Спасибо за интерес к нашей конференции! Вы успешно зарегистрировались на офлайн-участие. На почту придёт
-        письмо с подтверждением. Если его нет, свяжитесь с нами support@brandnewconference.ru</p>
+        письмо с подтверждением. Если его нет, свяжитесь с нами <a
+          href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a></p>
       <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
+      <p>
+        <a style={{display: "flex", alignItems: "center"}} target="_blank"
+           href="/images/upload/contacts/conference_dentsu.ics">
+          <img src={Calendar} style={{width: "22px", marginRight: "10px"}}/> Конференция dentsu
+        </a>
+      </p>
     </div>
   );
 }
@@ -118,7 +125,7 @@ const Registration = (props) => {
   const showSuccessMsg = (consumer) => {
 
 
-    if (consumer.part_type == 'offline' && props.hash) {
+    if (consumer.part_type == 'offline' && props.hash && props.partFormat == "offline") {
       dispatch(openModal(<RegistrationNotices><OfflineMsgByLink /></RegistrationNotices>, 'Регистрация'));
     } else if (consumer.part_type == 'online') {
       dispatch(openModal(<RegistrationNotices><OnlineMsg/></RegistrationNotices>, 'Регистрация'));
@@ -156,10 +163,10 @@ const Registration = (props) => {
         >
 
           <h2 className="main-page__registration__title">
-            ЗАЯВКА НА УЧАСТИЕ В КОНФЕРЕНЦИИ
+            РЕГИСТРАЦИЯ
           </h2>
 
-          <div style={{marginBottom: '10px', display: 'grid', gridTemplateColumns: '600px 600px'}}>
+          <div style={{display: 'grid', gridTemplateColumns: '600px 600px'}}>
 
 
             <div className="main-page__registration__form__main-set">
@@ -202,7 +209,10 @@ const Registration = (props) => {
               <p>
                 Онлайн-трансляция доступна для всех желающих. В офлайне количество мест ограничено. Все заявки
                 проходят
-                модерацию в течение недели, ответ придет вам на почту. Регистрацию на офлайн закрываем 12 сентября в
+                модерацию в течение недели, ответ придет вам на почту.
+              </p>
+              <p>
+                Регистрацию на офлайн закрываем 12 сентября в
                 10:00.
               </p>
             </div>
@@ -231,7 +241,7 @@ const Registration = (props) => {
           </div>
 
 
-          <div style={{paddingTop: '20px'}}>
+          <div style={{paddingTop: '0px'}}>
             {/*{props.partFormat && props.partFormat } -*/}
             {/*{props.hash && props.hash }*/}
             <Field>
@@ -240,7 +250,7 @@ const Registration = (props) => {
                 <RadioInput value="offline" label="Offline"/>
               </Radio>
             </Field>
-            <div style={{margin: '15px 0 15px 18px'}}>
+            <div style={{margin: '5px 0 5px 18px'}}>
               <Field>
                 <Checkbox value="1" name="accept" label={accept}/>
               </Field>

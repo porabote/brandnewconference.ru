@@ -1,4 +1,17 @@
 @accent-color: #541EBD;
+
+:focus {
+  outline: none;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #FFFFFF;
+  font-size: 15px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #FFFFFF;
+  font-size: 15px;
+}
+
 .form_item__input_wrap {
 
 }
@@ -10,14 +23,14 @@
   box-sizing: border-box;
   font-size: 18px;
   padding: 0px 10px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   font-style: normal;
   font-weight: 400;
   line-height: 28px;
   color: #858585;
 }
 .form_item.pink {
-  width: 50%;
+  width: 45%;
 }
 
 .form_item__label {
@@ -153,7 +166,7 @@
   padding: 0 30px;
   min-width: 240px;
   cursor: pointer;
-  width: 600px;
+  width: 50%;
   -webkit-transition: background-color 0.5s ease-out;
   -moz-transition: background-color 0.5s ease-out;
   -o-transition: background-color 0.5s ease-out;
@@ -181,6 +194,7 @@
 .field-button {
   border: 3px solid #6D22C4;
   display: flex;
+  justify-content: space-between;
   position: relative;
   border-radius: 100px;
   max-height: 58px;

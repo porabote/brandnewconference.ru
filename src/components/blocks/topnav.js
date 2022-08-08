@@ -29,7 +29,7 @@ const Topnav = () => {
           <div className="topnav__nav"><a className="topnav__nav__link" href="#speakers">Спикеры</a></div>
           <div className="topnav__nav"><a className="topnav__nav__link" href="#faq">FAQ</a></div>
           <div className="topnav__nav"><a className="topnav__nav__link" href="#contacts">Контакты</a></div>
-          <div className="topnav__nav">
+          <div className="topnav__nav registration">
             <a className="topnav__nav__link registration" href="#registration">Регистрация</a>
           </div>
         </div>

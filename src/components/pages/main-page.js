@@ -14,6 +14,8 @@ import Contacts from "@components/blocks/contacts";
 import TopBanner from "@components/blocks/top-banner";
 import ArrowToTop from "@components/blocks/arrow-to-top";
 import DepartureBoard from "@components/common/departure-board";
+import Logo from "@assets/svg/logo.svg";
+import RegistrationNotices from "@components/blocks/registration-notices";
 
 const MainPage = () => {
 
@@ -28,7 +30,17 @@ const MainPage = () => {
         if (resp.data.hash) {
           setPartFormat(resp.data.hash.part_format);
           setHash(resp.data.hash.hash);
+        } else if (userId) {
+
+          dispatch(openModal(<RegistrationNotices>
+              Что-то пошло не так. Похоже, эта ссылка не работает.
+            Перейдите по уникальной ссылке из персонального приглашения или зарегистрируйтесь через форму на сайте.
+            Если закралась ошибка, свяжитесь с нами
+            <a href="mailto:support@brandnewconference.ru"> support@brandnewconference.ru</a>
+          </RegistrationNotices>, 'Регистрация'));
+
         }
+
         setSpeakers(resp.data.speakers);
         setFaqs(resp.data.faqs);
         setLoading(true);
@@ -53,14 +65,30 @@ const MainPage = () => {
   return (
     <div ref={mainBlock}>
       {/*<DepartureBoard/>*/}
-      <Topnav/>
-      <TopBanner/>
-      <Anons/>
-      <Speakers data={speakers}/>
-      <Registration loading={loading} hash={hash} partFormat={partFormat}/>
-      <Faq data={faqs}/>
-      <Contacts/>
-
+      {/*<div className="block-container">*/}
+      {/*  <div className="header">*/}
+      {/*    <img src={Logo} className="logo"/>*/}
+      {/*    <Topnav/>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
+      <div className="block-container">
+        <TopBanner/>
+      </div>
+      {/*<div className="block-container">*/}
+      {/*  <Anons/>*/}
+      {/*</div>*/}
+      {/*<div className="block-container">*/}
+      {/*  <Speakers data={speakers}/>*/}
+      {/*</div>*/}
+      {/*<div className="block-container">*/}
+      {/*  <Registration loading={loading} hash={hash} partFormat={partFormat}/>*/}
+      {/*</div>*/}
+      {/*<div className="block-container">*/}
+      {/*  <Faq data={faqs}/>*/}
+      {/*</div>*/}
+      {/*<div className="block-container">*/}
+      {/*  <Contacts/>*/}
+      {/*</div>*/}
 
 
       {/*<ArrowToTop/>*/}
