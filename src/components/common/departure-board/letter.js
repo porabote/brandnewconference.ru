@@ -73,17 +73,17 @@ const Letter = (props) => {
         fontSize: style.fontSize,
       }}
     >
-      <div style={{top: style.nextTop, height: style.halfHeight}} className="half next">
+      <div style={{top: style.nextTop, height: style.halfHeight, zIndex: 100}} className="half next">
         <span style={{top: style.nextSpanTop}}>{nextLetter}</span>
       </div>
-      <div style={{top: style.prevTop, height: style.halfHeight}} className="half prev">
+      <div style={{top: style.prevTop, height: style.halfHeight, zIndex: 100}} className="half prev">
         <span style={{top: style.prevSpanTop}}>{prevLetter}</span>
       </div>
-      <div style={{top: style.backTop, height: style.halfHeight}} className="half back">
+      <div style={{top: style.backTop, height: style.halfHeight, zIndex: 100}} className="half back">
         <span style={{top: style.backSpanTop}}>{nextLetter}</span>
       </div>
       {/*<div className="divider"></div>*/}
-      <div style={{top: style.frontTop, height: style.halfHeight}} className="half front">
+      <div style={{top: style.frontTop, height: style.halfHeight, zIndex: 100}} className="half front">
         <span style={{top: style.frontSpanTop}}>{prevLetter}</span>
       </div>
     </div>

@@ -25,6 +25,7 @@
   pointer-events: all;
   transform: scale(0);
   transition : 0.3s ease all;
+  z-index: 9999999999999999;
 }
 .topnav.showed {
   display: flex;
@@ -37,7 +38,6 @@
 }
 .topnav.hidden {
   opacity: 0;
-  pointer-events: none;
   transform: scale(0);
   transition : 0.3s ease all;
 }
@@ -57,7 +57,7 @@
   color: #fff;
   border-top: 1px solid #FFFFFF;
   width: 100%;
-  text-align: center;
+  text-align: center;z-index: 9999999999999999;
 }
 .topnav__nav:first-child {
   padding-left: 0;
@@ -107,6 +107,7 @@
     top: 35px;
     right: 40px;
     padding: 0;
+    z-index: 10000000;
   }
   .topnav {
     top: 0;

@@ -24,8 +24,8 @@
 }
 
 .prb-slider__title {
-  font-size: 30px;
-  padding: 20px 50px;
+  font-size: 2.7rem;
+  padding: 20px 0px;
   text-transform: uppercase;
   color: #e7e7e7;
   text-align: left;
@@ -55,9 +55,12 @@
 }
 
 .prb-slider__buttons {
-  display: flex;
+  display: none;
   justify-content: flex-end;
   align-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  top: 0.6rem;
 }
 .prb-slider-btn-left,
 .prb-slider-btn-right {
@@ -168,10 +171,26 @@
   }
 
   .prb-slider__title {
-    font-size: 80px;
+    font-size: 3.4rem;
   }
 
   .prb-slider__navbar {
+    padding: 0.4rem 0;
+  }
+
+  .prb-slider__buttons {
+    display: flex;
+    top: 0.4rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .prb-slider__title {
+    font-size: 4.5rem;
     padding: 0;
+  }
+  .prb-slider__buttons {
+    display: flex;
+    top: 0.6rem;
   }
 }

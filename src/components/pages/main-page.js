@@ -65,13 +65,13 @@ const MainPage = () => {
   return (
     <div ref={mainBlock}>
       {/*<DepartureBoard/>*/}
-      <div className="block-container">
+      <div className="block-container" style={{zIndex: 1000000000000000, border: '0px solid green'}}>
         <div className="header">
           <img src={Logo} className="logo"/>
           <Topnav/>
         </div>
       </div>
-      <div className="block-container">
+      <div className="block-container" style={{zIndex: 100}}>
         <TopBanner/>
       </div>
 
