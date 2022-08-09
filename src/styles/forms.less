@@ -116,7 +116,7 @@
 }
 .form_item__label.pink {
   border: 0;
-  min-width: 600px;
+  min-width: 200px;
 }
 .form_item__label.pink:hover {
   border: 0;
@@ -157,6 +157,8 @@
 
 
 .registration-submit {
+  height: 90px;
+  width: 100%;
   background: #6D22C4;
   border-radius: 100px;
   color: #FCECEC;
@@ -164,9 +166,8 @@
   font-size: 15px;
   font-weight: 800;
   padding: 0 30px;
-  min-width: 240px;
+  min-width: 340px;
   cursor: pointer;
-  width: 50%;
   -webkit-transition: background-color 0.5s ease-out;
   -moz-transition: background-color 0.5s ease-out;
   -o-transition: background-color 0.5s ease-out;
@@ -193,13 +194,14 @@
 
 .field-button {
   border: 3px solid #6D22C4;
-  display: flex;
+  display: grid;
   justify-content: space-between;
   position: relative;
   border-radius: 100px;
-  max-height: 58px;
+max-height: 58px;
   margin-bottom: 20px;
   transition: all 0.5s ease;
+  margin-bottom: 90px;
 }
 
 .field-button:hover {
@@ -280,3 +282,31 @@
 
 }
 
+@media screen and (min-width: 768px) {
+  .form_item__label.pink {
+    border: 0;
+    min-width: 600px;
+  }
+
+  .field-button {
+    border: 3px solid #6D22C4;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 100px;
+    max-height: 58px;
+    margin-bottom: 20px;
+    transition: all 0.5s ease;
+  }
+
+  .field-button {
+    max-height: 58px;
+  }
+
+  .registration-submit {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1280px) {
+
+}

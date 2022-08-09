@@ -1,5 +1,5 @@
 .prb-accordion__item__tab {
-  padding: 14px 4px;
+  padding: 14px 20px;
   cursor: pointer;
   display: flex;
   align-content: center;
@@ -9,7 +9,7 @@
   border-top: 1px solid #4D4D4D;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.2rem;
   line-height: 29px;
   color: #FFFFFF;
   transition: all 0.5ms ease;
@@ -23,9 +23,8 @@
 }
 
 .prb-accordion__item__body {
-  padding: 0;
   box-sizing: border-box;
-  font-size: 17px;
+  font-size: 1.1rem;
   color: #FFFFFF;
   visibility: hidden;
   opacity: 0;
@@ -36,5 +35,14 @@
   visibility: visible;
   opacity: 1;
   height: auto;
-  padding: 30px 40% 50px 4px;
+  padding: 30px 20px 50px 20px;
+}
+
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1280px) {
+  .prb-accordion__item__body.active {
+    padding: 30px 40% 50px 20px;
+  }
 }

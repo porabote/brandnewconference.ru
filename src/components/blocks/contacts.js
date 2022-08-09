@@ -24,7 +24,7 @@ const Contacts = () => {
               dentsu insights
             </a>
           </p>
-          <p>
+          <p className="main-page__contacts__item">
             <a href="mailto:support@brandnewconference.ru">
               <img src={Mail} className="mail-icon"/>
               Мы на связи support@brandnewconference.ru</a>

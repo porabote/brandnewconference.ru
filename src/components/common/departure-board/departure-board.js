@@ -3,6 +3,8 @@ import Letter from "./letter";
 
 const DepartureBoard = () => {
 
+  let windowWidth = window.screen.width;
+
   let words = [
     "НОВАЯ",
     "КОНФЕРЕНЦИЯ",
@@ -33,7 +35,7 @@ const DepartureBoard = () => {
     "НА ЖИЗНЬ",
   ];
 
-  const stylesDesctop = {
+  const stylesDesktop = {
     fontSize: '125px',
     halfHeight: '75px',
     lineHeight: '120px',
@@ -45,18 +47,60 @@ const DepartureBoard = () => {
     frontSpanTop: '0px',
     nextTop: '0px',
     nextSpanTop: '0px',
+    letterWidth: 90,
+    rowTopOffset: 125,
+    szhOffset: 135,
+    szhWidth: 35,
+    spaceOffset: 45,
   };
 
-  let style = stylesDesctop;
+  const stylesNote = {
+    fontSize: '5rem',
+    halfHeight: '50px',
+    lineHeight: '80px',
+    prevTop: '50px',
+    prevSpanTop: '-50px',
+    backTop: '50px',
+    backSpanTop: '-50px',
+    frontTop: '0px',
+    frontSpanTop: '0px',
+    nextTop: '0px',
+    nextSpanTop: '0px',
+    letterWidth: 67,
+    rowTopOffset: 87,
+    szhOffset: 80,
+    szhWidth: 34,
+    spaceOffset: 33,
+  };
+
+  const stylesMobile = {
+    fontSize: '2.4rem',
+    halfHeight: '30px',
+    lineHeight: '60px',
+    prevTop: '30px',
+    prevSpanTop: '-30px',
+    backTop: '30px',
+    backSpanTop: '-30px',
+    frontTop: '0px',
+    frontSpanTop: '0px',
+    nextTop: '0px',
+    nextSpanTop: '0px',
+    letterWidth: 32,
+    rowTopOffset: 43,
+    szhOffset: 40,
+    szhWidth: 12,
+    spaceOffset: 15,
+  };
+
+  let style = stylesMobile;
+  if (windowWidth > 1280) {
+    style = stylesDesktop;
+  } else if (windowWidth > 768) {
+    style = stylesNote;
+  }
 
   useEffect(() => {
     reloadRows(scopeCurrentIndex);
-
-  //  setScopeCurrentIndex(currentValue => currentValue + 3);
-
-   // console.log(scopeCurrentIndex);
-
-   // setScopeCurrentIndex(currentValue => currentValue + 3);
     return () => {
       //clearTimeout(timer);
     };
@@ -65,7 +109,6 @@ const DepartureBoard = () => {
   const [bannerWidth, setBannerWidth] = useState(1260);
   const [cellsCount, setCellsCount] = useState(12);
   const [scopeCurrentIndex, setScopeCurrentIndex] = useState(0);
-  //const [cellWidth, setCellWidth] = useState(10);
   const [rows, setRows] = useState([]);
   const [countOfRandomLetters, setCountOfRandomLetters] = useState(12);
 
@@ -101,7 +144,7 @@ const DepartureBoard = () => {
   }
 
   return (
-    <div className="departure-board" style={{width: `${bannerWidth}px`}}>
+    <div className="departure-board">
 
       {rows.map((row, index) => {
         let letters = row.padEnd(12).split('');
@@ -109,10 +152,10 @@ const DepartureBoard = () => {
         let offset = 0;
 
         return (
-            <div className="departure-board-row" key={index} style={{top: `${index * 125}px`}}>
+            <div className="departure-board-row" key={index} style={{top: `${index * style.rowTopOffset}px`}}>
               {letters.map((letter, index) => {
 
-                let letterWidth = ( letter != 'Ж') ? 90 : 135;
+                let letterWidth = ( letter != 'Ж') ? style.letterWidth : style.szhOffset;
 
                 let countOfRandomLetters = getRandomArbitrary(4, 8);
 
@@ -133,12 +176,12 @@ const DepartureBoard = () => {
                   letter={letter} />;
 
                 if (letter == 'Ж' ) {
-                  offset += 90 + 35;
+                  offset += style.letterWidth + style.szhWidth;
                  // console.log(randomLetters);
                 } else if (letter == 0) {
-                  offset += 90 - 45;
+                  offset += style.letterWidth - style.spaceOffset;
                 } else {
-                  offset += 90;
+                  offset += style.letterWidth;
                 }
                 return element;
               })}

@@ -11,6 +11,14 @@ const Anons = () => {
     <div id="preview" className="main-page__anons">
 
 
+      <div className="main-page__anons__main-text-balls">
+        <div style={{position: 'relative', width: '100px', height: '200px'}}>
+          <div className="main-page__anons__main-text-balls__big-ball"></div>
+          <div className="main-page__anons__main-text-balls__middle-ball"></div>
+          <div className="main-page__anons__main-text-balls__small-ball"></div>
+        </div>
+      </div>
+
       <div className="main-page__anons__container">
 
         <div className="main-page__anons__main-text">
@@ -32,13 +40,7 @@ const Anons = () => {
               Мероприятие пройдет бесплатно в гибридном формате. Помимо премьеры на большом экране «Художественного» будет онлайн-трансляция. В офлайне количество мест ограничено.
             </p>
           </div>
-          <div className="main-page__anons__main-text-balls">
-            <div className="main-page__anons__main-text-balls__big-ball"></div>
-            <div className="main-page__anons__main-text-balls__middle-ball"></div>
-            <div className="main-page__anons__main-text-balls__small-ball"></div>
-          </div>
         </div>
-
 
       </div>
 

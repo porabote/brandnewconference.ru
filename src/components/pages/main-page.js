@@ -65,30 +65,30 @@ const MainPage = () => {
   return (
     <div ref={mainBlock}>
       {/*<DepartureBoard/>*/}
-      {/*<div className="block-container">*/}
-      {/*  <div className="header">*/}
-      {/*    <img src={Logo} className="logo"/>*/}
-      {/*    <Topnav/>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+      <div className="block-container">
+        <div className="header">
+          <img src={Logo} className="logo"/>
+          <Topnav/>
+        </div>
+      </div>
       <div className="block-container">
         <TopBanner/>
       </div>
-      {/*<div className="block-container">*/}
-      {/*  <Anons/>*/}
-      {/*</div>*/}
-      {/*<div className="block-container">*/}
-      {/*  <Speakers data={speakers}/>*/}
-      {/*</div>*/}
-      {/*<div className="block-container">*/}
-      {/*  <Registration loading={loading} hash={hash} partFormat={partFormat}/>*/}
-      {/*</div>*/}
-      {/*<div className="block-container">*/}
-      {/*  <Faq data={faqs}/>*/}
-      {/*</div>*/}
-      {/*<div className="block-container">*/}
-      {/*  <Contacts/>*/}
-      {/*</div>*/}
+
+        <Anons/>
+
+      <div className="block-container">
+        <Speakers data={speakers}/>
+      </div>
+
+        <Registration loading={loading} hash={hash} partFormat={partFormat}/>
+
+      <div className="block-container">
+        <Faq data={faqs}/>
+      </div>
+
+        <Contacts/>
+
 
 
       {/*<ArrowToTop/>*/}

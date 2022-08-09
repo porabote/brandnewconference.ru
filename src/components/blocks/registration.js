@@ -3,18 +3,18 @@ import {Helmet} from "react-helmet";
 import {useDispatch} from "react-redux";
 import Api from "@services";
 import {
-  Form,
-  Button,
-  Field,
-  Input,
-  InputDate,
-  InputHidden,
-  Option,
-  Select,
-  Checkbox,
-  Radio,
-  RadioInput,
-  SubmitButton
+    Form,
+    Button,
+    Field,
+    Input,
+    InputDate,
+    InputHidden,
+    Option,
+    Select,
+    Checkbox,
+    Radio,
+    RadioInput,
+    SubmitButton
 } from "@components/common/form";
 import {openModal} from "@components/common/modal";
 import RegistrationNotices from "./registration-notices";
@@ -23,254 +23,252 @@ import Calendar from './svg/calendar.svg';
 import ButtonArrowIcon from './svg/reg-file-button-arrow.svg';
 
 let OnlineMsg = () => {
-  return (
-    <div>
-      <p>Спасибо за регистрацию онлайн</p>
-      <p>Спасибо за интерес к нашей конференции! Вы успешно зарегистрировались на онлайн-трансляцию.
-        На почту придёт письмо с подтверждением. Если его нет, свяжитесь с нами <a
-          href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a></p>
-      <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
-      <p>
-        <a style={{display: "flex", alignItems: "center"}} target="_blank"
-           href="/images/upload/contacts/conference_dentsu_online.ics">
-          <img src={Calendar} style={{width: "22px", marginRight: "10px"}}/> Конференция dentsu Online
-        </a>
-      </p>
-    </div>
-  );
+    return (
+        <div>
+            <p>Спасибо за регистрацию онлайн</p>
+            <p>Спасибо за интерес к нашей конференции! Вы успешно зарегистрировались на онлайн-трансляцию.
+                На почту придёт письмо с подтверждением. Если его нет, свяжитесь с нами <a
+                    href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a></p>
+            <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
+            <p>
+                <a style={{display: "flex", alignItems: "center"}} target="_blank"
+                   href="/images/upload/contacts/conference_dentsu_online.ics">
+                    <img src={Calendar} style={{width: "22px", marginRight: "10px"}}/> Конференция dentsu Online
+                </a>
+            </p>
+        </div>
+    );
 }
 
 const OfflineMsg = () => {
-  return (
-    <div>
-      <p>Спасибо за регистрацию офлайн</p>
-      <p>Спасибо за интерес к нашей конференции! Вашу заявку на офлайн-участие рассмотрим в течение недели.
-        Модерация нужна, чтобы мы поместились на площадке и гостям было комфортно. Скоро пришлëм письмо с
-        результатом модерации на почту. Если его не будет, свяжитесь с нами <a
-          href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a></p>
-      <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
-    </div>
-  );
+    return (
+        <div>
+            <p>Спасибо за регистрацию офлайн</p>
+            <p>Спасибо за интерес к нашей конференции! Вашу заявку на офлайн-участие рассмотрим в течение недели.
+                Модерация нужна, чтобы мы поместились на площадке и гостям было комфортно. Скоро пришлëм письмо с
+                результатом модерации на почту. Если его не будет, свяжитесь с нами <a
+                    href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a></p>
+            <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
+        </div>
+    );
 }
 const OfflineMsgByLink = () => {
-  return (
-    <div>
-      <p>Спасибо за регистрацию офлайн</p>
-      <p>Спасибо за интерес к нашей конференции! Вы успешно зарегистрировались на офлайн-участие. На почту придёт
-        письмо с подтверждением. Если его нет, свяжитесь с нами <a
-          href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a></p>
-      <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
-      <p>
-        <a style={{display: "flex", alignItems: "center"}} target="_blank"
-           href="/images/upload/contacts/conference_dentsu.ics">
-          <img src={Calendar} style={{width: "22px", marginRight: "10px"}}/> Конференция dentsu
-        </a>
-      </p>
-    </div>
-  );
+    return (
+        <div>
+            <p>Спасибо за регистрацию офлайн</p>
+            <p>Спасибо за интерес к нашей конференции! Вы успешно зарегистрировались на офлайн-участие. На почту придёт
+                письмо с подтверждением. Если его нет, свяжитесь с нами <a
+                    href="mailto:support@brandnewconference.ru">support@brandnewconference.ru</a></p>
+            <p>Пока есть время задать вопросы спикерам и пригласить на конференцию коллег🙂</p>
+            <p>
+                <a style={{display: "flex", alignItems: "center"}} target="_blank"
+                   href="/images/upload/contacts/conference_dentsu.ics">
+                    <img src={Calendar} style={{width: "22px", marginRight: "10px"}}/> Конференция dentsu
+                </a>
+            </p>
+        </div>
+    );
 }
 
 
 const Registration = (props) => {
 
-  if (!props.loading) {
-    return <p>Data loading</p>
-  }
+    if (!props.loading) {
+        return <p>Data loading</p>
+    }
 
-  let values = {
-    name: '',
-    last_name: '',
-    patronymic: '',
-    post_name: '',
-    company_name: '',
-    email: '',
-    phone: '',
-    user_id: (props.hash) ? props.hash : '',
-    part_type: (props.partFormat) ? props.partFormat : '',
-    accept: '',
-  };
-
-
-  useEffect(() => {
-    // setValues(values);
-
-  }, [props]);
-
-  const dispatch = useDispatch();
-
-  //const [values, setValues] = useState({});
-  const [partFormat, setPartFormat] = useState(props.partFormat);
+    let values = {
+        name: '',
+        last_name: '',
+        patronymic: '',
+        post_name: '',
+        company_name: '',
+        email: '',
+        phone: '',
+        user_id: (props.hash) ? props.hash : '',
+        part_type: (props.partFormat) ? props.partFormat : '',
+        accept: '',
+    };
 
 
-  const submitData = (values, formContext) => {
+    useEffect(() => {
+        // setValues(values);
 
-    Api.post(`/api/landing/method/registration/`, {
-      body: values,
-    })
-      .then((resp) => {
-        if (typeof resp.error != "undefined" && resp.error.length > 0) {
-          dispatch(openModal(<RegistrationNotices>{resp.error}</RegistrationNotices>, 'Регистрация'));
-        } else if (typeof resp.data.consumer != "undefined") {
-          showSuccessMsg(resp.data.consumer);
+    }, [props]);
 
-          Object.keys(values).map((fieldName) => {
-            formContext.setFieldValue(fieldName, '');
-          });
+    const dispatch = useDispatch();
+
+    //const [values, setValues] = useState({});
+    const [partFormat, setPartFormat] = useState(props.partFormat);
+
+
+    const submitData = (values, formContext) => {
+
+        Api.post(`/api/landing/method/registration/`, {
+            body: values,
+        })
+            .then((resp) => {
+                if (typeof resp.error != "undefined" && resp.error.length > 0) {
+                    dispatch(openModal(<RegistrationNotices>{resp.error}</RegistrationNotices>, 'Регистрация'));
+                } else if (typeof resp.data.consumer != "undefined") {
+                    showSuccessMsg(resp.data.consumer);
+
+                    Object.keys(values).map((fieldName) => {
+                        formContext.setFieldValue(fieldName, '');
+                    });
+                } else {
+                    dispatch(openModal(<RegistrationNotices msg="Ошибка регистрации"/>, 'Регистрация'));
+                }
+            });
+    }
+
+    const showSuccessMsg = (consumer) => {
+
+
+        if (consumer.part_type == 'offline' && props.hash && props.partFormat == "offline") {
+            dispatch(openModal(<RegistrationNotices><OfflineMsgByLink/></RegistrationNotices>, 'Регистрация'));
+        } else if (consumer.part_type == 'online') {
+            dispatch(openModal(<RegistrationNotices><OnlineMsg/></RegistrationNotices>, 'Регистрация'));
         } else {
-          dispatch(openModal(<RegistrationNotices msg="Ошибка регистрации"/>, 'Регистрация'));
+            dispatch(openModal(<RegistrationNotices><OfflineMsg/></RegistrationNotices>, 'Регистрация'));
         }
-      });
-  }
 
-  const showSuccessMsg = (consumer) => {
-
-
-    if (consumer.part_type == 'offline' && props.hash && props.partFormat == "offline") {
-      dispatch(openModal(<RegistrationNotices><OfflineMsgByLink /></RegistrationNotices>, 'Регистрация'));
-    } else if (consumer.part_type == 'online') {
-      dispatch(openModal(<RegistrationNotices><OnlineMsg/></RegistrationNotices>, 'Регистрация'));
-    } else {
-      dispatch(openModal(<RegistrationNotices><OfflineMsg/></RegistrationNotices>, 'Регистрация'));
     }
 
-  }
+    let shareText = encodeURIComponent('Brand new conference — конференция про бизнес и маркетинг новой волны.' +
+        ' Покажем новую версию dentsu и дадим пользу для сборки стратегии 2023');
+    let shareUrl = encodeURIComponent('https://brandnewconference.ru');
 
-  let shareText = encodeURIComponent('Brand new conference — конференция про бизнес и маркетинг новой волны.' +
-    ' Покажем новую версию dentsu и дадим пользу для сборки стратегии 2023');
-  let shareUrl = encodeURIComponent('https://brandnewconference.ru');
+    let docOnline = `Согласие на <b><a href='/images/doc_accept_opd.pdf'>обработку персональных данных</a></b>`;
+    let docOffline = `Согласие на <b><a target="_blank" href='/images/doc_accept_opd.pdf'>обработку персональных данных</a></b> и <b><a target="_blank" href='/images/doc_accept_opd_with_media.pdf'>использование фото и видео изображений</a></b>`;
 
-  let docOnline = `Согласие на <b><a href='/images/doc_accept_opd.pdf'>обработку персональных данных</a></b>`;
-  let docOffline = `Согласие на <b><a target="_blank" href='/images/doc_accept_opd.pdf'>обработку персональных данных</a></b> и <b><a target="_blank" href='/images/doc_accept_opd_with_media.pdf'>использование фото и видео изображений</a></b>`;
+    const [accept, setAccept] = useState((props.partFormat && props.partFormat == 'offline') ? docOffline : docOnline);
 
-  const [accept, setAccept] = useState((props.partFormat && props.partFormat == 'offline') ? docOffline : docOnline);
-
-  const changeAccept = (e, formContext) => {
-    if (formContext.values.part_type == 'offline') {
-      setAccept(docOffline);
-    } else {
-      setAccept(docOnline);
+    const changeAccept = (e, formContext) => {
+        if (formContext.values.part_type == 'offline') {
+            setAccept(docOffline);
+        } else {
+            setAccept(docOnline);
+        }
     }
-  }
 
 
-  return (
-    <div id="registration" className="main-page__registration">
-      <div className="main-page__registration_container">
-
+    return (
         <Form
-          values={values}
-          submitForm={submitData}
+            values={values}
+            submitForm={submitData}
         >
-
-          <h2 className="main-page__registration__title">
-            РЕГИСТРАЦИЯ
-          </h2>
-
-          <div style={{display: 'grid', gridTemplateColumns: '600px 600px'}}>
+            <div id="registration" className="main-page__registration">
 
 
-            <div className="main-page__registration__form__main-set">
-              <Field>
-                <Input
-                  label="Имя *"
-                  name="name"
-                />
-              </Field>
-              <Field>
-                <Input
-                  label="Фамилия *"
-                  name="last_name"
-                />
-              </Field>
-              <Field>
-                <Input
-                  label="Компания *"
-                  name="company_name"
-                />
-              </Field>
-              <Field>
-                <Input
-                  label="Должность *"
-                  name="post_name"
-                />
-              </Field>
+                <h2 className="main-page__registration__title">
+                    РЕГИСТРАЦИЯ
+                </h2>
 
-              <Field>
-                <Input
-                  label="Телефон"
-                  name="phone"
+                <div className="main-page__registration__grid-container">
 
-                />
-              </Field>
+
+                    <div className="main-page__registration__descr">
+                        <p>
+                            Онлайн-трансляция доступна для всех желающих. В офлайне количество мест ограничено. Все
+                            заявки
+                            проходят
+                            модерацию в течение недели, ответ придет вам на почту.
+                        </p>
+                        <p>
+                            Регистрацию на офлайн закрываем 12 сентября в
+                            10:00.
+                        </p>
+                    </div>
+
+
+                    <div className="main-page__registration__form__main-set">
+                        <Field>
+                            <Input
+                                label="Имя *"
+                                name="name"
+                            />
+                        </Field>
+                        <Field>
+                            <Input
+                                label="Фамилия *"
+                                name="last_name"
+                            />
+                        </Field>
+                        <Field>
+                            <Input
+                                label="Компания *"
+                                name="company_name"
+                            />
+                        </Field>
+                        <Field>
+                            <Input
+                                label="Должность *"
+                                name="post_name"
+                            />
+                        </Field>
+
+                        <Field>
+                            <Input
+                                label="Телефон"
+                                name="phone"
+
+                            />
+                        </Field>
+
+                    </div>
+
+
+                </div>
+
+
+                <div className="field-button">
+                    <Field>
+                        <Input
+                            classExtra="pink"
+                            label="Email *"
+                            name="email"
+                        />
+                    </Field>
+                    <SubmitButton>
+                        <Button
+                            text=""
+                            className="registration-submit"
+                            type="button"
+                        >
+                            <img className="registration-submit__arrow" src={ButtonArrowIcon}></img>
+                        </Button>
+                    </SubmitButton>
+                </div>
+
+
+                <div style={{paddingTop: '0px'}}>
+                    {/*{props.partFormat && props.partFormat } -*/}
+                    {/*{props.hash && props.hash }*/}
+                    <Field>
+                        <Radio onChange={changeAccept} label="Формат участия" name="part_type">
+                            <RadioInput value="online" label="Online"/>
+                            <RadioInput value="offline" label="Offline"/>
+                        </Radio>
+                    </Field>
+                    <div style={{margin: '5px 0 5px 18px'}}>
+                        <Field>
+                            <Checkbox value="1" name="accept" label={accept}/>
+                        </Field>
+                    </div>
+                </div>
+
+
+                <a className="reg-share-link" target="_blank"
+                   href={`https://t.me/share/url?url=${shareUrl}&text=${shareText}`}>
+                    <img style={{width: '24px', marginRight: '10px'}} src={Telegram}/>
+                    Поделиться
+                </a>
+
 
             </div>
-
-            <div className="main-page__registration__descr">
-              <p>
-                Онлайн-трансляция доступна для всех желающих. В офлайне количество мест ограничено. Все заявки
-                проходят
-                модерацию в течение недели, ответ придет вам на почту.
-              </p>
-              <p>
-                Регистрацию на офлайн закрываем 12 сентября в
-                10:00.
-              </p>
-            </div>
-
-
-          </div>
-
-
-          <div className="field-button">
-            <Field>
-              <Input
-                classExtra="pink"
-                label="Email *"
-                name="email"
-              />
-            </Field>
-            <SubmitButton>
-              <Button
-                text=""
-                className="registration-submit"
-                type="button"
-              >
-                <img className="registration-submit__arrow" src={ButtonArrowIcon}></img>
-              </Button>
-            </SubmitButton>
-          </div>
-
-
-          <div style={{paddingTop: '0px'}}>
-            {/*{props.partFormat && props.partFormat } -*/}
-            {/*{props.hash && props.hash }*/}
-            <Field>
-              <Radio onChange={changeAccept} label="Формат участия" name="part_type">
-                <RadioInput value="online" label="Online"/>
-                <RadioInput value="offline" label="Offline"/>
-              </Radio>
-            </Field>
-            <div style={{margin: '5px 0 5px 18px'}}>
-              <Field>
-                <Checkbox value="1" name="accept" label={accept}/>
-              </Field>
-            </div>
-          </div>
-
-
-          <a className="reg-share-link" target="_blank"
-             href={`https://t.me/share/url?url=${shareUrl}&text=${shareText}`}>
-            <img style={{width: '24px', marginRight: '10px'}} src={Telegram}/>
-            Поделиться
-          </a>
-
-
         </Form>
-
-      </div>
-    </div>
-
-  );
+    );
 }
 
 export default Registration;

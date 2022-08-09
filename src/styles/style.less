@@ -29,6 +29,7 @@ time, mark, audio, video {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 30px;
+  font-size: 18px;
 }
 body {
   margin: 0;
@@ -37,7 +38,7 @@ body {
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
   line-height: 1.42857;
   font-size: 15px;
-  background: #0B0C0C;
+  background: #121212;
   color: #e7e7e7;
 }
 
@@ -124,13 +125,14 @@ h2 {
 /* ..Общие модификаторы */
 
 .block-container {
-  padding: 40px 20px;
+  padding: 20px 20px;
   max-width: 1660px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  padding-top: 40px;
 }
 
 .logo {
@@ -152,83 +154,38 @@ h2 {
 
 // АНОНОС //
 .main-page__anons {
+  position: relative;
   min-height: 40vh;
-  padding: 40px 20px 40px 20px;
+  padding: 0px 0px 0px 0px;
   box-sizing: border-box;
-  //font-weight: 900;
-  //display: flex;
-  //grid-gap: 10%;
-  //grid-template-columns: 100%;
-  //align-content: center;
-  //justify-content: center;
-  //align-items: center;
   max-width: 1440px;
 }
 
 .main-page__anons__container {
   position: relative;
   min-height: 40vh;
-  //background-image: url("https://brandnewconference.ru/images/cinema2.png");
-  //background-size: 100vh;
-  //background-repeat: no-repeat;
-  //background-position: 100% 0%;
-  //display: flex;
-  //flex-flow: column;
   max-width: 1280px;
-  padding-top: 80px;
+  padding: 20px;
 }
 
 .departure-board-container {
   font-family: "WorkSans Medium";
   position: absolute;
-  width: 1020px;
-  left: 20px;
-  top: 160px;
+  left: 0px;
+  top: 1.2rem;
   font-size: 125px;
   zIndex: 10000000;
-
 }
 
 .big_ball {
   position: absolute;
-  width: 164px;
-  height: 164px;
-  left: 133px;
-  top: 100px;
+  width: 11rem;
+  height: 11rem;
+  left: 6rem;
+  top: 0.5rem;
   background: #6D22C4;
   border-radius: 50%;
   zIndex: 100;
-}
-
-.main-page__anons__block_date {
-  position: absolute;
-  width: 260px;
-  height: 112px;
-  right: 210px;
-  top: 120px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  color: #FFFFFF;
-  font-size: 75px;
-  line-height: 29px;
-  text-align: left;
-}
-
-.main-page__anons__block_time {
-  position: absolute;
-  text-align: left;
-  width: 430px;
-  height: 112px;
-  right: 0px;
-  top: 150px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 75px;
-  line-height: 112px;
-  text-align: right;
-  letter-spacing: 0.03em;
-  color: #FFFFFF;
 }
 
 .main-page__anons__registration {
@@ -238,41 +195,65 @@ h2 {
   padding: 0px;
   gap: 12px;
   position: absolute;
-  height: 29px;
-  right: 52px;
-  top: 540px;
-  width: 370px;
+  left: 0;
+  top: 11.6rem;
   font-style: normal;
   font-weight: 400;
-  font-size: 36px;
+  font-size: 1.7rem;
   line-height: 29px;
   letter-spacing: 0.03em;
   color: #9747FF;
 }
 
+.main-page__anons__block_date {
+  position: absolute;
+  height: 112px;
+  left: 0px;
+  top: 14rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  line-height: 29px;
+  text-align: left;
+}
+
+.main-page__anons__block_time {
+  position: absolute;
+  text-align: left;
+  height: 112px;
+  left: 6rem;
+  top: 13.5rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 112px;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+}
+
 .main-page__anons__address {
   position: absolute;
-  width: 400px;
-  right: 20px;
-  top: 570px;
+  left: 0;
+  top: 17.7rem;
   color: #FFFFFF;
 }
 .main-page__anons__address p {
   font-style: normal;
   font-weight: 400;
-  font-size: 28px;
-  line-height: 28px;
+  font-size: 1.3rem;
+  line-height: 20px;
+  break-word: keep-all;
 }
 
 .main-page__anons__address p.main-page__anons__address__title {
   position: relative;
-  width: 170px;
-  height: 15px;
-  top: -12px;
+  top: -20px;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 15px;
+  line-height: 30px;
   letter-spacing: 0.03em;
   color: #FFFFFF;
 }
@@ -282,8 +263,8 @@ h2 {
 .main-page__anons__main-text {
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr 356px;
-  padding: 40px;
+  grid-template-columns: 1fr;
+  padding: 0px;
 }
 
 .main-page__anons__main-text-text__title {
@@ -305,11 +286,12 @@ h2 {
   line-height: 19px;
   letter-spacing: 0.03em;
   color: #FFFFFF;
-  padding: 40px;
+  padding: 15px;
 }
 
 .main-page__anons__main-text-balls {
   position: relative;
+  display: none;
 }
 
 .main-page__anons__main-text-balls__big-ball {
@@ -333,9 +315,8 @@ h2 {
   width: 221px;
   height: 223px;
   position: absolute;
-  left: 42%;
-  top: 15%;
-  bottom: 23.21%;
+  left: 97%;
+  top: 35%;
   background: rgba(151, 71, 255, 0.8);
   filter: blur(2px);
   backdrop-filter: blur(11px);
@@ -351,7 +332,7 @@ h2 {
   height: 210px;
   position: absolute;
   left: 6%;
-  top: 29%;
+  top: 69%;
   bottom: 0%;
   background: rgba(79, 12, 157, 0.8);
   filter: blur(2px);
@@ -365,16 +346,16 @@ h2 {
 }
 
 .main-page__anons__main-text-balls:hover .main-page__anons__main-text-balls__big-ball {
-  top: 10%;
-  left: 10%;
+  top: 1rem;
+  left: -1rem;
 }
 .main-page__anons__main-text-balls:hover .main-page__anons__main-text-balls__middle-ball {
-  top: 22%;
-  left: 56%;
+  top: 6rem;
+  left: 8rem;
 }
 .main-page__anons__main-text-balls:hover .main-page__anons__main-text-balls__small-ball {
-  top: 39%;
-  left: 2%;
+  top: 10rem;
+  left: -2rem;
 }
 
   // АНОНОС //
@@ -413,7 +394,7 @@ h2 {
 .main-page__contacts {
   padding: 20px;
   margin: 0;
-  background: #121212;
+  background: #000000;
   display: flex;
   align-content: center;
   align-items: center;
@@ -427,10 +408,12 @@ h2 {
 }
 
 .main-page__contacts__head {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  text-transform: uppercase;
 }
 .main-page__contacts__item {
   font-size: 1rem;
+  line-height: 1.6rem;
 }
 
 
@@ -440,28 +423,39 @@ h2 {
   box-sizing: border-box;
   margin: 0;
   display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+  //align-items: center;
+  //align-content: center;
+  //justify-content: center;
   flex-flow: column;
   min-height: 60vh;
+  max-width: 1440px;
 }
 
+.main-page__registration__grid-container {
+  display: grid;
+  grid-template-areas: "reg_form_descr" "reg_form_body";
+  grid-template-columns: 100%;
+}
 
 
 .main-page__registration__title {
   grid-area: reg_titile;
-  padding: 0px 0 32px 0;
-  font-size: 80px;
+  padding: 0px 0 10px 0;
+  font-size: 2.7rem;
+}
+
+.main-page__registration__form__main-set {
+  grid-area: reg_form_body;
 }
 .main-page__registration__descr {
   font-size: 14px;
   font-weight: 300;
-  padding-left: 40px;
+  padding-left: 0px;
   padding-bottom: 10px;
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
+  grid-area: reg_form_descr;
 
 }
 .main-page__registration__form {
@@ -477,26 +471,26 @@ h2 {
 }
 
 .main-page__faq {
-  padding: 20px;
+  padding: 0px;
   min-height: 50vh;
   display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+  //align-items: center;
+  //align-content: center;
+  //justify-content: center;
 }
 
 .main-page__faq__container {
   max-width: 1440px;
+  padding-top: 20px;
 }
 
 .main-page__faq__title {
-  padding-bottom: 32px;
-  padding-top: 40px;
-  font-size: 80px;
+  line-height: 1.5rem;
+  padding-bottom: 2.5rem;
+  font-size: 2.7rem;
 }
 
 .main-page__translation {
-  padding: 40px;
   min-height: 50vh;
 }
 
@@ -526,18 +520,16 @@ h2 {
   position: relative;
   box-sizing: border-box;
  // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background: linear-gradient(-45deg, #05051e, #000000);
+ // background: linear-gradient(-45deg, #05051e, #000000);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
-  height: 100vh;
-  min-height: 800px;
   width: 100%;
   display: flex;
   flex-flow: column;
   align-content: center;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 0px;
   margin: 0;
 }
 
@@ -546,7 +538,8 @@ h2 {
   position: relative;
   max-width: 1440px;
   margin: 0 auto;
-  height: inherit;
+  min-height: 58vh;
+  min-height: 24rem;
 }
 
 .banner-block__title {
@@ -610,7 +603,46 @@ h2 {
 //}
 // Верхний баннер //
 
+@media screen and (max-width: 767px) {
+
+  //.main-page__anons__block_date {
+  //  left: 0px;
+  //}
+  //
+  //.main-page__anons__block_time {
+  //  left: 25px;
+  //}
+  //
+  //.main-page__anons__registration {
+  //  left: 0;
+  //}
+
+  //.main-page__anons__address {
+  //  left: 0;
+  //}
+
+
+}
+
 @media screen and (min-width: 768px) {
+
+
+  .header {
+    padding-top: 0px;
+  }
+
+  .block-container {
+    padding: 40px 20px;
+    max-width: 1660px;
+  }
+
+  .banner-block__container {
+    width: 100%;
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 23.2rem;
+  }
 
   .logo {
     width: 138px;
@@ -620,28 +652,348 @@ h2 {
     position: absolute;
     width: 245px;
     height: 245px;
-    left: 250px;
-    top: 100px;
+    left: 14rem;
+    top: 3rem;
     background: #6D22C4;
     border-radius: 50%;
     zIndex: 100;
   }
 
+  .departure-board-container {
+    font-family: "WorkSans Medium";
+    position: absolute;
+    left: 0px;
+    top: 3rem;
+    font-size: 125px;
+  }
+
+
+
+  .main-page__anons__block_date {
+    position: absolute;
+    left: 22rem;
+    top: 1.0rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    line-height: 20px;
+    text-align: left;
+  }
+
+  .main-page__anons__block_time {
+    position: absolute;
+    text-align: left;
+    left: 25rem;
+    top: -0.2rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 112px;
+    text-align: right;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+  }
+
+  .main-page__anons__registration {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+    position: absolute;
+    left: 410px;
+    top: 19.9rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 29px;
+    letter-spacing: 0.03em;
+    color: #9747FF;
+  }
+
+  .main-page__anons__address {
+    position: absolute;
+    left: 400px;
+    top: 3.6rem;
+    color: #FFFFFF;
+  }
+  .main-page__anons__address p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .main-page__anons__address p.main-page__anons__address__title {
+    position: relative;
+    width: 170px;
+    height: 15px;
+    top: -1rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+  }
+
+  .main-page__anons__container {
+    padding: 20px;
+  }
+  .main-page__anons__main-text {
+    grid-template-columns: 1fr 1px;
+    width: 76%;
+    margin: 0 auto 0 auto;
+  }
+
+  .main-page__anons__main-text-balls {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    width: 320px;
+    height: 400px;
+  }
+
+  .main-page__anons__main-text-text {
+    border: 1px solid #4D4D4D;
+    border-radius: 25px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    padding: 20px;
+  }
+
+
+  .main-page__contacts {
+    padding: 30px;
+  }
+  .main-page__contacts__head {
+    padding-bottom: 18px;
+  }
+  .main-page__contacts__item {
+    font-size: 1rem;
+    line-height: 0.2rem;
+    padding: 6px 0;
+  }
+
+  .main-page__faq__title {
+    line-height: 2.5rem;
+    font-size: 3.4rem;
+    padding-bottom: 3rem;
+  }
+
+
+  .main-page__registration__grid-container {
+    display: grid;
+    grid-template-areas: "reg_form_descr" "reg_form_body";
+    grid-template-columns: 100%;
+  }
+
+  .main-page__registration__descr {
+    padding: 20px 30% 20px 0;
+  }
+
+  .main-page__registration__form__main-set {
+    width: 80%;
+  }
+
+  .main-page__registration__title {
+    grid-area: reg_titile;
+    padding: 0px 0 10px 0;
+    font-size: 3.4rem;
+  }
 }
 
 @media screen and (min-width: 1280px) {
+
+  .block-container {
+    padding: 40px 20px;
+    max-width: 1660px;
+  }
 
   .big_ball {
     position: absolute;
     width: 528px;
     height: 528px;
-    left: 264px;
-    top: 100px;
+    left: 20rem;
+    top: 1rem;
     background: #6D22C4;
     border-radius: 50%;
-    zIndex: 100;
   }
 
+  .departure-board-container {
+    font-family: "WorkSans Medium";
+    position: absolute;
+    left: 0px;
+    top: 3.2rem;
+    font-size: 125px;
+    zIndex: 10000000;
+  }
+
+  .main-page__anons__block_date {
+    position: absolute;
+    left: calc(100% - 486px);
+    top: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    font-size: 75px;
+    line-height: 29px;
+    text-align: left;
+  }
+
+  .main-page__anons__block_time {
+    position: absolute;
+    text-align: left;
+    left: calc(100% - 406px);
+    right: 0px;
+    top: 3.3rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 75px;
+    line-height: 112px;
+    text-align: right;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+  }
+
+  .main-page__anons__registration {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+    position: absolute;
+    right: 52px;
+    top: 25rem;
+    left: calc(100% - 480px);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 29px;
+    letter-spacing: 0.03em;
+    color: #9747FF;
+  }
+
+  .main-page__anons__address {
+    position: absolute;
+    width: 400px;
+    left: calc(100% - 480px);
+    top: 27rem;
+    color: #FFFFFF;
+  }
+  .main-page__anons__address p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .main-page__anons__address p.main-page__anons__address__title {
+    position: relative;
+    width: 170px;
+    height: 15px;
+    top: -12px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+  }
+
+  .banner-block__container {
+    width: 100%;
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 34rem;
+  }
+
+  .main-page__anons {
+    display: grid;
+    grid-template-areas: "anons_info anons_balls";
+    grid-template-columns: 1fr 340px;
+    grid-gap: 4rem;
+    width: 99%;
+    max-width: 1440px;
+  }
+
+  .main-page__anons__main-text-balls {
+    display: block;
+    grid-area: anons_balls;
+    position: relative;
+    top: 0rem;
+  }
+
+  .main-page__anons__container {
+    grid-area: anons_info;
+  }
+  .main-page__anons__main-text {
+    display: block;
+    width: 100%;
+    padding: 0px;
+  }
+
+  .main-page__anons__main-text-text {
+    border: 1px solid #4D4D4D;
+    border-radius: 25px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    padding: 15px;
+  }
+
+  .main-page__contacts {
+    padding: 30px;
+    max-width: 1440px;
+  }
+  .main-page__contacts__head {
+    padding-bottom: 20px;
+  }
+  .main-page__contacts__item {
+    font-size: 1rem;
+    line-height: 0.1rem;
+    padding: 6px 0;
+  }
+
+  .main-page__registration__grid-container {
+    display: grid;
+    grid-template-areas: "reg_form_body reg_form_descr";
+    grid-template-columns: 50% 50%;
+  }
+
+  .main-page__registration__title {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+  }
+
+  .main-page__registration__descr {
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    padding-right: 30%;
+    box-sizing: border-box;
+  }
+
+  .main-page__registration__form__main-set {
+    width: 100%;
+  }
+
+  .main-page__faq__title {
+    font-size: 4.5rem;
+  }
 }
 
 //@media screen and (min-width: 990px) {
