@@ -10,10 +10,10 @@ const TopBanner = () => {
   useEffect(() => {
     //initBanner();
   });
-
-  const scrollToDown = () => {
-    window.scrollTo(0, 800);
-  }
+  //
+  // const scrollToDown = () => {
+  //   window.scrollTo(0, 800);
+  // }
 
   return (
     <div className="banner-block">
@@ -42,7 +42,7 @@ const TopBanner = () => {
 
       </div>
 
-      <img className="arrow-to-down" src={ArrowToDown} onClick={scrollToDown}/>
+      <a href="#preview"><img className="arrow-to-down" src={ArrowToDown}/></a>
     </div>
   );
 };

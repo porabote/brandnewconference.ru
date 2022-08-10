@@ -3,17 +3,17 @@ import NavMenuIcon from "@assets/svg/nav-menu.svg"
 
 const Topnav = () => {
 
-  useEffect(() => {
-    const handleScroll = event => {
-      setMenuPositionClass((window.scrollY < window.innerHeight) ? 'transparent' : 'bg');
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = event => {
+  //     setMenuPositionClass((window.scrollY < window.innerHeight) ? 'transparent' : 'bg');
+  //   };
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
-  const [menuPositionClass, setMenuPositionClass] = useState('transparent');
+ // const [menuPositionClass, setMenuPositionClass] = useState('transparent');
 //  const [menuMode, setMenuMode] = useState('hidden');
   const [isOpen, setIsOpen] = useState('hidden');
 
@@ -22,26 +22,25 @@ const Topnav = () => {
   }
 
   return (
-    <nav>
-      <div className="topnav__wrap">
-        <div className={`topnav ${menuPositionClass} ${isOpen}`}>
-          <div className="topnav__nav"><a className="topnav__nav__link" href="#preview">О конференции</a></div>
-          <div className="topnav__nav"><a className="topnav__nav__link" href="#speakers">Спикеры</a></div>
-          <div className="topnav__nav"><a className="topnav__nav__link" href="#faq">FAQ</a></div>
-          <div className="topnav__nav"><a className="topnav__nav__link" href="#contacts">Контакты</a></div>
-          <div className="topnav__nav registration">
-            <a className="topnav__nav__link registration" href="#registration">Регистрация</a>
-          </div>
-        </div>
-        <div
-          className="topnav__nav__thumbler"
-          onClick={switchMenu}
-        >
-          <img src={NavMenuIcon}/>
+    <React.Fragment>
+      <div className={`topnav ${isOpen}`}>
+        <div className="topnav__nav"><a className="topnav__nav__link" href="#preview">О конференции</a></div>
+        <div className="topnav__nav"><a className="topnav__nav__link" href="#speakers">Спикеры</a></div>
+        <div className="topnav__nav"><a className="topnav__nav__link" href="#faq">FAQ</a></div>
+        <div className="topnav__nav"><a className="topnav__nav__link" href="#contacts">Контакты</a></div>
+        <div className="topnav__nav registration">
+          <a className="topnav__nav__link registration" href="#registration">Регистрация</a>
         </div>
       </div>
-    </nav>
-  );
+      <div
+        className="topnav__nav__thumbler"
+        onClick={switchMenu}
+      >
+        <img src={NavMenuIcon}/>
+      </div>
+    </React.Fragment>
+  )
+    ;
 };
 
 export default Topnav;

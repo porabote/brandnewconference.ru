@@ -130,13 +130,17 @@ h2 {
 }
 
 .header {
-  display: flex;
+  display: grid;
+  grid-template-areas: "logo nav_thumbler" "topnav topnav";
+  grid-template-columns: 1fr 50px;
   justify-content: space-between;
   padding-top: 40px;
 }
 
 .logo {
-  width: 72px;
+  width: 100px;
+  grid-area: logo;
+  padding-left: 20px;
 }
 
 .main-page__banner,
@@ -275,6 +279,7 @@ h2 {
   line-height: 34px;
   letter-spacing: 0.03em;
   color: #FFFFFF;
+  text-transform: uppercase;
 }
 
 .main-page__anons__main-text-text {
@@ -571,6 +576,7 @@ h2 {
 .arrow-to-down {
   position: absolute;
   top: 94%;
+  left: calc(50% - 44px);
   animation-duration: 2s;
   animation-iteration-count: infinite;
   width: 50px;
@@ -624,9 +630,12 @@ h2 {
 
 @media screen and (min-width: 768px) {
 
-
   .header {
-    padding-top: 0px;
+    display: grid;
+    grid-template-areas: "logo topnav";
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    padding: 20px;
   }
 
   .block-container {
@@ -644,6 +653,7 @@ h2 {
 
   .logo {
     width: 138px;
+    padding-left: 10px;
   }
 
   .big_ball {

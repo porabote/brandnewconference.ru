@@ -33,7 +33,7 @@ const MainPage = () => {
         } else if (userId) {
 
           dispatch(openModal(<RegistrationNotices>
-              Что-то пошло не так. Похоже, эта ссылка не работает.
+            Что-то пошло не так. Похоже, эта ссылка не работает.
             Перейдите по уникальной ссылке из персонального приглашения или зарегистрируйтесь через форму на сайте.
             Если закралась ошибка, свяжитесь с нами
             <a href="mailto:support@brandnewconference.ru"> support@brandnewconference.ru</a>
@@ -65,30 +65,29 @@ const MainPage = () => {
   return (
     <div ref={mainBlock}>
       {/*<DepartureBoard/>*/}
-      <div className="block-container" style={{zIndex: 1000000000000000, border: '0px solid green'}}>
-        <div className="header">
-          <img src={Logo} className="logo"/>
-          <Topnav/>
-        </div>
+
+      <div className="header">
+        <img src={Logo} className="logo"/>
+        <Topnav/>
       </div>
+
       <div className="block-container" style={{zIndex: 100}}>
         <TopBanner/>
       </div>
 
-        <Anons/>
+      <Anons/>
 
       <div className="block-container">
         <Speakers data={speakers}/>
       </div>
 
-        <Registration loading={loading} hash={hash} partFormat={partFormat}/>
+      <Registration loading={loading} hash={hash} partFormat={partFormat}/>
 
       <div className="block-container">
         <Faq data={faqs}/>
       </div>
 
-        <Contacts/>
-
+      <Contacts/>
 
 
       {/*<ArrowToTop/>*/}

@@ -1,55 +1,61 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const Letter = (props) => {
 
-  const prevCountRef = useRef();
-
   useEffect(() => {
 
-    if (
-      prevCountRef.current != props.rowIndex
-      && props.letter != prevLetter
-      && props.letter != nextLetter
-    ) { // console.log(`${prevCountRef.current} -- ${props.rowIndex}`);
-      setIsStopped(false);
-    }
-
-    prevCountRef.current = props.rowIndex;
-
+    setIsStopped(false);
+    setIndex(0);
+    // Если это не пробел
     if(props.letter != 0) {
-      if (!isStopped) showNextLetter();
+      initCounter();
     } else {
-     // showNextLetter();
-     // if (prevCountRef.current == props.rowIndex)
-      setNextLetter("");
-      setPrevLetter("");
+      showNextLetter(randomLetters, props.randomLetters.length);
       setIsStopped(true);
     }
 
     return () => {
+      setIndex(index);
     }
-  }, [props.letter,props.count]);
+
+    // initCounter();
+
+
+  }, [props.letter]);
 
   const [letter, setLetter] = useState();
+  const [index, setIndex] = useState();
+  const [scope, setScope] = useState();
+  const [randomLetters, setRandomLetters] = useState([]);
   const [isStopped, setIsStopped] = useState(false)
+
   const [nextLetter, setNextLetter] = useState("");
   const [prevLetter, setPrevLetter] = useState("");
 
-  const showNextLetter = () => {
 
-    if (isStopped) return;
+  const initCounter = () => {
+    let randomLetters = props.randomLetters;
+    randomLetters.push(props.letter);
+   // setRandomLetters(randomLetters);
+    showNextLetter(randomLetters, 1);
+  }
 
-    setNextLetter(props.randomLetters[props.count + 1]);
-    if (typeof props.randomLetters[props.count + 1] == "undefined") setNextLetter(props.letter);
-    setPrevLetter(props.randomLetters[props.count]);
+  const showNextLetter = (scoupe, index) => {
 
-    // Если след буква совпадает с искомой
-    if (props.randomLetters[props.count + 1] == props.letter) {
-      setPrevLetter(props.randomLetters[props.count + 1]);
+    setIndex(index);
+    setNextLetter(scoupe[index + 1]);
+    setPrevLetter(scoupe[index]);
+
+    // Если слуд буква совпадает с искомой
+    if (scoupe[index + 1] == props.letter) {
+
+      setPrevLetter(scoupe[index + 1]);
       setIsStopped(true);
       return;
     }
-    if ((props.count + 1) > props.randomLetters.length) {
+    if (index < props.randomLetters.length) {
+      setTimeout(() => showNextLetter(scoupe, index + 1), 250);
+    } else {
       setIsStopped(true);
     }
 
