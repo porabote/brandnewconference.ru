@@ -1,8 +1,20 @@
-import React from 'react';
-//React.cloneElement(props.children, {style: props.style, className: 'prb-slider__item'});
+import React, {useState} from 'react';
+
 const SliderItem = (props) => {
+
+  const [itemClass, setItemClass] = useState('');
+
+  const toggleCardInfo = () => {
+
+  }
+
   return(
-    <div className="prb-slider__item" style={{backgroundImage: props.avatar, ...props.style}}>
+    <div
+      onClick={(e) => {
+        setItemClass(prevClass => (prevClass == 'active' ? '' : 'active'));
+      }}
+      className={`prb-slider__item ${itemClass}`}
+      style={{backgroundImage: props.avatar, ...props.style}}>
       {props.children}
     </div>    
   ); 

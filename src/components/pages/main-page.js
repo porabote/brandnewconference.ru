@@ -34,7 +34,8 @@ const MainPage = () => {
 
           dispatch(openModal(<RegistrationNotices>
             Что-то пошло не так. Похоже, эта ссылка не работает.
-            Перейдите по уникальной ссылке из персонального приглашения или зарегистрируйтесь через форму на сайте.
+            Перейдите по уникальной ссылке из персонального приглашения или зарегистрируйтесь через
+            <a href="#registration"> форму на сайте </a>.
             Если закралась ошибка, свяжитесь с нами
             <a href="mailto:support@brandnewconference.ru"> support@brandnewconference.ru</a>
           </RegistrationNotices>, 'Регистрация'));
