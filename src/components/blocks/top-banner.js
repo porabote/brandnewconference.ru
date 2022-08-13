@@ -28,7 +28,7 @@ const TopBanner = () => {
           <DepartureBoard/>
         </div>
         <div className="main-page__anons__block_date">14.09.2022</div>
-        <div className="main-page__anons__block_time">10:00-15:00</div>
+        <div className="main-page__anons__block_time">10:00-16:00</div>
         <a href="#registration" className="main-page__anons__registration">
           РЕГИСТРАЦИЯ
           <img src={RegArrowSvg}/>

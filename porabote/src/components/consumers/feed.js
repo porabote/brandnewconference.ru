@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {ButtonLazyLoad, Form} from "porabote/form";
+import {ButtonLazyLoad, Form, Button} from "porabote/form";
 import {requestDicts} from "@components/dicts/store/dicts-actions";
 import Grid from "porabote/grid";
 import FilterLeft from "./filter-left";
@@ -125,6 +125,18 @@ const Feed = (props) => {
               })
             }
           </Grid>
+
+          <div style={{width: '1000px', margin: '20px auto', textAlign: 'right'}}>
+            <Button
+              className="on-button grey-stroke_x_yellow-fill icon-excel__grey_x_white"
+              type="button"
+              onClick={() => {
+                props.exportFeedToExcel(data);
+              }}
+            >Экспорт в Excel
+            </Button>
+          </div>
+
           <ButtonLazyLoad fetchData={props.fetchData} {...meta}/>
         </div>
       </div>

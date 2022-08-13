@@ -1,6 +1,7 @@
 import React from 'react';
 import Mail from './svg/mail.svg';
 import Telegram from './svg/telegram.svg';
+import Archive from "@assets/svg/archive.svg"
 
 const Contacts = () => {
   return (
@@ -29,6 +30,11 @@ const Contacts = () => {
               <img src={Mail} className="mail-icon"/>
               Мы на связи support@brandnewconference.ru</a>
           </p>
+
+          <div className="btn btn-outline-dark">
+            <a className="arrow-icon" target="_blank" href="https://dentsu-conf.ru/archive">Архив</a>
+          </div>
+
         </div>
       </div>
     </div>

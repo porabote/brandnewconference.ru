@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {useRouteMatch,} from "react-router-dom";
+import { API_URL } from "@services/constants";
 import Api from "@services/api-client";
 import { requestDicts } from "@components/dicts/store/dicts-actions";
 import { fetchFeedData, updateFeedFilters } from "./store/consumers-actions";
@@ -69,6 +70,31 @@ const ConsumersConrainer = (props: IChildComponentProps) => {
     });
   }
 
+  const exportFeedToExcel: Function = (data) => {
+
+    let ids = '';
+    // data.map(item => {
+    //   ids = `${ids}|${item.id}`;
+    // });
+    // ids = ids.replace(/^\|+|\|+$/g, '');
+
+    var mapForm = document.createElement("form");
+    mapForm.target = "Map";
+    mapForm.method = "POST";
+    mapForm.action = `${API_URL}/api/consumers/method/exportToExcel/`;
+
+    var mapInput = document.createElement("input");
+    mapInput.type = "text";
+    mapInput.name = "ids";
+    mapInput.value = ids;
+    mapForm.appendChild(mapInput);
+
+    document.body.appendChild(mapForm);
+    mapForm.submit();
+    mapForm.remove();
+
+  }
+
   return React.createElement(Feed, {
     isDictsLoaded,
     fetchData,
@@ -76,6 +102,7 @@ const ConsumersConrainer = (props: IChildComponentProps) => {
     dicts,
     acceptPart,
     declinePart,
+    exportFeedToExcel,
   });
 
 }

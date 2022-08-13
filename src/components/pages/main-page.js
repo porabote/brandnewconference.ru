@@ -33,7 +33,7 @@ const MainPage = () => {
         } else if (userId) {
 
           dispatch(openModal(<RegistrationNotices>
-            Что-то пошло не так. Похоже, эта ссылка не работает.
+            <a href="#registration"><b>Что-то пошло не так</b></a>. Похоже, эта ссылка не работает.
             Перейдите по уникальной ссылке из персонального приглашения или зарегистрируйтесь через
             <a href="#registration"> форму на сайте </a>.
             Если закралась ошибка, свяжитесь с нами
@@ -64,7 +64,7 @@ const MainPage = () => {
   }
 
   return (
-    <div ref={mainBlock}>
+    <div className="main-container" ref={mainBlock}>
       {/*<DepartureBoard/>*/}
 
       <div className="header">
