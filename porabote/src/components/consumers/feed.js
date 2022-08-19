@@ -118,7 +118,7 @@ const Feed = (props) => {
                     <div>{attrs.company_name}</div>
                     <div><b>{attrs.email}</b></div>
                     <div><b>{attrs.phone}</b></div>
-                    <div>{moment(attrs.created_at).format("DD/MM/YYYY")}</div>
+                    <div>{moment(attrs.created_at).format("DD/MM/YYYY HH:mm:ss")}</div>
                     <div>{attrs.user_id}</div>
                   </div>
                 )

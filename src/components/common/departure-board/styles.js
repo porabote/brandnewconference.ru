@@ -24,6 +24,7 @@ const stylesDesktop = {
     'З': {width: 89},
     'Е': {width: 82},
     'С': {width: 99},
+    ' ': {width: 45},
   }
 };
 

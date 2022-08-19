@@ -21,6 +21,8 @@ const MainPage = () => {
 
   useEffect(() => {
 
+    inactivityTime();
+
     const params = new URLSearchParams(window.location.search);
 
     let userId = params.has('userid') ? params.get('userid') : null;
@@ -56,6 +58,47 @@ const MainPage = () => {
   const [partFormat, setPartFormat] = useState(null);
   const [hash, setHash] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const MsgAboutTelegram = () => {
+
+    let shareText = encodeURIComponent('Brand new conference — конференция про бизнес и маркетинг новой волны.' +
+      ' Покажем новую версию dentsu и дадим пользу для сборки стратегии 2023');
+    let shareUrl = encodeURIComponent('https://brandnewconference.ru');
+
+    return(
+      <div>
+        Кстати, у нас есть телеграм-канал
+        <a href="https://t.me/dentsurussia" target="_blank"> <b>dentsu insights</b> </a>.
+        Подписывайтесь на него,
+        чтобы получать анонсы и материалы конференции, но не только. 
+        Это наше микро-медиа для маркетологов, в котором регулярно выкладываем аналитику, 
+        кейсы, разборы и вдохновляющие посты.
+      </div>
+    );
+  }
+
+  const inactivityTime = function () {
+    var time;
+    let isTelegramMsgShowed = false;
+
+    window.onload = resetTimer;
+    // DOM Events
+    document.onmousemove = resetTimer;
+    document.onkeydown = resetTimer;
+    document.ontouchstart = resetTimer;
+    document.onclick = resetTimer;     // touchpad clicks
+    document.addEventListener('scroll', resetTimer, true);
+
+    function showNotice() {
+      isTelegramMsgShowed = true;
+      dispatch(openModal(<MsgAboutTelegram/>, 'Кстати, у нас есть Telegram'));
+    }
+
+    function resetTimer() {
+      clearTimeout(time);
+      if (!isTelegramMsgShowed) time = setTimeout(showNotice, 1000 * 30);
+    }
+  };
 
   const dispatch = useDispatch();
 

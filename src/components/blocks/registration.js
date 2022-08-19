@@ -20,7 +20,6 @@ import RegistrationNotices from "./registration-notices";
 import Telegram from './svg/telegram.svg';
 import Calendar from './svg/calendar.svg';
 import ButtonArrowIcon from './svg/reg-file-button-arrow.svg';
-import FeedbackForm from "./feedback-form";
 
 let OnlineMsg = () => {
     return (
@@ -253,18 +252,6 @@ const Registration = (props) => {
                             <Checkbox value="1" name="accept" label={accept}/>
                         </Field>
                     </div>
-                </div>
-
-
-                <div style={{width: '300px', paddingLeft: '20px'}}>
-                <div className="btn btn-outline-dark">
-                    <a
-                      className="arrow-icon"
-                      onClick={() => {
-                          dispatch(openModal(<FeedbackForm/>, 'Задать вопрос спикеру'));
-                      }}
-                      >Задать вопрос спикеру</a>
-                </div>
                 </div>
 
                 <a className="reg-share-link" target="_blank"
