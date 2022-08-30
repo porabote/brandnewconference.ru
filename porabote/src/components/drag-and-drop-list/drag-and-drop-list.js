@@ -1,4 +1,4 @@
-import React, {useState,useCallback, useRef} from 'react';
+import React, {useState,useCallback, useRef, useEffect} from 'react';
 import DragAndDropItem from "./drag-and-drop-item";
 
 const DragAndDropList = (props) => {
@@ -8,6 +8,10 @@ const DragAndDropList = (props) => {
   let [selected, setSelected] = useState(null);
 
   const [items, setItems] = useState([...props.children])
+
+  useEffect(() => {
+    setItems([...props.children]);
+  }, [props.children]);
 
   const dragItem = useRef(null);
   const dragOverItem = useRef(null);

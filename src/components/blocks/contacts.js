@@ -32,7 +32,7 @@ const Contacts = () => {
           </p>
 
           <div className="btn btn-outline-dark">
-            <a className="arrow-icon" target="_blank" href="https://dentsu-conf.ru/archive">Архив</a>
+            <a className="arrow-icon" target="_blank" href="https://dentsu-conf.ru/archive">Архив конференций</a>
           </div>
 
         </div>

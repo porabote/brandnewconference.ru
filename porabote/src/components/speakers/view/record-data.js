@@ -13,7 +13,7 @@ const RecordData = (props) => {
   const avatarUri = (avatar) ? `/images${avatar.attributes.uri}` : '';
 
   const uploadAvatar = () => {
-    //console.log(89);
+    props.getRecord();
   }
 
   return (

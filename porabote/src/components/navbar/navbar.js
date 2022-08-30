@@ -16,9 +16,9 @@ class Navbar extends React.Component {
             if (!items[id]['target']) {
               return (
                 <li key={id} className="navbar-vertical__item">
-                  <a href={items[id]['link']} className="navbar-vertical__item__link ">
+                  <NavLink key={items[id]['id']} to={items[id]['link']} className="navbar-vertical__item__link ">
                     {items[id]['name']}
-                  </a>
+                  </NavLink>
                 </li>
               )
             } else {

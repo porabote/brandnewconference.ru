@@ -1,7 +1,8 @@
 import {
   FETCH_FEED_DATA,
   FETCH_FEED_DATA_SUCCEEDED,
-  FETCH_FEED_DATA_ERROR
+  FETCH_FEED_DATA_ERROR,
+  UPDATE_FILTERS,
 } from './types'
 
 const fetchFeedData = () => {

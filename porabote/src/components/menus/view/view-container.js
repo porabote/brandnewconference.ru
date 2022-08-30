@@ -44,7 +44,8 @@ const ViewContainer = (props) => {
     }).then((resp) => {
       setData(resp.data);
       setIsItOwn((resp.data.id == user.id) ? true : false);
-      checkEditAccess();
+      setLoaded(true);
+     // checkEditAccess();
     });
   }
 
@@ -59,7 +60,7 @@ const ViewContainer = (props) => {
 
   const editRecord = (getRecord) => {
     dispatch(pushItemToModal(
-      React.createElement(EditRecordForm, { data, editRecordConfirm, dicts, isItOwn, isCanEdit, getRecord }),
+      React.createElement(EditForm, { data, editRecordConfirm, dicts, isItOwn, isCanEdit, getRecord }),
       `Редактировать данные пользователя`
     ));
   }
@@ -76,7 +77,6 @@ const ViewContainer = (props) => {
     });
   }
 
-
   if (!loaded || !isDictsLoaded) {
     return <ViewPreloader/>;
   }
@@ -88,14 +88,8 @@ const ViewContainer = (props) => {
       getRecord={getRecord}
       isCanEdit={isCanEdit}
       isCanViewTabs={isCanViewTabs}
-      editUser={editUser}
-      editUserConfirm={editUserConfirm}
-      isItOwn={isItOwn}
-      sendInvitationNotification={sendInvitationNotification}
-      editPassport={editPassport}
-      editForeignPassport={editForeignPassport}
-      attachShiftWorker={attachShiftWorker}
-      detachShiftWorker={detachShiftWorker}
+      editRecord={editRecord}
+      editRecordConfirm={editRecordConfirm}
     />
   );
 

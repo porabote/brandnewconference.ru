@@ -5,12 +5,15 @@ import AccessLists from "@components/access-lists";
 import BusinessEvents from "@components/business-events";
 import Faq from "@components/faq";
 import Feedbacks from "@components/feedbacks";
+import Hashes from "@components/hashes";
 import MailsPatterns from "@components/mails-patterns";
 import {MainPage} from "@components/pages";
 import MenuContainer from "@components/menus";
 import Observers from "@components/observers";
 import ProtectedRoute from "./protected-route";
-import SpeakersContainer from "@components/speakers"
+import SpeakersContainer from "@components/speakers";
+import TextBoxes from "@components/text-boxes";
+import TimingsContainer from "@components/timings";
 import UsersContainer from "@components/users";
 import Consumers from "@components/consumers";
 import Сontents from "@components/contents";
@@ -21,11 +24,14 @@ const AppRouter = (props) => {
     <div>
       <Switch>
         <ProtectedRoute path="/" exact component={Consumers}/>
+        <ProtectedRoute path="/text-boxes/:action?/:id?" component={TextBoxes} />
         <ProtectedRoute path="/speakers/:action?/:id?" component={SpeakersContainer} />
+        <ProtectedRoute path="/hashes/:action?/:id?" component={Hashes} />
         <ProtectedRoute path="/menus/:action?/:id?" component={MenuContainer} />
         <ProtectedRoute path="/feedbacks/:action?/:id?" component={Feedbacks} />
         <ProtectedRoute path="/business-events/:action" component={BusinessEvents} />
         <ProtectedRoute path="/faq/:action?/:id?" component={Faq} />
+        <ProtectedRoute path="/timings/:action/:id?" exact component={TimingsContainer}/>
         <ProtectedRoute path="/consumers/:action/:id?" exact component={Consumers}/>
         <ProtectedRoute path="/contents/:action/:id?" exact component={Сontents}/>
         <ProtectedRoute path="/mails-patterns/:action?/:id?" component={MailsPatterns}/>

@@ -16,6 +16,7 @@ import ArrowToTop from "@components/blocks/arrow-to-top";
 import DepartureBoard from "@components/common/departure-board";
 import Logo from "@assets/svg/logo.svg";
 import RegistrationNotices from "@components/blocks/registration-notices";
+import YoutubeBroadcast from "@components/youtube-broadcast";
 
 const MainPage = () => {
 
@@ -46,6 +47,7 @@ const MainPage = () => {
 
         setSpeakers(resp.data.speakers);
         setFaqs(resp.data.faqs);
+        setTextBoxes(resp.data.textBoxes);
         setLoading(true);
       });
   }, []);
@@ -58,6 +60,7 @@ const MainPage = () => {
   const [partFormat, setPartFormat] = useState(null);
   const [hash, setHash] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [textBoxes, setTextBoxes] = useState(false);
 
   const MsgAboutTelegram = () => {
 
@@ -67,12 +70,12 @@ const MainPage = () => {
 
     return(
       <div>
-        Кстати, у нас есть телеграм-канал
+        Кстати, у&nbsp;нас есть телеграм-канал
         <a href="https://t.me/dentsurussia" target="_blank"> <b>dentsu insights</b> </a>.
-        Подписывайтесь на него,
-        чтобы получать анонсы и материалы конференции, но не только. 
-        Это наше микро-медиа для маркетологов, в котором регулярно выкладываем аналитику, 
-        кейсы, разборы и вдохновляющие посты.
+        Подписывайтесь на&nbsp;него,
+        чтобы получать анонсы и&nbsp;материалы конференции, но&nbsp;не&nbsp;только.
+        Это наше микро-медиа для маркетологов, в&nbsp;котором регулярно выкладываем аналитику,
+        кейсы, разборы и&nbsp;вдохновляющие посты.
       </div>
     );
   }
@@ -110,6 +113,8 @@ const MainPage = () => {
     <div className="main-container" ref={mainBlock}>
       {/*<DepartureBoard/>*/}
 
+      {/*<YoutubeBroadcast/>*/}
+
       <div className="header">
         <img src={Logo} className="logo"/>
         <Topnav/>
@@ -119,13 +124,13 @@ const MainPage = () => {
         <TopBanner/>
       </div>
 
-      <Anons/>
+      <Anons loading={loading} textBoxes={textBoxes}/>
 
       <div className="block-container">
         <Speakers data={speakers}/>
       </div>
 
-      <Registration loading={loading} hash={hash} partFormat={partFormat}/>
+      <Registration loading={loading} hash={hash} textBoxes={textBoxes} partFormat={partFormat}/>
 
       <div className="block-container">
         <Faq data={faqs}/>

@@ -93,7 +93,10 @@ const Slider = (props) => {
       }}
     >
       <div className="prb-slider__navbar">
-        <div className="prb-slider__title">Спикеры</div>
+        <div className="prb-slider__title">
+          <span>Спикеры</span>
+          <span style={{fontSize: '1.6rem'}}>состав спикеров дополняется</span>
+        </div>
         <div className="prb-slider__buttons">
           <div className="prb-slider-btn-left" onClick={handleArrowToLeft}></div>
           <div className="prb-slider-btn-right" onClick={handleArrowToRight}></div>
