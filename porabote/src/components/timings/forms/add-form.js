@@ -12,6 +12,7 @@ import {
   Select,
   SubmitButton
 } from "porabote/form";
+import {Masks} from "porabote/form";
 
 const AddForm = props => {
 
@@ -37,30 +38,38 @@ const AddForm = props => {
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
           <Field>
             <Input
-              label="Заголовок"
-              name="name"
+              label="Заголовок для блока расписание"
+              name="desc_list"
             />
           </Field>
-          {/*<Field>*/}
-          {/*  <Input*/}
-          {/*    label="Время в секундах с начала видео"*/}
-          {/*    name="start_from"*/}
-          {/*  />*/}
-          {/*</Field>*/}
-
         </div>
+
+        <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
+          <Field>
+            <Input
+              label="Заголовок для плеера"
+              name="desc_player"
+            />
+          </Field>
+        </div>
+
+        {/*<Field>*/}
+        {/*  <Input*/}
+        {/*    label="Время в секундах с начала видео"*/}
+        {/*    name="start_from"*/}
+        {/*  />*/}
+        {/*</Field>*/}
+        <Field>
+          <InputDate name="date" label="Дата"/>
+        </Field>
 
         <div className="fieldset" style={{gridTemplateColumns: '1fr 1fr'}}>
           <Field>
             <Input
-              label="Время - начало"
-              name="datetime_from"
-            />
-          </Field>
-          <Field>
-            <Input
-              label="Время - окончание"
-              name="datetime_to"
+              mask={Masks.timeRange}
+              label="Время - начало / Время - окончание"
+              name="time_range"
+              placeholder="00:00-00:00"
             />
           </Field>
         </div>
@@ -79,19 +88,6 @@ const AddForm = props => {
         {/*    </Select>*/}
         {/*  </Field>*/}
 
-        {/*  <Field>*/}
-        {/*    <TextArea*/}
-        {/*      label="Описание для плеера"*/}
-        {/*      name="desc_player"*/}
-        {/*    />*/}
-        {/*  </Field>*/}
-        {/*  <Field>*/}
-        {/*    <TextArea*/}
-        {/*      label="Описание для списка"*/}
-        {/*      name="desc_list"*/}
-        {/*    />*/}
-        {/*  </Field>*/}
-        {/*</div>*/}
 
         <SubmitButton>
           <Button

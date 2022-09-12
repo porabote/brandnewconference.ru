@@ -1,7 +1,7 @@
 const initialState = {
-  title: "Расписание",
+  title: "Опросники",
   event_ids: [],
-  alias: "timings",
+  alias: "questionnaires",
   data: [],
   meta: {
     count: 0, // total count of records
@@ -13,10 +13,10 @@ const initialState = {
   },
   filter: {
     where: {
-      parent_id: {
-        operand: "IS NULL",
-        value: null
-      },
+      // parent_id: {
+      //   operand: "IS NULL",
+      //   value: null
+      // },
     },
     orWhereGrouped: [
       {
@@ -38,10 +38,10 @@ const initialState = {
     seekString: "",
   },
   dictsRequired: [
-     "speakers",
+    // "speakers",
   ],
   relationships: [
-    "children"
+    "variants"
   ],
 };
 

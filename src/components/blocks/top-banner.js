@@ -28,7 +28,7 @@ const TopBanner = () => {
           <DepartureBoard/>
         </div>
         <div className="main-page__anons__block_date">20.09.2022</div>
-        <div className="main-page__anons__block_time">10:00-16:00</div>
+        <div className="main-page__anons__block_time">10:00-16:30</div>
         <a href="#registration" className="main-page__anons__registration">
           РЕГИСТРАЦИЯ
           <img src={RegArrowSvg}/>
@@ -36,8 +36,8 @@ const TopBanner = () => {
         </a>
 
         <div className="main-page__anons__address">
-          <p>Кинотеатр «Художественный»</p>
-          <p className="main-page__anons__address__title">Онлайн и офлайн</p>
+          <p>Офлайн в кинотеатре «Художественный»</p>
+          <p className="main-page__anons__address__title">Онлайн на всех экранах</p>
         </div>
 
       </div>

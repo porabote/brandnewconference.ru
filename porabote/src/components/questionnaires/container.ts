@@ -15,18 +15,18 @@ interface IChildComponentProps extends React.Props<any> {
   // filters: Object,
 }
 
-const TimingsContainer = (props: IChildComponentProps) => {
+const QuestionnairesContainer = (props: IChildComponentProps) => {
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const {dictsRequired, title, meta, filter} = useSelector(state => state.timings);
+  const {dictsRequired, title, meta, filter} = useSelector(state => state.questionnaires);
   const {components, dicts} = useSelector(state => state.dicts);
 
-  const isDictsLoaded = components.timings ? true : false;
+  const isDictsLoaded = components.questionnaires ? true : false;
 
   useEffect(() => {
-    dispatch(requestDicts(dictsRequired, 'timings'));
+    dispatch(requestDicts(dictsRequired, 'questionnaires'));
     fetchData();
   }, []);
 
@@ -39,12 +39,12 @@ const TimingsContainer = (props: IChildComponentProps) => {
   }
 
   const addRecord = (values) => {
-    Api.post(`/api/timings/method/create/`,{
+    Api.post(`/api/questionnaires/method/create/`,{
       body: values,
     })
     .then((resp) => {
       dispatch(removeModalItem(0));
-      history.push(`/timings/view/${resp.data.id}`);
+      history.push(`/questionnaires/view/${resp.data.id}`);
     });
   }
 
@@ -64,4 +64,4 @@ const TimingsContainer = (props: IChildComponentProps) => {
 
 }
 
-export default TimingsContainer;
+export default QuestionnairesContainer;

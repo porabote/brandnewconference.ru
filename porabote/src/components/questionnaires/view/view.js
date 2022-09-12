@@ -6,6 +6,7 @@ import {Tab, TabList, TabPanel, Tabs} from "porabote/tabs";
 import RecordData from "./record-data";
 import ChildrenRecords from "./children-records";
 import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
+import QuestionnairesVariants from "./questionnaires-variants";
 
 const View = (props) => {
 
@@ -15,25 +16,19 @@ const View = (props) => {
   return (
     <div className="content" style={{padding: "40px"}}>
 
-      <p style={{padding: "30px 0 10px 0", color: "#555"}}>
-        <NavLink className="crumb_link" to="/timings/feed/">
-          <ArrowRightRoundedIcon style={{fontSize: "24px", marginRight: "2px", top: "7px", position: "relative"}}/>
-          Назад к списку
-        </NavLink>
-        {data.attributes.post_name} {data.attributes.name}
-      </p>
-
       <Tabs {...props}>
 
         <TabList>
           <Tab>Данные</Tab>
-          <Tab>Подблоки</Tab>
+          <Tab>Варианты ответа</Tab>
         </TabList>
 
 
         <TabPanel>
           <RecordData data={data} {...props}/>
-          <ChildrenRecords data={data} {...props}/>
+        </TabPanel>
+        <TabPanel>
+          <QuestionnairesVariants data={data} {...props}/>
         </TabPanel>
       </Tabs>
 

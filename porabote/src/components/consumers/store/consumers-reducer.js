@@ -46,6 +46,11 @@ const initialState = {
           pattern: "%T%",
           value: ""
         },
+        user_id: {
+          operand: "like",
+          pattern: "%T%",
+          value: ""
+        },
       }
     ],
     whereIn: {

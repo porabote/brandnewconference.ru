@@ -33,8 +33,8 @@ const EditForm = props => {
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
           <Field>
             <Input
-              label="Заголовок для блока расписание"
-              name="desc_list"
+              label="Название"
+              name="name"
             />
           </Field>
         </div>
@@ -42,30 +42,8 @@ const EditForm = props => {
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
           <Field>
             <Input
-              label="Заголовок для плеера"
-              name="desc_player"
-            />
-          </Field>
-        </div>
-
-        {/*<Field>*/}
-        {/*  <Input*/}
-        {/*    label="Время в секундах с начала видео"*/}
-        {/*    name="start_from"*/}
-        {/*  />*/}
-        {/*</Field>*/}
-
-        <Field>
-          <InputDate name="date" label="Дата"/>
-        </Field>
-
-        <div className="fieldset" style={{gridTemplateColumns: '1fr 1fr'}}>
-          <Field>
-            <Input
-              mask={Masks.timeRange}
-              label="Время - начало / Время - окончание"
-              name="time_range"
-              placeholder="00:00-00:00"
+              label="Ссылка"
+              name="link"
             />
           </Field>
         </div>

@@ -3,7 +3,7 @@ import {fetchFeedDataSuccess, fetchFeedDataError} from "./actions";
 import {FETCH_FEED_DATA} from "./types";
 import Api from '@services/api-service';
 
-function* timingsWatcher() {
+function* questionnairesWatcher() {
   yield takeEvery(FETCH_FEED_DATA, fetchFeedDataAsync);
 }
 
@@ -14,17 +14,17 @@ function* fetchFeedDataAsync() {
   try {
     const data = yield call(() => {
 
-      let where = {...state.timings.filter.where};
+      let where = {...state.questionnaires.filter.where};
       delete where.account_id;
 
-      return Api.get(`/api/timings/get/`, {
+      return Api.get(`/api/questionnaires/get/`, {
         query: {
-          where: where,
-          // whereIn: state.timings.filter.whereIn,
-          // orWhereGrouped: state.timings.filter.orWhereGrouped,
-          include: state.timings.relationships,
-          page: state.timings.meta.nextPage,
-          limit: state.timings.meta.limit,
+         // where: where,
+          // whereIn: state.questionnaires.filter.whereIn,
+          // orWhereGrouped: state.questionnaires.filter.orWhereGrouped,
+          include: state.questionnaires.relationships,
+          page: state.questionnaires.meta.nextPage,
+          limit: state.questionnaires.meta.limit,
           orderBy: {
             id: 'ASC'
           }
@@ -37,4 +37,4 @@ function* fetchFeedDataAsync() {
   }
 }
 
-export default timingsWatcher;
+export default questionnairesWatcher;

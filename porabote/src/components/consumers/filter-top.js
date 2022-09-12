@@ -21,6 +21,7 @@ class FilterTop extends React.Component {
               params.formContext.setFieldValue('orWhereGrouped.0.post_name.value', value);
               params.formContext.setFieldValue('orWhereGrouped.0.name.value', value);
               params.formContext.setFieldValue('orWhereGrouped.0.company_name.value', value);
+              params.formContext.setFieldValue('orWhereGrouped.0.user_id.value', value);
               params.formContext.submitForm()
             }}
           />

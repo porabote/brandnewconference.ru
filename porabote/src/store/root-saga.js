@@ -8,6 +8,8 @@ import feedbacksWatcher from '@components/feedbacks/store/saga';
 import faqWatcher from '@components/faq/store/saga';
 import mailsPatternsWatcher from '@components/mails-patterns/store/saga';
 import menusWatcher from '@components/menus/store/saga';
+import partnersWatcher from '@components/partners/store/saga';
+import questionnairesWatcher from "@components/questionnaires/store/saga";
 import speakersWatcher from '@components/speakers/store/saga';
 import timingsWatcher from '@components/timings/store/saga';
 import textBoxesWatcher from '@components/text-boxes/store/saga';
@@ -24,6 +26,8 @@ function* rootWatcher() {
     feedbacksWatcher(),
     mailsPatternsWatcher(),
     menusWatcher(),
+    partnersWatcher(),
+    questionnairesWatcher(),
     speakersWatcher(),
     textBoxesWatcher(),
     timingsWatcher(),

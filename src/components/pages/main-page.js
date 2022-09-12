@@ -17,8 +17,19 @@ import DepartureBoard from "@components/common/departure-board";
 import Logo from "@assets/svg/logo.svg";
 import RegistrationNotices from "@components/blocks/registration-notices";
 import YoutubeBroadcast from "@components/youtube-broadcast";
+import Partners from "@components/blocks/partners";
 
 const MainPage = () => {
+
+  const mainBlock = useRef(null);
+  const regRef = useRef(null);
+
+  function goToReg() {
+    if (window.location.hash === '#registration') {
+      regRef.current.scrollIntoView(true);
+     // regRef.current.focus();
+    }
+  }
 
   useEffect(() => {
 
@@ -27,6 +38,8 @@ const MainPage = () => {
     const params = new URLSearchParams(window.location.search);
 
     let userId = params.has('userid') ? params.get('userid') : null;
+
+    if (userId == '{{userid}}') userId = null;
 
     Api.get(`/api/landing/get/?userId=${userId}`)
       .then((resp) => {
@@ -48,11 +61,11 @@ const MainPage = () => {
         setSpeakers(resp.data.speakers);
         setFaqs(resp.data.faqs);
         setTextBoxes(resp.data.textBoxes);
+        setPartners(resp.data.partners);
         setLoading(true);
+        goToReg();
       });
   }, []);
-
-  const mainBlock = useRef(null);
 
   const [topLineWidth, setTopLineWidth] = useState(0);
   const [speakers, setSpeakers] = useState([]);
@@ -61,6 +74,7 @@ const MainPage = () => {
   const [hash, setHash] = useState(null);
   const [loading, setLoading] = useState(false);
   const [textBoxes, setTextBoxes] = useState(false);
+  const [partners, setPartners] = useState([]);
 
   const MsgAboutTelegram = () => {
 
@@ -130,11 +144,14 @@ const MainPage = () => {
         <Speakers data={speakers}/>
       </div>
 
+      <div ref={regRef}></div>
       <Registration loading={loading} hash={hash} textBoxes={textBoxes} partFormat={partFormat}/>
 
       <div className="block-container">
         <Faq data={faqs}/>
       </div>
+
+      <Partners partners={partners} loading={loading}/>
 
       <Contacts/>
 

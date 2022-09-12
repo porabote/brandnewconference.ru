@@ -32,6 +32,7 @@ module.exports = webpackEnv => {
     resolve: {
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.ttf'],
       alias: {
+        '@app': path.resolve(__dirname, '../src/app/'),
         '@components': path.resolve(__dirname, '../src/components/'),
         '@hocs': path.resolve(__dirname, '../src/hocs/'),
         '@services': path.resolve(__dirname, '../src/services/'),

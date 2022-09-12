@@ -15,18 +15,18 @@ interface IChildComponentProps extends React.Props<any> {
   // filters: Object,
 }
 
-const TimingsContainer = (props: IChildComponentProps) => {
+const PartnersContainer = (props: IChildComponentProps) => {
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const {dictsRequired, title, meta, filter} = useSelector(state => state.timings);
+  const {dictsRequired, title, meta, filter} = useSelector(state => state.partners);
   const {components, dicts} = useSelector(state => state.dicts);
 
-  const isDictsLoaded = components.timings ? true : false;
+  const isDictsLoaded = components.partners ? true : false;
 
   useEffect(() => {
-    dispatch(requestDicts(dictsRequired, 'timings'));
+    dispatch(requestDicts(dictsRequired, 'partners'));
     fetchData();
   }, []);
 
@@ -39,13 +39,13 @@ const TimingsContainer = (props: IChildComponentProps) => {
   }
 
   const addRecord = (values) => {
-    Api.post(`/api/timings/method/create/`,{
+    Api.post(`/api/partners/method/create/`,{
       body: values,
     })
-    .then((resp) => {
-      dispatch(removeModalItem(0));
-      history.push(`/timings/view/${resp.data.id}`);
-    });
+      .then((resp) => {
+        dispatch(removeModalItem(0));
+        history.push(`/partners/view/${resp.data.id}`);
+      });
   }
 
   if (props.match.params.action === "view") {
@@ -64,4 +64,4 @@ const TimingsContainer = (props: IChildComponentProps) => {
 
 }
 
-export default TimingsContainer;
+export default PartnersContainer;
