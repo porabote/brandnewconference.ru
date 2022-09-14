@@ -10,7 +10,7 @@ const FeedTopPanel = props => {
   const openAddModal = () => {
     dispatch(pushItemToModal(
       <AddForm fetchData={props.fetchData} dicts={props.dicts} addRecord={props.addRecord} />,
-      `Добавление спикера`,
+      `Добавить шаблон`,
     ));
   }
 

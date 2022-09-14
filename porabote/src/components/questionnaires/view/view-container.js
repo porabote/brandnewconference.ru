@@ -7,6 +7,7 @@ import Api from "@services";
 import View from "./view";
 import ViewPreloader from "@components/view/view-preloader";
 import EditForm from "../forms/edit-form";
+import AddVariant from "../forms/add-variant";
 
 const ViewContainer = (props) => {
 
@@ -49,6 +50,20 @@ const ViewContainer = (props) => {
     });
   }
 
+  const addVariant = () => {
+    dispatch(pushItemToModal(
+      React.createElement(AddVariant, {
+        data,
+        dicts,
+        callback: (modalKey) => {
+          dispatch(removeModalItem(modalKey));
+          getRecord();
+        },
+      }),
+      `Добавить вариант`
+    ));
+  }
+
   const editRecord = (getRecord) => {
     dispatch(pushItemToModal(
       React.createElement(EditForm, { data, editRecordConfirm, dicts, isItOwn, isCanEdit, getRecord }),
@@ -77,10 +92,9 @@ const ViewContainer = (props) => {
       dicts={dicts}
       data={data}
       getRecord={getRecord}
-      isCanEdit={isCanEdit}
-      isCanViewTabs={isCanViewTabs}
       editRecord={editRecord}
       editRecordConfirm={editRecordConfirm}
+      addVariant={addVariant}
     />
   );
 

@@ -13,6 +13,7 @@ import {
   SubmitButton
 } from "porabote/form";
 import {Masks} from "porabote/form";
+import TimingsTopics from "../models/TimingsTopics";
 
 const AddForm = props => {
 
@@ -20,21 +21,23 @@ const AddForm = props => {
 
   const values = {
     name: '',
-    link: '',
+    timing_id: props.timingId || '',
   };
 
   return (
     <div>
       <Form
         values={values}
-        submitForm={props.addRecord}
+        submitForm={(values) => TimingsTopics.save(values, () => {
+          props.callback(props.itemkey);
+        })}
       >
 
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
           <Field>
             <Input
-              label="Название"
-              name="name"
+              label="Описание"
+              name="desc"
             />
           </Field>
         </div>
@@ -42,17 +45,23 @@ const AddForm = props => {
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
           <Field>
             <Input
-              label="Метка"
-              name="label"
+              label="Описание короткое"
+              name="desc_short"
             />
           </Field>
         </div>
 
-        <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
+        <Field>
+          <InputDate name="date" label="Дата"/>
+        </Field>
+
+        <div className="fieldset" style={{gridTemplateColumns: '1fr 1fr'}}>
           <Field>
             <Input
-              label="Ссылка"
-              name="link"
+              mask={Masks.timeRange}
+              label="Время - начало / Время - окончание"
+              name="time_range"
+              placeholder="00:00-00:00"
             />
           </Field>
         </div>

@@ -383,13 +383,13 @@ h2 {
   margin: 0 auto;
 }
 .main-page__speakers__container {
-  box-sizing: border-box;
   display: flex;
   align-items: center;
   align-content: center;
   flex-flow: column;
   padding: 0 40px;
   max-width: 100vw;
+  width: 100%;
 }
 .main-page__speakers__title {
   padding-bottom: 60px;
@@ -650,15 +650,125 @@ h2 {
 
 .main-page__partners {
   max-width: 1440px;
-  padding-top: 20px;
+  padding-top: 0px;
+}
+.main-page__partners__title {
+  line-height: 2.5rem;
+  font-size: 2.7rem;
+  padding-bottom: 0rem;
+  text-transform: uppercase;
 }
 
+.main-page__faq__title {
+  line-height: 2.5rem;
+  font-size: 3.4rem;
+  padding-bottom: 3rem;
+  text-transform: uppercase;
+}
 .partners_list {
   padding: 40px 0;
   display: flex;
-  align-items: center;
+  flex-flow: row wrap;
+  grid-template-columns: repeat(2, 1fr);
   align-content: center;
-  justify-content: space-between;
+  font-variation-settings: "wght" 900;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.partners_list_item {
+  width: 50%;
+  box-sizing: border-box;
+}
+.partners_list_item__logo {
+  height: 100px;
+
+  background-size: 65% auto;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.partners_list_item__title {
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.timings__title {
+  line-height: 2.5rem;
+  font-size: 2.7rem;
+  padding-bottom: 3rem;
+  text-transform: uppercase;
+}
+.timings-list-item {
+  font-size: 12px;
+  font-variation-settings: "wght" 750;
+  border-top: 1px solid #858585;
+  cursor: pointer;
+}
+.timings-list-item-title {
+  padding: 1rem;
+  font-weight: 900;
+  font-variation-settings: "wght" 900;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+}
+.timings-list-item-title.active {
+  background: #4F0C9D;
+}
+.timings-list-item-title:hover {
+  background: #9747FF;
+}
+
+.timings-list-item-dropblock__time {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+}
+
+.timings-list-item-dropblock {
+  width: 100%;
+  display: inline-grid;
+  grid-template-columns: 100px 1fr;
+  padding: 1rem;
+  display: none;
+  box-sizing: border-box;
+}
+.timings-list-item-dropblock.active {
+  display: grid;
+}
+
+.timings-list-item:last-child {
+  border-bottom: 1px solid #858585;
+}
+
+.timings-list-item-dropblock__topics_topic_speakers-item {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 10px 0;
+}
+
+.timings-list-item-dropblock__topics_topic {
+  border-bottom: 1px solid #858585;
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: 100%;
+  box-sizing: border-box;
+}
+.timings-list-item-dropblock__topics_topic:last-child {
+  border-bottom: 0;
+}
+.timings-list-item-dropblock__topics_topic_desc {
+  box-sizing: border-box;
+  padding-right: 2rem;
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  font-variation-settings: "wght" 900;
+}
+
+.timings-list-item-dropblock__topics_topic_speaker-name {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
 }
 
 //
@@ -886,6 +996,34 @@ h2 {
     padding: 0px 0 10px 0;
     font-size: 3.4rem;
   }
+
+  .timings-list-item-dropblock__topics_topic {
+    grid-template-columns: 50% 50%;
+  }
+
+  .timings-list-item-dropblock {
+    grid-template-columns: 200px 1fr;
+  }
+  .timings-list-item {
+    font-size: 18px;
+  }
+
+  .timings-list-item-title {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .main-page__partners__title {
+    font-size: 3.4rem;
+    padding-bottom: 3rem;
+  }
+
+  .partners_list {
+    flex-flow: row wrap;
+  }
+  .partners_list_item {
+    width: 25%;
+  }
+
 }
 
 @media screen and (min-width: 1280px) {
@@ -1059,6 +1197,11 @@ h2 {
     margin-bottom: 20px;
   }
 
+  .timings__title {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+  }
+
   .main-page__registration__descr {
     font-size: 14px;
     font-weight: 300;
@@ -1081,68 +1224,38 @@ h2 {
     padding: 0px;
   }
   .main-page__speakers__container {
-    padding: 0px 40px;
+    padding: 0px 0px;
   }
 
   .main-page__contacts__container {
    // margin-top: 40px;
   }
-}
 
-//@media screen and (min-width: 990px) {
-//
-//  .banner-block__title {
-//    font-size: 50px;
-//    text-align: center;
-//  }
-//  .banner-block__svg-banner {
-//    width: 70vw;
-//  }
-//
-//  .nav-button {
-//    display: none;
-//  }
-//
-//  //.main-page__anons {
-//  //
-//  //  grid-gap: 10%;
-//  //  grid-template-columns: 100%;
-//  //}
-//
-//  .main-page__anons__container {
-//
-//  }
-//
-//
-//
-//  .main-page__registration {
-//
-//  }
-//  .main-page__speakers__container {
-//    padding: 0 80px;
-//  }
-//
-//  .main-page__registration_container {
-//    box-sizing: border-box;
-//    padding: 20px 40px 80px 40px;
-//    display: grid;
-//    width: 100%;
-//    //grid-template-areas: "reg_titile reg_titile"
-//    //                   "reg_form reg_descr";
-//    //grid-template-columns: 50% 50%;
-//    max-width: 1440px;
-//    margin: 0 auto;
-//  }
-//
-//  .main-page__contacts {
-//    padding: 40px 80px 80px 80px;
-//  }
-//
-//  .main-page__faq {
-//    padding: 80px;
-//  }
-//
-//}
+  .timings-list-item-dropblock__topics_topic {
+    grid-template-columns: 50% 50%;
+  }
+
+  .timings-list-item-dropblock {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .timings-list-item {
+    font-size: 24px;
+  }
+
+  .partners_list {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .main-page__partners__title {
+    font-size: 4.5rem;
+  }
+
+  .partners_list_item {
+    width: auto;
+  }
+}
 
 
 

@@ -4,15 +4,15 @@ const SliderItem = (props) => {
 
   const [itemClass, setItemClass] = useState('');
 
-  const toggleCardInfo = () => {
-
-  }
-
   return(
     <div
-      onClick={(e) => {
-        setItemClass(prevClass => (prevClass == 'active' ? '' : 'active'));
+      changedTouches={(e) => {
+        alert(88);
+        setItemClass(prevClass => (prevClass == 'active' ? 'inactive' : 'active'));
       }}
+      // onMouseLeave={(e) => {
+      //   alert(99);
+      // }}
       className={`prb-slider__item ${itemClass}`}
       style={{backgroundImage: props.avatar, ...props.style}}>
       {props.children}

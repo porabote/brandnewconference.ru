@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Form,
   Button,
@@ -12,51 +11,32 @@ import {
   Select,
   SubmitButton
 } from "porabote/form";
-import {Masks} from "porabote/form";
+import QuestionnairesVariants from "../models/QuestionnairesVariants";
 
-const AddForm = props => {
-
-  const {speakers} = props.dicts;
+const AddVariant = (props) => {
 
   const values = {
+    questionnaires_id: props.data.id,
     name: '',
-    link: '',
   };
 
   return (
     <div>
       <Form
         values={values}
-        submitForm={props.addRecord}
+        submitForm={(values) => QuestionnairesVariants.save(values, () => {
+          props.callback(props.itemkey);
+        })}
       >
 
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
           <Field>
             <Input
-              label="Название"
+              label="Вариант"
               name="name"
             />
           </Field>
         </div>
-
-        <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
-          <Field>
-            <Input
-              label="Метка"
-              name="label"
-            />
-          </Field>
-        </div>
-
-        <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
-          <Field>
-            <Input
-              label="Ссылка"
-              name="link"
-            />
-          </Field>
-        </div>
-
 
         <SubmitButton>
           <Button
@@ -66,11 +46,9 @@ const AddForm = props => {
             style={{width: '140px', marginTop: '20px'}}
           />
         </SubmitButton>
-      </Form>
+      </Form>      
     </div>
   );
 };
 
-AddForm.propTypes = {};
-
-export default AddForm;
+export default AddVariant;

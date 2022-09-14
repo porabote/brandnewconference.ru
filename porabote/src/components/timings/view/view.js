@@ -4,7 +4,8 @@ import {NavLink} from "react-router-dom";
 import moment from "moment";
 import {Tab, TabList, TabPanel, Tabs} from "porabote/tabs";
 import RecordData from "./record-data";
-import ChildrenRecords from "./children-records";
+import Subblocks from "./subblocks";
+import TimingsTopics from "./timings-topics";
 import ArrowRightRoundedIcon from "@material-ui/icons/ArrowRightRounded";
 
 const View = (props) => {
@@ -27,13 +28,19 @@ const View = (props) => {
 
         <TabList>
           <Tab>Данные</Tab>
+          <Tab>Темы</Tab>
           <Tab>Подблоки</Tab>
         </TabList>
 
 
         <TabPanel>
           <RecordData data={data} {...props}/>
-          <ChildrenRecords data={data} {...props}/>
+        </TabPanel>
+        <TabPanel>
+          <TimingsTopics data={data} {...props}/>
+        </TabPanel>
+        <TabPanel>
+          <Subblocks data={data} {...props}/>
         </TabPanel>
       </Tabs>
 

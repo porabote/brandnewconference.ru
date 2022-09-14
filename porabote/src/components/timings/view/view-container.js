@@ -52,7 +52,14 @@ const ViewContainer = (props) => {
   const editRecord = (getRecord) => {
     dispatch(pushItemToModal(
       React.createElement(EditForm, { data, editRecordConfirm, dicts, isItOwn, isCanEdit, getRecord }),
-      `Редактировать данные пользователя`
+      `Редактировать данные`
+    ));
+  }
+
+  const editSubRecord = (data, getRecord) => {
+    dispatch(pushItemToModal(
+      React.createElement(EditForm, { data, editRecordConfirm, dicts, isItOwn, isCanEdit, getRecord }),
+      `Редактировать данные`
     ));
   }
 
@@ -80,6 +87,7 @@ const ViewContainer = (props) => {
       isCanEdit={isCanEdit}
       isCanViewTabs={isCanViewTabs}
       editRecord={editRecord}
+      editSubRecord={editSubRecord}
       editRecordConfirm={editRecordConfirm}
     />
   );

@@ -6,7 +6,7 @@ import {
   Field,
   Input,
   InputDate,
-  InputHidden,
+  TextArea,
   Option,
   Select,
   SubmitButton
@@ -26,43 +26,34 @@ const AddForm = props => {
     <div>
       <Form
         values={values}
-        submitForm={props.addRecord}
+        submitForm={(values) => {
+          props.addRecord(values, props.itemkey, props.getRecord);
+        }}
       >
 
-        <div className="fieldset" style={{gridTemplateColumns: '1fr 1fr 1fr'}}>
-          <Field>
-            <Input
-              label="Фамилия"
-              name="last_name"
-            />
-          </Field>
-          <Field>
-            <Input
-              label="Имя"
-              name="name"
-            />
-          </Field>
-          <Field>
-            <Input
-              label="Отчество"
-              name="patronymic"
-            />
-          </Field>
-        </div>
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
+
           <Field>
             <Input
-              label="Должность"
-              name="post_name"
+              label="Описание"
+              name="description"
             />
           </Field>
           <Field>
             <Input
-              label="Цитата"
-              name="quote"
+              label="Заголовок"
+              name="subject"
+            />
+          </Field>
+          <Field>
+            <TextArea
+              areaStyle={{height: '500px', fontSize: '12px'}}
+              label="Тело письма"
+              name="body"
             />
           </Field>
         </div>
+
 
         <SubmitButton>
           <Button

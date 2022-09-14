@@ -18,6 +18,7 @@ import Logo from "@assets/svg/logo.svg";
 import RegistrationNotices from "@components/blocks/registration-notices";
 import YoutubeBroadcast from "@components/youtube-broadcast";
 import Partners from "@components/blocks/partners";
+import Timings from "@components/timings";
 
 const MainPage = () => {
 
@@ -62,6 +63,7 @@ const MainPage = () => {
         setFaqs(resp.data.faqs);
         setTextBoxes(resp.data.textBoxes);
         setPartners(resp.data.partners);
+        setTimings(resp.data.timings);
         setLoading(true);
         goToReg();
       });
@@ -74,6 +76,7 @@ const MainPage = () => {
   const [hash, setHash] = useState(null);
   const [loading, setLoading] = useState(false);
   const [textBoxes, setTextBoxes] = useState(false);
+  const [timings, setTimings] = useState(false);
   const [partners, setPartners] = useState([]);
 
   const MsgAboutTelegram = () => {
@@ -125,7 +128,6 @@ const MainPage = () => {
 
   return (
     <div className="main-container" ref={mainBlock}>
-      {/*<DepartureBoard/>*/}
 
       {/*<YoutubeBroadcast/>*/}
 
@@ -146,6 +148,8 @@ const MainPage = () => {
 
       <div ref={regRef}></div>
       <Registration loading={loading} hash={hash} textBoxes={textBoxes} partFormat={partFormat}/>
+
+      <Timings data={timings} loading={loading} />
 
       <div className="block-container">
         <Faq data={faqs}/>

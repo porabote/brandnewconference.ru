@@ -7,6 +7,7 @@ import {
   Input,
   InputDate,
   InputHidden,
+  Checkbox,
   Option,
   Select,
   SubmitButton,
@@ -42,8 +43,28 @@ const EditForm = props => {
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
           <Field>
             <Input
+              label="Метка"
+              name="label"
+            />
+          </Field>
+        </div>
+
+        <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
+          <Field>
+            <Input
               label="Ссылка"
               name="link"
+            />
+          </Field>
+        </div>
+
+        <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
+          <Field>
+            <Checkbox
+              value={1}
+              initChecked={(values.active_flg == 1) ? true : false}
+              label="Запись активна"
+              name="active_flg"
             />
           </Field>
         </div>

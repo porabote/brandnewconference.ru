@@ -38,6 +38,14 @@ const RecordData = (props) => {
             {record.name}
           </StripedListCell>
         </StripedListRow>
+
+        <StripedListRow>
+          <StripedListCell>Метка</StripedListCell>
+          <StripedListCell>
+            {record.label}
+          </StripedListCell>
+        </StripedListRow>
+
         <StripedListRow>
           <StripedListCell>Ссылка</StripedListCell>
           <StripedListCell>

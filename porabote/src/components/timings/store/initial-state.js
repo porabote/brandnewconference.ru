@@ -41,7 +41,8 @@ const initialState = {
      "speakers",
   ],
   relationships: [
-    "children"
+    "subblocks",
+    "topics.speakers"
   ],
 };
 

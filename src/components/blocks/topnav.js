@@ -26,6 +26,7 @@ const Topnav = () => {
       <div className={`topnav ${isOpen}`}>
         <div className="topnav__nav"><a className="topnav__nav__link" href="#preview">О конференции</a></div>
         <div className="topnav__nav"><a className="topnav__nav__link" href="#speakers">Спикеры</a></div>
+        <div className="topnav__nav"><a className="topnav__nav__link" href="#timings">Расписание</a></div>
         <div className="topnav__nav"><a className="topnav__nav__link" href="#faq">FAQ</a></div>
         <div className="topnav__nav"><a className="topnav__nav__link" href="#contacts">Контакты</a></div>
         <div className="topnav__nav registration">

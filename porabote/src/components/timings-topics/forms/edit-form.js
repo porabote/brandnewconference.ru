@@ -7,34 +7,30 @@ import {
   Input,
   InputDate,
   InputHidden,
-  TextArea,
   Option,
   Select,
-  SubmitButton
+  SubmitButton,
+  InputTimeRange,
 } from "porabote/form";
 import {Masks} from "porabote/form";
-import Timings from "../models/Timings";
+import moment from "moment";
+import TimingsTopics from "../models/TimingsTopics";
 
-const AddForm = props => {
+const EditForm = props => {
 
   const {speakers} = props.dicts;
 
-  const values = {
-    name: '',
-    start_from: '',
-    desc_player: '',
-    desc_list: '',
-    speaker_id: '',
-    datetime_from: '',
-    datetime_to: '',
-    parent_id: props.parentId || '',
-  };
+  const values = props.data.attributes;
+  if (values.datetime_from && values.datetime_to) {
+    values.time_range = `${moment(values.datetime_from).format('HH:mm')}-${moment(values.datetime_to).format('HH:mm')}`;
+    values.date = moment(values.datetime_from).format('YYYY-MM-DD');
+  }
 
   return (
     <div>
       <Form
         values={values}
-        submitForm={(values) => Timings.save(values, () => {
+        submitForm={(values) => TimingsTopics.save(values, () => {
           props.callback(props.itemkey);
         })}
       >
@@ -42,8 +38,8 @@ const AddForm = props => {
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
           <Field>
             <Input
-              label="Заголовок для блока расписание"
-              name="desc_list"
+              label="Описание"
+              name="desc"
             />
           </Field>
         </div>
@@ -51,8 +47,8 @@ const AddForm = props => {
         <div className="fieldset" style={{gridTemplateColumns: '1fr'}}>
           <Field>
             <Input
-              label="Заголовок для плеера"
-              name="desc_player"
+              label="Описание короткое"
+              name="desc_short"
             />
           </Field>
         </div>
@@ -63,6 +59,10 @@ const AddForm = props => {
         {/*    name="start_from"*/}
         {/*  />*/}
         {/*</Field>*/}
+        {/*<Field>*/}
+        {/*  <InputDate name="date" label="Дата"/>*/}
+        {/*</Field>*/}
+
         <Field>
           <InputDate name="date" label="Дата"/>
         </Field>
@@ -77,20 +77,6 @@ const AddForm = props => {
             />
           </Field>
         </div>
-        {/*<div className="fieldset" style={{gridTemplateColumns: '1fr'}}>*/}
-
-        {/*  <Field>*/}
-        {/*    <Select*/}
-        {/*      name="speaker_id"*/}
-        {/*      label="Спикер"*/}
-        {/*    >*/}
-        {/*      {Object.keys(speakers).map((id, index) => {*/}
-        {/*          let speaker = speakers[id];*/}
-        {/*          return <Option key={id} value={id}>{`${speakers[id].name} ${speakers[id].last_name}`}</Option>*/}
-        {/*        }*/}
-        {/*      )}*/}
-        {/*    </Select>*/}
-        {/*  </Field>*/}
 
 
         <SubmitButton>
@@ -106,6 +92,6 @@ const AddForm = props => {
   );
 };
 
-AddForm.propTypes = {};
+EditForm.propTypes = {};
 
-export default AddForm;
+export default EditForm;
