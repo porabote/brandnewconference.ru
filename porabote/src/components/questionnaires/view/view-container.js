@@ -50,9 +50,10 @@ const ViewContainer = (props) => {
     });
   }
 
-  const addVariant = () => {
+  const addVariant = (values) => {
     dispatch(pushItemToModal(
       React.createElement(AddVariant, {
+        record: values,
         data,
         dicts,
         callback: (modalKey) => {

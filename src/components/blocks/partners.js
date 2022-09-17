@@ -12,11 +12,20 @@ const Partners = (props) => {
           {
             props.partners.map((item) => {
               let avatarUri = item.avatar.uri || '';
+              let backgroundSize = item.width_in_grid ? item.width_in_grid : '65%';
+         
               return(
-                  <div className="partners_list_item">
+                  <div className="partners_list_item" key={item.id}>
                     <a key={item.id} href={item.link} target="_blank">
-                    <div className="partners_list_item__logo" style={{backgroundImage: `url(/images/${avatarUri})`}}/>
-                    <p className="partners_list_item__title" >{item.name}</p>
+                    <div className="partners_list_item__logo" style={{
+                      backgroundImage: `url(/images/${avatarUri})`,
+                      backgroundSize: backgroundSize,
+                    }}/>
+
+                      <p
+                        className="partners_list_item__name"
+                        dangerouslySetInnerHTML={{__html: item.name}}
+                      ></p>
                     </a>
                   </div>
 

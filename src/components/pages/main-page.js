@@ -19,6 +19,7 @@ import RegistrationNotices from "@components/blocks/registration-notices";
 import YoutubeBroadcast from "@components/youtube-broadcast";
 import Partners from "@components/blocks/partners";
 import Timings from "@components/timings";
+import Questionnaires from "@components/blocks/questionnaires";
 
 const MainPage = () => {
 
@@ -64,6 +65,8 @@ const MainPage = () => {
         setTextBoxes(resp.data.textBoxes);
         setPartners(resp.data.partners);
         setTimings(resp.data.timings);
+        setTimings(resp.data.timings);
+        setQuestionnaires(resp.data.questionnaires);
         setLoading(true);
         goToReg();
       });
@@ -78,6 +81,7 @@ const MainPage = () => {
   const [textBoxes, setTextBoxes] = useState(false);
   const [timings, setTimings] = useState(false);
   const [partners, setPartners] = useState([]);
+  const [questionnaires, setQuestionnaires] = useState([]);
 
   const MsgAboutTelegram = () => {
 
@@ -129,7 +133,7 @@ const MainPage = () => {
   return (
     <div className="main-container" ref={mainBlock}>
 
-      {/*<YoutubeBroadcast/>*/}
+
 
       <div className="header">
         <img src={Logo} className="logo"/>
@@ -138,6 +142,11 @@ const MainPage = () => {
 
       <div className="block-container" style={{zIndex: 100}}>
         <TopBanner/>
+      </div>
+
+      <div className="block-container" style={{paddingBottom: '20px'}}>
+        <Questionnaires data={questionnaires} loading={loading} />
+        <YoutubeBroadcast/>
       </div>
 
       <Anons loading={loading} textBoxes={textBoxes}/>

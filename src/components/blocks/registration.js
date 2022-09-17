@@ -86,7 +86,7 @@ const Registration = (props) => {
         email: '',
         phone: '',
         user_id: (props.hash) ? props.hash : '',
-        part_type: (props.partFormat) ? props.partFormat : '',
+        part_type: 'online', //(props.partFormat) ? props.partFormat : '',
         accept: '',
     };
 
@@ -240,7 +240,7 @@ const Registration = (props) => {
                     <Field>
                         <Radio onChange={changeAccept} label="Формат участия" name="part_type">
                             <RadioInput value="online" label="Online"/>
-                            <RadioInput value="offline" label="Offline"/>
+                            {/*<RadioInput value="offline" label="Offline"/>*/}
                         </Radio>
                     </Field>
                     <div style={{margin: '5px 0 5px 18px'}}>

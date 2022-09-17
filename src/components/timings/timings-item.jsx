@@ -22,14 +22,16 @@ const TimingsItem = (props) => {
         {data.desc_list}
       </div>
       <div className={isOpened ? 'timings-list-item-dropblock active' : 'timings-list-item-dropblock'}>
-        <div className="timings-list-item-dropblock__time">{time_range}</div>
+        {/*<div className="timings-list-item-dropblock__time">{time_range}</div>*/}
         <div className="timings-list-item-dropblock__topics">
           {topics.map(topic => {
 
             let speakers = topic.speakers;
+            let time_range_topic = `${moment(topic.datetime_from).format('HH:mm')}-${moment(topic.datetime_to).format('HH:mm')}`;
 
             return (
               <div key={topic.id} className="timings-list-item-dropblock__topics_topic">
+                <div className="timings-list-item-dropblock__topics_topic_time">{time_range_topic}</div>
                 <div className="timings-list-item-dropblock__topics_topic_desc">{topic.desc}</div>
                 <div className="timings-list-item-dropblock__topics_topic_speakers">
                 {speakers.map(speaker => {

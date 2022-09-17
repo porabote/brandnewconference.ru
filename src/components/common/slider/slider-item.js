@@ -6,13 +6,9 @@ const SliderItem = (props) => {
 
   return(
     <div
-      changedTouches={(e) => {
-        alert(88);
+      onClick={(e) => {
         setItemClass(prevClass => (prevClass == 'active' ? 'inactive' : 'active'));
       }}
-      // onMouseLeave={(e) => {
-      //   alert(99);
-      // }}
       className={`prb-slider__item ${itemClass}`}
       style={{backgroundImage: props.avatar, ...props.style}}>
       {props.children}

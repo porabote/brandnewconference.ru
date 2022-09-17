@@ -158,10 +158,8 @@
   transition: 0.35s all ease;
   max-height: 0;
 }
-.prb-slider__item:hover {
-  border: 1px solid red;
-}
-.prb-slider__item:hover .prb-slider__item-text__desc, .prb-slider__item.active .prb-slider__item-text__desc {
+
+.prb-slider__item.active .prb-slider__item-text__desc {
   position: relative;
   transform: scale(1);
   max-height: 100px;
@@ -269,5 +267,11 @@
 
   .prb-slider__fade__container {
     display: block;
+  }
+
+  .prb-slider__item:hover .prb-slider__item-text__desc {
+    position: relative;
+    transform: scale(1);
+    max-height: 100px;
   }
 }

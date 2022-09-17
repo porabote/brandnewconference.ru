@@ -7,8 +7,8 @@ export default class Entity {
   save = (values, callback) => {
 
     let apiMethod = (typeof this.primaryKey != "undefined" && values[this.primaryKey]) ? 'edit' : 'create';
-//${this.constructor.name}
-    Api.post(`/api/TimingsTopics/method/${apiMethod}/`, {
+
+    Api.post(`/api/${this.name}/method/${apiMethod}/`, {
       body: values
     }).then((resp) => {
       if (typeof callback == "function") callback(resp);

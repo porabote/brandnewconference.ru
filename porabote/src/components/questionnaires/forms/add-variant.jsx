@@ -15,10 +15,9 @@ import QuestionnairesVariants from "../models/QuestionnairesVariants";
 
 const AddVariant = (props) => {
 
-  const values = {
-    questionnaires_id: props.data.id,
-    name: '',
-  };
+  let record = props.record || {questionnaires_id: props.data.id};
+console.log(record)
+  const values = record;
 
   return (
     <div>
