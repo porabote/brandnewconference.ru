@@ -30,7 +30,7 @@ const Topnav = () => {
         <div className="topnav__nav"><a className="topnav__nav__link" href="#faq">FAQ</a></div>
         <div className="topnav__nav"><a className="topnav__nav__link" href="#contacts">Контакты</a></div>
         <div className="topnav__nav registration">
-          <a className="topnav__nav__link registration" href="#registration">Регистрация</a>
+          <a className="topnav__nav__link registration" href="#youtubeBroadcast">Смотреть</a>
         </div>
       </div>
       <div

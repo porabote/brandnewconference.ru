@@ -25,19 +25,7 @@ const QuestionnairesModal = (props) => {
       body: values,
     })
       .then((resp) => {
-        console.log(resp);
         setDoneMsg(<p>Спасибо, ваш голос учтён!</p>);
-        // if (typeof resp.error != "undefined" && resp.error.length > 0) {
-        //   dispatch(openModal(<RegistrationNotices>{resp.error}</RegistrationNotices>, 'Регистрация'));
-        // } else if (typeof resp.data.consumer != "undefined") {
-        //   showSuccessMsg(resp.data.consumer);
-        //
-        //   Object.keys(values).map((fieldName) => {
-        //     formContext.setFieldValue(fieldName, '');
-        //   });
-        // } else {
-        //   dispatch(openModal(<RegistrationNotices msg="Ошибка регистрации"/>, 'Регистрация'));
-        // }
       });
   }
 

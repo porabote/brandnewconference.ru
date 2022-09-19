@@ -1,8 +1,11 @@
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
+import moment from "moment";
 import YouTube from "react-youtube";
 
-const YoutubeBroadcast = () => {
+const YoutubeRecord = (props) => {
 
+  if (!props.loading) return <p></p>;
+console.log(props);
   const containerRef = useRef(null);
 
   function useWindowSize() {
@@ -22,13 +25,9 @@ const YoutubeBroadcast = () => {
 
   const [player, setPlayer] = React.useState(null);
   const [videoUrl, setVideoUrl] = React.useState("");
-  const [videoId, setVideoId] = React.useState("snhEsxIZNTg");
+  const [videoId, setVideoId] = React.useState("nzUINCKH8qc");
   const [start, setStart] = React.useState(0);
   const [title, setTitle] = React.useState("Dentsu");
-
-  useEffect(() => {
-
-  });
 
   const [width, height] = useWindowSize();
 
@@ -58,8 +57,8 @@ const YoutubeBroadcast = () => {
   }
 
   return (
-    <div className="youtube-broadcast" id="youtubeBroadcast" style={{paddingTop: '60px'}}>
-      <div className="youtube-broadcast-container" ref={containerRef}>
+    <div className="youtube-record" id="youtubeRecord" style={{paddingTop: '60px'}}>
+      <div className="youtube-record-container" ref={containerRef}>
         {/*<span>Window size: {width} x {height}</span>*/}
         {/*<p onClick={() => {startPlayPart(90)}}>Change</p>*/}
         <YouTube
@@ -82,8 +81,30 @@ const YoutubeBroadcast = () => {
           // onPlaybackQualityChange={func}    // defaults -> noop
         />
       </div>
+      <div className="youtube-record-playlist" style={{maxHeight: `${height}px`}}>
+        {props.data.map(block => {
+
+          let topics = block.topics || [];
+
+          return(
+            <div key={block.id} className="youtube-record-playlist__block">
+              {block.desc_player}
+              {topics.map(topic => {
+
+                let time_range_topic = `${moment(topic.datetime_from).format('HH:mm')}-${moment(topic.datetime_to).format('HH:mm')}`;
+
+                return(
+                  <div key={topic.id} className="youtube-record-playlist__block__topic">
+                    {time_range_topic} {topic.desc_short}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export default YoutubeBroadcast;
+export default YoutubeRecord;

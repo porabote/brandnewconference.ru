@@ -8,6 +8,7 @@ import {requestDicts} from "@components/dicts/store/dicts-actions";
 import {fetchFeedData, updateFeedFilters} from "./store/actions";
 import ViewContainer from "./view/view-container";
 import Feed from "./feed/feed";
+import WsPanel from "./ws-panel";
 
 
 interface IChildComponentProps extends React.Props<any> {
@@ -51,6 +52,12 @@ const QuestionnairesContainer = (props: IChildComponentProps) => {
   if (props.match.params.action === "view") {
     return React.createElement(ViewContainer, {
       id: props.match.params.id,
+    });
+  }
+
+  if (props.match.params.action === "ws-panel") {
+    return React.createElement(WsPanel, {
+      fetchData,
     });
   }
 

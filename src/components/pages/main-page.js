@@ -17,6 +17,7 @@ import DepartureBoard from "@components/common/departure-board";
 import Logo from "@assets/svg/logo.svg";
 import RegistrationNotices from "@components/blocks/registration-notices";
 import YoutubeBroadcast from "@components/youtube-broadcast";
+import YoutubeRecord from "@components/youtube-broadcast/youtube-record";
 import Partners from "@components/blocks/partners";
 import Timings from "@components/timings";
 import Questionnaires from "@components/blocks/questionnaires";
@@ -133,8 +134,6 @@ const MainPage = () => {
   return (
     <div className="main-container" ref={mainBlock}>
 
-
-
       <div className="header">
         <img src={Logo} className="logo"/>
         <Topnav/>
@@ -145,7 +144,7 @@ const MainPage = () => {
       </div>
 
       <div className="block-container" style={{paddingBottom: '20px'}}>
-        <Questionnaires data={questionnaires} loading={loading} />
+        {/*<Questionnaires data={questionnaires} loading={loading} />*/}
         <YoutubeBroadcast/>
       </div>
 
@@ -163,6 +162,8 @@ const MainPage = () => {
       <div className="block-container">
         <Faq data={faqs}/>
       </div>
+
+      <YoutubeRecord data={timings} loading={loading}/>
 
       <Partners partners={partners} loading={loading}/>
 
