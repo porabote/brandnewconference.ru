@@ -53,12 +53,12 @@ const EditForm = props => {
           </Field>
         </div>
 
-        {/*<Field>*/}
-        {/*  <Input*/}
-        {/*    label="Время в секундах с начала видео"*/}
-        {/*    name="start_from"*/}
-        {/*  />*/}
-        {/*</Field>*/}
+        <Field>
+          <Input
+            label="Время в секундах с начала видео"
+            name="start_from"
+          />
+        </Field>
         {/*<Field>*/}
         {/*  <InputDate name="date" label="Дата"/>*/}
         {/*</Field>*/}

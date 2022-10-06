@@ -143,6 +143,9 @@ const MainPage = () => {
         <TopBanner/>
       </div>
 
+
+      {/*<YoutubeRecord data={timings} loading={loading}/>*/}
+      
       <div className="block-container" style={{paddingBottom: '20px'}}>
         {/*<Questionnaires data={questionnaires} loading={loading} />*/}
         <YoutubeBroadcast/>
@@ -155,15 +158,13 @@ const MainPage = () => {
       </div>
 
       <div ref={regRef}></div>
-      <Registration loading={loading} hash={hash} textBoxes={textBoxes} partFormat={partFormat}/>
+      {/*<Registration loading={loading} hash={hash} textBoxes={textBoxes} partFormat={partFormat}/>*/}
 
       <Timings data={timings} loading={loading} />
 
       <div className="block-container">
         <Faq data={faqs}/>
       </div>
-
-      <YoutubeRecord data={timings} loading={loading}/>
 
       <Partners partners={partners} loading={loading}/>
 

@@ -25,7 +25,7 @@ console.log(props);
 
   const [player, setPlayer] = React.useState(null);
   const [videoUrl, setVideoUrl] = React.useState("");
-  const [videoId, setVideoId] = React.useState("nzUINCKH8qc");
+  const [videoId, setVideoId] = React.useState("snhEsxIZNTg");
   const [start, setStart] = React.useState(0);
   const [title, setTitle] = React.useState("Dentsu");
 
@@ -43,8 +43,8 @@ console.log(props);
     },
   };
 
-  const startPlayPart = (start) => {
-    player.seekTo(start);
+  const startPlayPart = (startFrom) => {
+    player.seekTo(startFrom);
     player.playVideo();
   }
 
@@ -57,6 +57,7 @@ console.log(props);
   }
 
   return (
+    <div className="youtube-record-wrapper">
     <div className="youtube-record" id="youtubeRecord" style={{paddingTop: '60px'}}>
       <div className="youtube-record-container" ref={containerRef}>
         {/*<span>Window size: {width} x {height}</span>*/}
@@ -88,14 +89,15 @@ console.log(props);
 
           return(
             <div key={block.id} className="youtube-record-playlist__block">
-              {block.desc_player}
+              <span className="youtube-record-playlist__block__title">{block.desc_player}</span>
               {topics.map(topic => {
 
                 let time_range_topic = `${moment(topic.datetime_from).format('HH:mm')}-${moment(topic.datetime_to).format('HH:mm')}`;
 
                 return(
-                  <div key={topic.id} className="youtube-record-playlist__block__topic">
-                    {time_range_topic} {topic.desc_short}
+                  <div key={topic.id} className="youtube-record-playlist__block__topic" onClick={() => startPlayPart(40)}>
+                    <span>{time_range_topic}</span>
+                    <span>{topic.desc_short}</span>
                   </div>
                 );
               })}
@@ -103,6 +105,7 @@ console.log(props);
           );
         })}
       </div>
+    </div>
     </div>
   );
 };

@@ -29,11 +29,11 @@ const TopBanner = () => {
         </div>
         <div className="main-page__anons__block_date">20.09.2022</div>
         <div className="main-page__anons__block_time">10:00-16:30</div>
-        <a href="#registration" className="main-page__anons__registration">
-          РЕГИСТРАЦИЯ
-          <img src={RegArrowSvg}/>
+        {/*<a href="#registration" className="main-page__anons__registration">*/}
+        {/*  РЕГИСТРАЦИЯ*/}
+        {/*  <img src={RegArrowSvg}/>*/}
 
-        </a>
+        {/*</a>*/}
 
         <div className="main-page__anons__address">
           <p>Офлайн в кинотеатре «Художественный»</p>
